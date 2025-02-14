@@ -1,64 +1,78 @@
-"use client";
+import * as React from "react";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
+import { Box } from "@mui/material";
+import { CgMoreO } from "react-icons/cg";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+export default function PopoverOther() {
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
-const Example = () => {
+  const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+
   return (
-    <div className="flex items-start justify-start p-10">
-      {/* Pricing link with flyout content */}
-      <FlyoutLink href="#" FlyoutContent={PricingContent}>
-        Pricing
-      </FlyoutLink>
+    <div className="">
+      <Box
+        aria-owns={open ? "mouse-over-popover" : undefined}
+        aria-haspopup="true"
+        onMouseEnter={handlePopoverOpen}
+        onMouseLeave={handlePopoverClose}
+        sx={{
+          fontSize: "12px",
+          display: "flex",
+          gap: "4px",
+          width: "208px",
+          height: "38px",
+          paddingLeft: "8px",
+          alignItems: "center",
+        }}
+      >
+        <CgMoreO className="text-xl" />
+        <span>Other Categories</span>
+      </Box>
+      <Popover
+        id="mouse-over-popover"
+        sx={{
+          pointerEvents: "none",
+          mt: "-142px",
+          ml: "-3px",
+          "& .MuiPaper-root": {
+            backgroundColor: "blue",
+            boxShadow: "none",
+            borderLeft: "1px solid lightgrey",
+            borderRadius: "0px 8px 8px 0px", // Right-side border-radius only
+            maxWidth: "722px",
+
+            position: "relative",
+          },
+        }}
+        open={open}
+        anchorEl={anchorEl}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        transformOrigin={{ vertical: "top", horizontal: "left" }}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
+      >
+        <Box
+          sx={{
+            p: 1,
+            Width: "400px",
+            height: "376px",
+            // borderRadius: "0px 8px 8px 0px", // Right-side border-radius only
+            backgroundColor: "white",
+            // position: "abosolute",
+          }}
+        >
+          <Typography>PopOver</Typography>
+        </Box>
+      </Popover>
     </div>
   );
-};
-
-const FlyoutLink = ({
-  children,
-  href,
-  FlyoutContent,
-}: {
-  children: React.ReactNode;
-  href: string;
-  FlyoutContent?: React.ElementType;
-}) => {
-  const [open, setOpen] = useState(false);
-  const showFlyout = FlyoutContent && open;
-
-  return (
-    <div
-      className="relative flex"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
-      {/* Pricing link on the left */}
-      <Link href={href} className="relative">
-        {children}
-      </Link>
-
-      <AnimatePresence>
-        {showFlyout && (
-          <motion.div
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 10 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="absolute left-full ml-28 -top-[13.5px] z-10 w-[718.5px] h-[378px]  rounded-r-md shadow-xl"
-          >
-            <FlyoutContent />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const PricingContent = () => {
-  return (
-    <div className="px-6 bg-blue-500 h-[376px] border-l border-black w-full rounded-r-md"></div>
-  );
-};
-
-export default Example;
+}
