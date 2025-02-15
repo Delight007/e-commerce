@@ -94,8 +94,8 @@ export default function HoverPopoverPhone() {
                   Small Appliances
                 </h2>
                 <ul className="space-y-2">
-                  <li>Coffee Makers</li>
                   <li>Blenders</li>
+                  <li>Coffee Makers</li>
                   <li>Toasters</li>
                   <li>Food Processors</li>
                   <li>Microwaves</li>

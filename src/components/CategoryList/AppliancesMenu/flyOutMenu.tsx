@@ -3,8 +3,9 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import { LuCookingPot } from "react-icons/lu";
+import Link from "next/link";
 
-export default function MouseHoverPopover() {
+export default function HoverPopoverAppliances() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const closeTimeout = React.useRef<NodeJS.Timeout | null>(null);
 
@@ -82,48 +83,445 @@ export default function MouseHoverPopover() {
         >
           <Box
             sx={{
-              p: 4,
+              paddingLeft: "16px",
+              paddingTop: "8px",
+              paddingRight: "16px",
               width: "722px",
               minHeight: "376px",
               backgroundColor: "white",
             }}
           >
-            <div className="grid grid-cols-3 gap-8">
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Small Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Coffee Makers</li>
-                  <li>Blenders</li>
-                  <li>Toasters</li>
-                  <li>Food Processors</li>
-                  <li>Microwaves</li>
-                </ul>
+            <div className="grid grid-cols-3 gap-2 ">
+              <div className="">
+                <Link href="#">
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      textTransform: "uppercase",
+                      borderBottom: "1px solid lightgrey",
+                      paddingBottom: "4px",
+                    }}
+                  >
+                    Small Appliances
+                  </Typography>
+                </Link>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    color: "gray",
+                    paddingTop: "4px",
+                  }}
+                >
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Blenders
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Deep Fryers
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Juicers
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      {" "}
+                      Air Fryers
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Rice Cookers
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Toasters & Oven
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Microwaves
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Bundles
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Vacuum Cleaners
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Kettles
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Yam Pounders
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Irons
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Electric Cookware
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Electric Drink Mixers
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Food Processors
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Coffee Makers
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Electric Pressure Cookers
+                    </Typography>
+                  </Link>
+                </Box>
               </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Large Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Refrigerators</li>
-                  <li>Washing Machines</li>
-                  <li>Dryers</li>
-                  <li>Dishwashers</li>
-                  <li>Ovens</li>
-                </ul>
+              <div className="">
+                <Link href="">
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      textTransform: "uppercase",
+                      borderBottom: "1px solid lightgrey",
+                      paddingBottom: "4px",
+                    }}
+                  >
+                    Large Appliances
+                  </Typography>
+                </Link>
+                <Box
+                  sx={{
+                    display: " flex",
+                    flexDirection: "column",
+                    paddingTop: "4px",
+                    color: "gray",
+                  }}
+                >
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      {" "}
+                      Refrigerators
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Washing Machines
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      {" "}
+                      Dryers
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Dishwashers
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Ovens
+                    </Typography>
+                  </Link>
+                </Box>
               </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Home Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Air Purifiers</li>
-                  <li>Vacuum Cleaners</li>
-                  <li>Humidifiers</li>
-                  <li>Fans</li>
-                  <li>Heaters</li>
-                </ul>
+              <div className="">
+                <Link href="">
+                  {" "}
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      textTransform: "uppercase",
+                      borderBottom: "1px solid lightgrey",
+                      paddingBottom: "4px",
+                    }}
+                  >
+                    Home Appliances
+                  </Typography>
+                </Link>
+                <Box
+                  sx={{
+                    fontSize: "12px",
+                    display: " flex",
+                    flexDirection: "column",
+                    paddingTop: "4px",
+                    color: "gray",
+                  }}
+                >
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      {" "}
+                      Air Purifiers
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Vacuum Cleaners
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      {" "}
+                      Humidifiers
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Fans
+                    </Typography>
+                  </Link>
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        fontSize: "12px",
+                        "&:hover": {
+                          fontWeight: "bold",
+                          color: "black",
+                        },
+                      }}
+                    >
+                      Heaters
+                    </Typography>
+                  </Link>
+                </Box>
               </div>
             </div>
           </Box>
