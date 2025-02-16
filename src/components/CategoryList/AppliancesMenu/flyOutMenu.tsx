@@ -9,6 +9,42 @@ export default function HoverPopoverAppliances() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const closeTimeout = React.useRef<NodeJS.Timeout | null>(null);
 
+  const smallAppliances = [
+    { name: "Blenders", link: "/blenders" },
+    { name: "Deep Fryers", link: "/deep" },
+    { name: "Juicers", link: "/juicer" },
+    { name: " Air Fryers", link: "/airFryers" },
+    { name: " Rice Cookers", link: "/riceCookers" },
+    { name: "Toasters & Oven", link: "/toastersOven" },
+    { name: "Microwaves", link: "/microwaves" },
+    { name: "Bundles", link: "/bundles" },
+    { name: "Vacuum Cleaners", link: "/vacuumCleaner" },
+    { name: "Kettles", link: "/kettles" },
+    { name: "Yam Pounders", link: "/yamPounders" },
+    { name: "Irons", link: "/irons" },
+    { name: "Electric Cookware", link: "/electricCookware" },
+    { name: "Electric Drink Mixers", link: "/drinkMixer" },
+    { name: "Food Processors", link: "/foodProcessors" },
+    { name: "Coffee Makers", link: "/coffeeMakers" },
+    { name: " Electric Pressure Cookers", link: "/pressureCookers" },
+  ];
+  const largeAppliances = [
+    { name: "Washing Machines", link: "/ washingMachines" },
+    { name: "Fridges", link: "/fridges" },
+    { name: "Freezers", link: "/freezers" },
+    { name: "Air Conditioners", link: "/airConditioners" },
+    { name: "Heaters", link: "/heaters" },
+    { name: "Fans", link: "/fans" },
+    { name: "Air Purifiers", link: "/purifiers" },
+    { name: "Water Dispensers", link: "/waterDispensers" },
+    { name: "Generators & Inverters", link: "/generators_Inverters" },
+  ];
+  const homeAppliances = [
+    { name: "Nexus", link: "/nexus" },
+    { name: "Hisense", link: "/hisense" },
+    { name: "Polystar", link: "/polystar" },
+    { name: "TCL", link: "/tcl" },
+  ];
   const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
     if (closeTimeout.current) {
       clearTimeout(closeTimeout.current);
@@ -115,228 +151,21 @@ export default function HoverPopoverAppliances() {
                     paddingTop: "4px",
                   }}
                 >
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Blenders
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Deep Fryers
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Juicers
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      {" "}
-                      Air Fryers
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Rice Cookers
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Toasters & Oven
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Microwaves
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Bundles
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Vacuum Cleaners
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Kettles
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Yam Pounders
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Irons
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Electric Cookware
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Electric Drink Mixers
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Food Processors
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Coffee Makers
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Electric Pressure Cookers
-                    </Typography>
-                  </Link>
+                  {smallAppliances.map((appliances) => (
+                    <Link href={appliances.link} key={appliances.name}>
+                      <Typography
+                        sx={{
+                          fontSize: "12px",
+                          "&:hover": {
+                            fontWeight: "bold",
+                            color: "black",
+                          },
+                        }}
+                      >
+                        {appliances.name}
+                      </Typography>
+                    </Link>
+                  ))}
                 </Box>
               </div>
               <div className="">
@@ -361,73 +190,21 @@ export default function HoverPopoverAppliances() {
                     color: "gray",
                   }}
                 >
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      {" "}
-                      Refrigerators
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Washing Machines
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      {" "}
-                      Dryers
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Dishwashers
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Ovens
-                    </Typography>
-                  </Link>
+                  {largeAppliances.map((lappliances) => (
+                    <Link href={lappliances.link} key={lappliances.name}>
+                      <Typography
+                        sx={{
+                          fontSize: "12px",
+                          "&:hover": {
+                            fontWeight: "bold",
+                            color: "black",
+                          },
+                        }}
+                      >
+                        {lappliances.name}
+                      </Typography>
+                    </Link>
+                  ))}
                 </Box>
               </div>
               <div className="">
@@ -454,73 +231,21 @@ export default function HoverPopoverAppliances() {
                     color: "gray",
                   }}
                 >
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      {" "}
-                      Air Purifiers
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Vacuum Cleaners
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      {" "}
-                      Humidifiers
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Fans
-                    </Typography>
-                  </Link>
-                  <Link href="#">
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        "&:hover": {
-                          fontWeight: "bold",
-                          color: "black",
-                        },
-                      }}
-                    >
-                      Heaters
-                    </Typography>
-                  </Link>
+                  {homeAppliances.map((happliances) => (
+                    <Link href={happliances.link} key={happliances.name}>
+                      <Typography
+                        sx={{
+                          fontSize: "12px",
+                          "&:hover": {
+                            fontWeight: "bold",
+                            color: "black",
+                          },
+                        }}
+                      >
+                        {happliances.name}
+                      </Typography>
+                    </Link>
+                  ))}
                 </Box>
               </div>
             </div>
