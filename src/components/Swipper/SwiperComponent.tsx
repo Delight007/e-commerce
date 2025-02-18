@@ -78,6 +78,14 @@ export default function SwiperComponent() {
           height={380}
         />
       </SwiperSlide>
+      <SwiperSlide>
+        <Image
+          src="/images/image7.jpg"
+          alt="slide 7"
+          width={700}
+          height={380}
+        />
+      </SwiperSlide>
     </Swiper>
   );
 }

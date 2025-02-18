@@ -3,10 +3,46 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import { IoGameControllerOutline } from "react-icons/io5";
+import Link from "next/link";
 
 export default function HoverPopoverGaming() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const closeTimeout = React.useRef<NodeJS.Timeout | null>(null);
+
+  const playstation = [
+    { name: "Playstation 5", link: "/playstation_5 " },
+    { name: "Playstation 4", link: "/playstation_4" },
+    { name: "Playstation 3", link: "/playstation_3" },
+    { name: "Playstation", link: "/playstation" },
+    { name: "Playstation Vita", link: "/playstation_vita" },
+  ];
+  const Xbox = [
+    { name: "XBOX One", link: "/xbox_one" },
+    { name: "XBOX 360", link: "/xbox_360" },
+    { name: "XBOX", link: "/xbox" },
+  ];
+  const nintendo = [
+    { name: "Nintendo 3DS", link: "/nintendo_3ds" },
+    { name: "Nintendo DS ", link: "/nintendo_DS" },
+    { name: "Nintendo Switch", link: "/nintendo_switch" },
+    { name: "Nintendo Wii", link: "/nintendo_wii" },
+  ];
+
+  const games = [
+    { name: "FIFA '23 PS5", link: "/fifa_23_ps5" },
+    { name: "PES '23 PS4", link: "/pes_23_ps4" },
+    { name: "God of war", link: "/god_of_war" },
+    { name: "Spiderman", link: "/spiderman" },
+    { name: "Call of Duty", link: "/call_of_duty" },
+    { name: "Assassin's Creed Valhalla", link: "/assassin_creed" },
+    { name: "The Last Of Us", link: "/the_last_of_us" },
+    { name: "The Witcher 3", link: "/the_witcher" },
+    { name: "Metal Gear Solid", link: "/metal_gear_solid" },
+    { name: "Fallout", link: "/fallout" },
+    { name: "Madden NFL", link: "/madden" },
+    { name: "Far Cry", link: "/farCry" },
+    { name: "Grand Theft Auto", link: "/gta" },
+  ];
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
     if (closeTimeout.current) {
@@ -39,6 +75,9 @@ export default function HoverPopoverGaming() {
           paddingLeft: "8px",
           alignItems: "center",
           cursor: "pointer",
+          "&:hover": {
+            color: "red",
+          },
         }}
       >
         <IoGameControllerOutline className="text-xl" />
@@ -82,49 +121,195 @@ export default function HoverPopoverGaming() {
         >
           <Box
             sx={{
-              p: 4,
+              paddingLeft: "16px",
+              paddingTop: "8px",
+              paddingRight: "16px",
               width: "722px",
               minHeight: "376px",
               backgroundColor: "white",
             }}
           >
             <div className="grid grid-cols-3 gap-8">
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Small Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Coffee Makers</li>
-                  <li>Blenders</li>
-                  <li>Toasters</li>
-                  <li>Food Processors</li>
-                  <li>Microwaves</li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Large Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Refrigerators</li>
-                  <li>Washing Machines</li>
-                  <li>Dryers</li>
-                  <li>Dishwashers</li>
-                  <li>Ovens</li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Home Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Air Purifiers</li>
-                  <li>Vacuum Cleaners</li>
-                  <li>Humidifiers</li>
-                  <li>Fans</li>
-                  <li>Heaters</li>
-                </ul>
-              </div>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Playstation
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {playstation.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Xbox
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {Xbox.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Nintendo
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {nintendo.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Top Games
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {games.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
             </div>
           </Box>
         </div>

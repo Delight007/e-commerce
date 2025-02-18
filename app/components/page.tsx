@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
@@ -6,13 +7,19 @@ import { CgMoreO } from "react-icons/cg";
 
 export default function PopoverOther() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const closeTimeout = React.useRef<NodeJS.Timeout | null>(null);
 
   const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+    }
     setAnchorEl(event.currentTarget);
   };
 
   const handlePopoverClose = () => {
-    setAnchorEl(null);
+    closeTimeout.current = setTimeout(() => {
+      setAnchorEl(null);
+    }, 100);
   };
 
   const open = Boolean(anchorEl);
@@ -44,7 +51,6 @@ export default function PopoverOther() {
           mt: "-142px",
           ml: "-3px",
           "& .MuiPaper-root": {
-            backgroundColor: "blue",
             boxShadow: "none",
             borderLeft: "1px solid lightgrey",
             borderRadius: "0px 8px 8px 0px", // Right-side border-radius only
@@ -57,21 +63,30 @@ export default function PopoverOther() {
         anchorEl={anchorEl}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "left" }}
-        onClose={handlePopoverClose}
+        onClose={() => setAnchorEl(null)}
         disableRestoreFocus
       >
-        <Box
-          sx={{
-            p: 1,
-            Width: "400px",
-            height: "376px",
-            // borderRadius: "0px 8px 8px 0px", // Right-side border-radius only
-            backgroundColor: "white",
-            // position: "abosolute",
+        <div
+          onMouseEnter={() => {
+            if (closeTimeout.current) {
+              clearTimeout(closeTimeout.current);
+            }
           }}
+          onMouseLeave={handlePopoverClose}
         >
-          <Typography>PopOver</Typography>
-        </Box>
+          <Box
+            sx={{
+              p: 1,
+              Width: "400px",
+              height: "376px",
+              // borderRadius: "0px 8px 8px 0px", // Right-side border-radius only
+              backgroundColor: "white",
+              // position: "abosolute",
+            }}
+          >
+            <Typography>PopOver</Typography>
+          </Box>
+        </div>
       </Popover>
     </div>
   );
