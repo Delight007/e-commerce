@@ -3,10 +3,39 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import { LiaHomeSolid } from "react-icons/lia";
+import Link from "next/link";
 
 export default function HoverPopoverHome() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const closeTimeout = React.useRef<NodeJS.Timeout | null>(null);
+
+  const home = [
+    { name: "Bath", link: "/bath" },
+    { name: "Bedding", link: "/bedding" },
+    { name: "Home Decor", link: "/home-decor" },
+    { name: "Home Furniture", link: "/home-furniture" },
+    { name: "Vacuums & Floor Care", link: "/floor-care" },
+    { name: "Wall Art", link: "/wall-art" },
+    { name: "Cookware", link: "/cookware" },
+    { name: "Bakeware", link: "/bakeware" },
+    { name: "Small Appliances", link: "/small- Appliances" },
+    { name: "Cutlery & Knife Accessories", link: "/kitchen-utilices" },
+  ];
+
+  const Office = [
+    { name: "  Office & School Supplies", link: "/office" },
+    { name: " Office Furniture & Lighting", link: "/office-furniture" },
+    { name: "Packaging Materials", link: "/packaging-material" },
+  ];
+
+  const home_office = [
+    { name: " Kitchen & Dining", link: "/kitchen-dining" },
+    { nama: "Lighting", link: "/lighting" },
+    { name: "Stationery", link: "/stationery" },
+    { name: "Storage & Organization", link: "/storage_organization" },
+  ];
+
+  const outdoor_garden = [{ name: "Storage & Organization", link: "/storage" }];
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
     if (closeTimeout.current) {
@@ -39,6 +68,9 @@ export default function HoverPopoverHome() {
           paddingLeft: "8px",
           alignItems: "center",
           cursor: "pointer",
+          "&:hover": {
+            color: "red",
+          },
         }}
       >
         <LiaHomeSolid className="text-xl" />
@@ -82,49 +114,195 @@ export default function HoverPopoverHome() {
         >
           <Box
             sx={{
-              p: 4,
+              paddingLeft: "16px",
+              paddingTop: "8px",
+              paddingRight: "16px",
               width: "722px",
               minHeight: "376px",
               backgroundColor: "white",
             }}
           >
-            <div className="grid grid-cols-3 gap-8">
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Small Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Coffee Makers</li>
-                  <li>Blenders</li>
-                  <li>Toasters</li>
-                  <li>Food Processors</li>
-                  <li>Microwaves</li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Large Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Refrigerators</li>
-                  <li>Washing Machines</li>
-                  <li>Dryers</li>
-                  <li>Dishwashers</li>
-                  <li>Ovens</li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Home Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Air Purifiers</li>
-                  <li>Vacuum Cleaners</li>
-                  <li>Humidifiers</li>
-                  <li>Fans</li>
-                  <li>Heaters</li>
-                </ul>
-              </div>
+            <div className="grid grid-cols-3 gap-2">
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Home & Kitchen
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {home.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Office Products
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {Office.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Home & Office furniture
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {home_office.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Outdoor & Garden
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {outdoor_garden.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
             </div>
           </Box>
         </div>

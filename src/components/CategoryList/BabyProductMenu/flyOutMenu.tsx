@@ -3,11 +3,50 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import { LuBaby } from "react-icons/lu";
+import Link from "next/link";
 
 export default function HoverPopoverBaby() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const closeTimeout = React.useRef<NodeJS.Timeout | null>(null);
 
+  const Access = [
+    { name: "Baby Boy", link: "/baby-boy" },
+    { name: "baby-girl", link: "/baby-girl" },
+  ];
+  const diaper = [
+    { name: " Disposable Diapers", link: "/disposable_diapers" },
+    { name: "Diaper Bags", link: "/diaper_bag" },
+    { name: "Wipes & Holders", link: "/wipes_&_holders" },
+  ];
+  const baby = [
+    { name: " Activity Play Centers", link: "/activity_center" },
+    { name: "Music & Sound", link: "/music_&_sound" },
+    { name: "Bath Toys", link: "/bath_toys" },
+  ];
+
+  const bath = [
+    { name: "Washcloths & Towels", link: "/washclothing" },
+    { name: " Grooming & Healthcare Kits", link: "/grooming" },
+    { name: "Skin Care", link: "/skincare" },
+    { name: "Bathing Tubs & Seats", link: "/bathing" },
+    { name: "Bathroom Safety", link: "/bathroom_safety" },
+  ];
+
+  const feed = [
+    { name: "  Bibs & Burp Cloths", link: "/bibs & Burp" },
+    { name: "Breastfeeding", link: "/breastFeeding" },
+    { name: "Bottle-Feeding", link: "/bottleFeeding" },
+    { name: "Feeding Gear & Accessories", link: "/feedingGear" },
+    { name: "Food Storage", link: "/foodStorage" },
+    { name: "Highchairs & Booster Seats", link: "/highchairs" },
+    { name: "Solid Feeding", link: "/solidFeeding" },
+  ];
+
+  const gear = [
+    { name: " Backpacks & Carriers", link: "/backpacks" },
+    { name: "Swings, Jumpers & Bouncers", link: "/swings" },
+    { name: "Walkers", link: "/walkers" },
+  ];
   const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
     if (closeTimeout.current) {
       clearTimeout(closeTimeout.current);
@@ -39,6 +78,9 @@ export default function HoverPopoverBaby() {
           paddingLeft: "8px",
           alignItems: "center",
           cursor: "pointer",
+          "&:hover": {
+            color: "red",
+          },
         }}
       >
         <LuBaby className="text-xl" />
@@ -82,49 +124,279 @@ export default function HoverPopoverBaby() {
         >
           <Box
             sx={{
-              p: 4,
+              paddingLeft: "16px",
+              paddingTop: "8px",
+              paddingRight: "16px",
               width: "722px",
               minHeight: "376px",
               backgroundColor: "white",
             }}
           >
             <div className="grid grid-cols-3 gap-8">
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Small Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Coffee Makers</li>
-                  <li>Blenders</li>
-                  <li>Toasters</li>
-                  <li>Food Processors</li>
-                  <li>Microwaves</li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Large Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Refrigerators</li>
-                  <li>Washing Machines</li>
-                  <li>Dryers</li>
-                  <li>Dishwashers</li>
-                  <li>Ovens</li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Home Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Air Purifiers</li>
-                  <li>Vacuum Cleaners</li>
-                  <li>Humidifiers</li>
-                  <li>Fans</li>
-                  <li>Heaters</li>
-                </ul>
-              </div>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Apparel & Accessories
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {Access.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Diapering
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {diaper.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Baby & Toddler Toys
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {baby.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Bathing & Skin Care
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {bath.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Feeding
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {feed.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Gear
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {gear.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
             </div>
           </Box>
         </div>

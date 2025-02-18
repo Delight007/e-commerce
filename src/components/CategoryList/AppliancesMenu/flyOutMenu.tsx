@@ -76,6 +76,9 @@ export default function HoverPopoverAppliances() {
           paddingLeft: "8px",
           alignItems: "center",
           cursor: "pointer",
+          "&:hover": {
+            color: "red",
+          },
         }}
       >
         <LuCookingPot className="text-xl" />
@@ -137,6 +140,9 @@ export default function HoverPopoverAppliances() {
                       textTransform: "uppercase",
                       borderBottom: "1px solid lightgrey",
                       paddingBottom: "4px",
+                      "&:hover": {
+                        color: "red",
+                      },
                     }}
                   >
                     Small Appliances
@@ -177,6 +183,9 @@ export default function HoverPopoverAppliances() {
                       textTransform: "uppercase",
                       borderBottom: "1px solid lightgrey",
                       paddingBottom: "4px",
+                      "&:hover": {
+                        color: "red",
+                      },
                     }}
                   >
                     Large Appliances
@@ -217,6 +226,9 @@ export default function HoverPopoverAppliances() {
                       textTransform: "uppercase",
                       borderBottom: "1px solid lightgrey",
                       paddingBottom: "4px",
+                      "&:hover": {
+                        color: "red",
+                      },
                     }}
                   >
                     Home Appliances

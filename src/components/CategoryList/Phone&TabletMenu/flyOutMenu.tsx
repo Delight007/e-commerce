@@ -95,6 +95,9 @@ export default function HoverPopoverPhone() {
           paddingLeft: "8px",
           alignItems: "center",
           cursor: "pointer",
+          "&:hover": {
+            color: "red",
+          },
         }}
       >
         <IoPhonePortraitOutline className="text-xl" />
@@ -159,6 +162,9 @@ export default function HoverPopoverPhone() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       mobile phones
@@ -198,6 +204,9 @@ export default function HoverPopoverPhone() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       Tablets
@@ -238,6 +247,9 @@ export default function HoverPopoverPhone() {
                       borderBottom: "1px solid lightgrey",
                       fontSize: "12px",
                       paddingBottom: "4px",
+                      "&:hover": {
+                        color: "red",
+                      },
                     }}
                   >
                     mobile accessories
@@ -280,6 +292,9 @@ export default function HoverPopoverPhone() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       Top SmartPhones
@@ -319,6 +334,9 @@ export default function HoverPopoverPhone() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       Top Phone Brands

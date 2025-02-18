@@ -93,6 +93,9 @@ export default function HoverPopoverHealth() {
           paddingLeft: "8px",
           alignItems: "center",
           cursor: "pointer",
+          "&:hover": {
+            color: "red",
+          },
         }}
       >
         <GiLipstick className="text-xl" />
@@ -157,6 +160,9 @@ export default function HoverPopoverHealth() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       Make Up
@@ -196,6 +202,9 @@ export default function HoverPopoverHealth() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       Personal Care
@@ -240,6 +249,9 @@ export default function HoverPopoverHealth() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       Fragrances
@@ -279,6 +291,9 @@ export default function HoverPopoverHealth() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       Hair Care
@@ -319,6 +334,9 @@ export default function HoverPopoverHealth() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       Oral Care
@@ -363,6 +381,9 @@ export default function HoverPopoverHealth() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       Health Care
@@ -402,6 +423,9 @@ export default function HoverPopoverHealth() {
                         borderBottom: "1px solid lightgrey",
                         fontSize: "12px",
                         paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
                       }}
                     >
                       Vitamins & Dietary Supplements
