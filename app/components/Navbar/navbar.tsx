@@ -13,7 +13,7 @@ export default function navbar() {
   return (
     <div className="w-full bg-white h-[76px] shadow-sm  ">
       <div className="flex justify-between items-center  h-full  ">
-        <h1 className={`text-3xl ml-10 ${poppins.className}`}>gaNa</h1>
+        <h1 className={`text-3xl ml-10  ${poppins.className}`}>gaNa</h1>
 
         <form className="flex ml-4">
           <div className="flex border w-[450px] h-[40px] p-1 rounded-md">

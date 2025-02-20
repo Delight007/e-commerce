@@ -18,7 +18,7 @@ export default function HoverPopoverHome() {
     { name: "Wall Art", link: "/wall-art" },
     { name: "Cookware", link: "/cookware" },
     { name: "Bakeware", link: "/bakeware" },
-    { name: "Small Appliances", link: "/small- Appliances" },
+    { name: "Small Appliances", link: "/small-Appliances" },
     { name: "Cutlery & Knife Accessories", link: "/kitchen-utilices" },
   ];
 
@@ -79,8 +79,8 @@ export default function HoverPopoverHome() {
       <Popover
         id="mouse-over-popover"
         sx={{
-          mt: "-113px",
-          ml: "-2px",
+          mt: "-112px",
+          ml: "-3px",
           pointerEvents: "none",
           "& .MuiPopover-paper": {
             pointerEvents: "auto",

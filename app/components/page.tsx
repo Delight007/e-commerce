@@ -9,14 +9,14 @@ export default function PopoverOther() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const closeTimeout = React.useRef<NodeJS.Timeout | null>(null);
 
-  const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+  const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
     if (closeTimeout.current) {
       clearTimeout(closeTimeout.current);
     }
     setAnchorEl(event.currentTarget);
   };
 
-  const handlePopoverClose = () => {
+  const handleMouseLeave = () => {
     closeTimeout.current = setTimeout(() => {
       setAnchorEl(null);
     }, 100);
@@ -29,8 +29,8 @@ export default function PopoverOther() {
       <Box
         aria-owns={open ? "mouse-over-popover" : undefined}
         aria-haspopup="true"
-        onMouseEnter={handlePopoverOpen}
-        onMouseLeave={handlePopoverClose}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         sx={{
           fontSize: "12px",
           display: "flex",
@@ -48,21 +48,28 @@ export default function PopoverOther() {
         id="mouse-over-popover"
         sx={{
           pointerEvents: "none",
-          mt: "-142px",
+          mt: "-1px",
           ml: "-3px",
           "& .MuiPaper-root": {
+            pointerEvents: "auto",
             boxShadow: "none",
             borderLeft: "1px solid lightgrey",
             borderRadius: "0px 8px 8px 0px", // Right-side border-radius only
             maxWidth: "722px",
-
-            position: "relative",
           },
         }}
         open={open}
         anchorEl={anchorEl}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "left" }}
+        // anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        // transformOrigin={{ vertical: "top", horizontal: "left" }}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
         onClose={() => setAnchorEl(null)}
         disableRestoreFocus
       >
@@ -72,16 +79,14 @@ export default function PopoverOther() {
               clearTimeout(closeTimeout.current);
             }
           }}
-          onMouseLeave={handlePopoverClose}
+          onMouseLeave={handleMouseLeave}
         >
           <Box
             sx={{
               p: 1,
-              Width: "400px",
+              Width: "722px",
               height: "376px",
-              // borderRadius: "0px 8px 8px 0px", // Right-side border-radius only
               backgroundColor: "white",
-              // position: "abosolute",
             }}
           >
             <Typography>PopOver</Typography>

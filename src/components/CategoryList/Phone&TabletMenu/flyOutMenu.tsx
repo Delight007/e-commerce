@@ -106,8 +106,8 @@ export default function HoverPopoverPhone() {
       <Popover
         id="mouse-over-popover"
         sx={{
-          mt: "-39px",
-          ml: "-1px",
+          mt: "-38px",
+          ml: "-3px",
           pointerEvents: "none",
           "& .MuiPopover-paper": {
             pointerEvents: "auto",

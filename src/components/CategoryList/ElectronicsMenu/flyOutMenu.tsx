@@ -102,7 +102,7 @@ export default function HoverPopoverElectronics() {
         id="mouse-over-popover"
         sx={{
           mt: "-142px",
-          ml: "-2px",
+          ml: "-3px",
           pointerEvents: "none",
           "& .MuiPopover-paper": {
             pointerEvents: "auto",

@@ -15,7 +15,7 @@ import HoverPopoverAppliances from "./AppliancesMenu/flyOutMenu";
 
 export default function categories() {
   return (
-    <div className="flex flex-col rounded border bg-white w-[210px] h-full">
+    <div className="flex flex-col rounded-md  w-[210px] h-full">
       <Link href="#" className="w-full">
         <HoverPopoverAppliances />
       </Link>

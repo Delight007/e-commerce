@@ -104,8 +104,8 @@ export default function HoverPopoverHealth() {
       <Popover
         id="mouse-over-popover"
         sx={{
-          mt: "-76px",
-          ml: "-2px",
+          mt: "-75px",
+          ml: "-3px",
           pointerEvents: "none",
           "& .MuiPopover-paper": {
             pointerEvents: "auto",
