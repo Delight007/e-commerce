@@ -54,7 +54,7 @@ export default function HoverPopoverGaming() {
   const handleMouseLeave = () => {
     closeTimeout.current = setTimeout(() => {
       setAnchorEl(null);
-    }, 100);
+    }, 300);
   };
 
   const open = Boolean(anchorEl);
@@ -86,8 +86,9 @@ export default function HoverPopoverGaming() {
       <Popover
         id="mouse-over-popover"
         sx={{
-          mt: "-142px",
+          mt: "-146px",
           ml: "-3px",
+          zIndex: 10,
           pointerEvents: "none",
           "& .MuiPopover-paper": {
             pointerEvents: "auto",
@@ -110,6 +111,9 @@ export default function HoverPopoverGaming() {
         }}
         onClose={() => setAnchorEl(null)}
         disableRestoreFocus
+        disableScrollLock={true}
+        disablePortal
+        container={document.body}
       >
         <div
           onMouseEnter={() => {

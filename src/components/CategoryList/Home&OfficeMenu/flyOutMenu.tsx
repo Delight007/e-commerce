@@ -30,7 +30,7 @@ export default function HoverPopoverHome() {
 
   const home_office = [
     { name: " Kitchen & Dining", link: "/kitchen-dining" },
-    { nama: "Lighting", link: "/lighting" },
+    { name: "Lighting", link: "/lighting" },
     { name: "Stationery", link: "/stationery" },
     { name: "Storage & Organization", link: "/storage_organization" },
   ];
@@ -47,7 +47,7 @@ export default function HoverPopoverHome() {
   const handleMouseLeave = () => {
     closeTimeout.current = setTimeout(() => {
       setAnchorEl(null);
-    }, 100);
+    }, 300);
   };
 
   const open = Boolean(anchorEl);
@@ -81,6 +81,7 @@ export default function HoverPopoverHome() {
         sx={{
           mt: "-112px",
           ml: "-3px",
+          zIndex: 10,
           pointerEvents: "none",
           "& .MuiPopover-paper": {
             pointerEvents: "auto",
@@ -103,6 +104,9 @@ export default function HoverPopoverHome() {
         }}
         onClose={() => setAnchorEl(null)}
         disableRestoreFocus
+        disableScrollLock={true}
+        disablePortal
+        container={document.body}
       >
         <div
           onMouseEnter={() => {

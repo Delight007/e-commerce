@@ -72,7 +72,7 @@ export default function HoverPopoverHealth() {
   const handleMouseLeave = () => {
     closeTimeout.current = setTimeout(() => {
       setAnchorEl(null);
-    }, 100);
+    }, 300);
   };
 
   const open = Boolean(anchorEl);
@@ -106,6 +106,7 @@ export default function HoverPopoverHealth() {
         sx={{
           mt: "-75px",
           ml: "-3px",
+          zIndex: 10,
           pointerEvents: "none",
           "& .MuiPopover-paper": {
             pointerEvents: "auto",
@@ -128,6 +129,9 @@ export default function HoverPopoverHealth() {
         }}
         onClose={() => setAnchorEl(null)}
         disableRestoreFocus
+        disableScrollLock={true}
+        disablePortal
+        container={document.body}
       >
         <div
           onMouseEnter={() => {
