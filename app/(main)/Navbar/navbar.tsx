@@ -1,19 +1,20 @@
+"use client";
 import React from "react";
 import { IoMdSearch } from "react-icons/io";
-import { IoHelpCircleOutline } from "react-icons/io5";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { Poppins } from "next/font/google";
 import AccountMenu from "./AccountMenu/accountMenuItems";
 import SupportMenu from "./SupportMenu/supportMenuItems";
+import MenuPopover from "@/src/components/ui/popOver";
 
 const poppins = Poppins({ weight: "600", subsets: ["latin"], display: "swap" });
 
-export default function navbar() {
+export default function NavMenu() {
   return (
     <div className="w-full bg-white h-[76px] shadow-lg ">
-      <div className="flex justify-between items-center  h-full  ">
-        <h1 className={`text-3xl ml-10  ${poppins.className}`}>gaNa</h1>
+      <div className="flex justify-between items-center  h-full  mx-10">
+        <MenuPopover />
+        <h1 className={`text-3xl  ${poppins.className}`}>gaNa</h1>
 
         <form className="flex ml-4">
           <div className="flex border w-[500px] h-[40px] p-1 rounded-md">
@@ -40,7 +41,7 @@ export default function navbar() {
             <SupportMenu />
           </li>
 
-          <li className="flex gap-2 mr-10  hover:text-red-500 cursor-pointer">
+          <li className="flex gap-2  hover:text-red-500 cursor-pointer">
             <MdOutlineShoppingCart className="text-2xl flex justify-center items-center" />
             <span>Cart</span>
           </li>

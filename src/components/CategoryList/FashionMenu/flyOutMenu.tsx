@@ -3,10 +3,68 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import { LiaTshirtSolid } from "react-icons/lia";
+import Link from "next/link";
+import { link } from "fs";
 
 export default function HoverPopoverFashions() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const closeTimeout = React.useRef<NodeJS.Timeout | null>(null);
+
+  const women = [
+    { name: "Clothing", link: "/fclothing" },
+    { name: "Shoes", link: "/fshoes" },
+    { name: "Accessories", link: "/faccessories" },
+    { name: "Jewelry", link: "/fjewelry" },
+    { name: "Handbags & Wallets", link: "/fhandbags" },
+    { name: "Underwear & Sleepwear", link: "/funderwear" },
+    { name: "Maternity", link: "/fmaternity" },
+    { name: "Dresses", link: "/fdresses" },
+    { name: "Traditional", link: "/fTraditional" },
+    { name: "Beach & Swimwear", link: "/fbeach" },
+    { name: "Flats", link: "/flats" },
+    { name: "Women Costumes & Accessories", link: "/women_costumes" },
+  ];
+  const kids = [
+    { name: "Boy's Fashion", link: "/boyFashion" },
+    { name: "Girl's Fashion", link: "/girlFashion" },
+  ];
+
+  const men = [
+    { name: "Clothing", link: "/Mclothing" },
+    { name: "Shoes", link: "/Mshoes" },
+    { name: "Accessories", link: "/M_accessories" },
+    { name: "Underwear & Sleepwear", link: "/M_Underwear" },
+    { name: "Traditional & Cultural Wear", link: "/M-Traditional" },
+    { name: "T-Shirts", link: "/M-T-Shirts" },
+    { name: "Polo Shirts", link: "/polo-shirts" },
+    { name: "Trousers & Chinos", link: "/trousers" },
+    { name: "Sneakers", link: "/M_Sneakers" },
+    { name: "Jewelry", link: "/M_Jewelry" },
+    { name: "Jerseys", link: "/M_jersey" },
+  ];
+
+  const Fashion = [
+    { name: "Fabrics", link: "/fabrics" },
+    { name: "Luggage & Travel Gear", link: "/luggage-gear" },
+    { name: "Multi-Pack", link: "/multi-pack" },
+    { name: "Traditional & Cultural Wear", link: "/traditional-wear" },
+  ];
+
+  const watches = [
+    { name: "Men's Watches", link: "/men-watch" },
+    { name: "Women's Watches", link: "/woman-watch" },
+  ];
+
+  const sunglass = [
+    { name: "Men's Sunglasses", link: "men_glass" },
+    { name: "Women's Sunglasses", link: "women_glass" },
+  ];
+
+  const brand = [
+    { name: "Adidas", link: "/adidas" },
+    { name: "DeFacto", link: "/defacto" },
+    { name: "Nike", link: "/nike" },
+  ];
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
     if (closeTimeout.current) {
@@ -18,7 +76,7 @@ export default function HoverPopoverFashions() {
   const handleMouseLeave = () => {
     closeTimeout.current = setTimeout(() => {
       setAnchorEl(null);
-    }, 100);
+    }, 300);
   };
 
   const open = Boolean(anchorEl);
@@ -39,6 +97,9 @@ export default function HoverPopoverFashions() {
           paddingLeft: "8px",
           alignItems: "center",
           cursor: "pointer",
+          "&:hover": {
+            color: "red",
+          },
         }}
       >
         <LiaTshirtSolid className="text-xl" />
@@ -47,8 +108,9 @@ export default function HoverPopoverFashions() {
       <Popover
         id="mouse-over-popover"
         sx={{
-          mt: "-142px",
-          ml: "-2px",
+          mt: "-146px",
+          ml: "-3px",
+          zIndex: 10,
           pointerEvents: "none",
           "& .MuiPopover-paper": {
             pointerEvents: "auto",
@@ -71,6 +133,9 @@ export default function HoverPopoverFashions() {
         }}
         onClose={() => setAnchorEl(null)}
         disableRestoreFocus
+        disableScrollLock={true}
+        disablePortal
+        container={document.body}
       >
         <div
           onMouseEnter={() => {
@@ -82,49 +147,324 @@ export default function HoverPopoverFashions() {
         >
           <Box
             sx={{
-              p: 4,
+              paddingLeft: "16px",
+              paddingTop: "8px",
+              paddingRight: "16px",
               width: "722px",
               minHeight: "376px",
               backgroundColor: "white",
             }}
           >
             <div className="grid grid-cols-3 gap-8">
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Small Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Coffee Makers</li>
-                  <li>Blenders</li>
-                  <li>Toasters</li>
-                  <li>Food Processors</li>
-                  <li>Microwaves</li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Large Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Refrigerators</li>
-                  <li>Washing Machines</li>
-                  <li>Dryers</li>
-                  <li>Dishwashers</li>
-                  <li>Ovens</li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Home Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Air Purifiers</li>
-                  <li>Vacuum Cleaners</li>
-                  <li>Humidifiers</li>
-                  <li>Fans</li>
-                  <li>Heaters</li>
-                </ul>
-              </div>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Women's Fashion
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {women.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Kid's Fashion
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {kids.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Men's Fashion
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {men.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      All Fashion
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                      "&:hover": {
+                        color: "red",
+                      },
+                    }}
+                  >
+                    {Fashion.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Watches
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {watches.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Sunglasses
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {sunglass.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+                <div className="">
+                  <Link href="#">
+                    <Typography
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        borderBottom: "1px solid lightgrey",
+                        fontSize: "12px",
+                        paddingBottom: "4px",
+                        "&:hover": {
+                          color: "red",
+                        },
+                      }}
+                    >
+                      Top Brand
+                    </Typography>
+                  </Link>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      color: "gray",
+                      paddingTop: "4px",
+                    }}
+                  >
+                    {brand.map((item) => (
+                      <Link href={item.link} key={item.name}>
+                        <Typography
+                          sx={{
+                            fontSize: "12px",
+                            "&:hover": {
+                              fontWeight: "bold",
+                              color: "black",
+                            },
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                    ))}
+                  </Box>
+                </div>
+              </Box>
             </div>
           </Box>
         </div>

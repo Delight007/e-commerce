@@ -3,11 +3,48 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import { LuCookingPot } from "react-icons/lu";
+import Link from "next/link";
 
-export default function MouseHoverPopover() {
+export default function HoverPopoverAppliances() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const closeTimeout = React.useRef<NodeJS.Timeout | null>(null);
 
+  const smallAppliances = [
+    { name: "Blenders", link: "/blenders" },
+    { name: "Deep Fryers", link: "/deep" },
+    { name: "Juicers", link: "/juicer" },
+    { name: " Air Fryers", link: "/airFryers" },
+    { name: " Rice Cookers", link: "/riceCookers" },
+    { name: "Toasters & Oven", link: "/toastersOven" },
+    { name: "Microwaves", link: "/microwaves" },
+    { name: "Bundles", link: "/bundles" },
+    { name: "Vacuum Cleaners", link: "/vacuumCleaner" },
+    { name: "Kettles", link: "/kettles" },
+    { name: "Yam Pounders", link: "/yamPounders" },
+    { name: "Irons", link: "/irons" },
+    { name: "Electric Cookware", link: "/electricCookware" },
+    { name: "Electric Drink Mixers", link: "/drinkMixer" },
+    { name: "Food Processors", link: "/foodProcessors" },
+    { name: "Coffee Makers", link: "/coffeeMakers" },
+    { name: " Electric Pressure Cookers", link: "/pressureCookers" },
+  ];
+  const largeAppliances = [
+    { name: "Washing Machines", link: "/ washingMachines" },
+    { name: "Fridges", link: "/fridges" },
+    { name: "Freezers", link: "/freezers" },
+    { name: "Air Conditioners", link: "/airConditioners" },
+    { name: "Heaters", link: "/heaters" },
+    { name: "Fans", link: "/fans" },
+    { name: "Air Purifiers", link: "/purifiers" },
+    { name: "Water Dispensers", link: "/waterDispensers" },
+    { name: "Generators & Inverters", link: "/generators_Inverters" },
+  ];
+  const homeAppliances = [
+    { name: "Nexus", link: "/nexus" },
+    { name: "Hisense", link: "/hisense" },
+    { name: "Polystar", link: "/polystar" },
+    { name: "TCL", link: "/tcl" },
+  ];
   const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
     if (closeTimeout.current) {
       clearTimeout(closeTimeout.current);
@@ -18,7 +55,7 @@ export default function MouseHoverPopover() {
   const handleMouseLeave = () => {
     closeTimeout.current = setTimeout(() => {
       setAnchorEl(null);
-    }, 100);
+    }, 300);
   };
 
   const open = Boolean(anchorEl);
@@ -39,6 +76,9 @@ export default function MouseHoverPopover() {
           paddingLeft: "8px",
           alignItems: "center",
           cursor: "pointer",
+          "&:hover": {
+            color: "red",
+          },
         }}
       >
         <LuCookingPot className="text-xl" />
@@ -47,8 +87,9 @@ export default function MouseHoverPopover() {
       <Popover
         id="mouse-over-popover"
         sx={{
-          mt: "-2px",
-          ml: "-2px",
+          mt: "-1px",
+          ml: "-3px",
+          zIndex: 10,
           pointerEvents: "none",
           "& .MuiPopover-paper": {
             pointerEvents: "auto",
@@ -71,6 +112,9 @@ export default function MouseHoverPopover() {
         }}
         onClose={() => setAnchorEl(null)}
         disableRestoreFocus
+        disableScrollLock={true}
+        disablePortal
+        container={document.body}
       >
         <div
           onMouseEnter={() => {
@@ -82,48 +126,143 @@ export default function MouseHoverPopover() {
         >
           <Box
             sx={{
-              p: 4,
+              paddingLeft: "16px",
+              paddingTop: "8px",
+              paddingRight: "16px",
               width: "722px",
               minHeight: "376px",
               backgroundColor: "white",
             }}
           >
-            <div className="grid grid-cols-3 gap-8">
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Small Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Coffee Makers</li>
-                  <li>Blenders</li>
-                  <li>Toasters</li>
-                  <li>Food Processors</li>
-                  <li>Microwaves</li>
-                </ul>
+            <div className="grid grid-cols-3 gap-2 ">
+              <div className="">
+                <Link href="#">
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      textTransform: "uppercase",
+                      borderBottom: "1px solid lightgrey",
+                      paddingBottom: "4px",
+                      "&:hover": {
+                        color: "red",
+                      },
+                    }}
+                  >
+                    Small Appliances
+                  </Typography>
+                </Link>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    color: "gray",
+                    paddingTop: "4px",
+                  }}
+                >
+                  {smallAppliances.map((appliances) => (
+                    <Link href={appliances.link} key={appliances.name}>
+                      <Typography
+                        sx={{
+                          fontSize: "12px",
+                          "&:hover": {
+                            fontWeight: "bold",
+                            color: "black",
+                          },
+                        }}
+                      >
+                        {appliances.name}
+                      </Typography>
+                    </Link>
+                  ))}
+                </Box>
               </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Large Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Refrigerators</li>
-                  <li>Washing Machines</li>
-                  <li>Dryers</li>
-                  <li>Dishwashers</li>
-                  <li>Ovens</li>
-                </ul>
+              <div className="">
+                <Link href="">
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      textTransform: "uppercase",
+                      borderBottom: "1px solid lightgrey",
+                      paddingBottom: "4px",
+                      "&:hover": {
+                        color: "red",
+                      },
+                    }}
+                  >
+                    Large Appliances
+                  </Typography>
+                </Link>
+                <Box
+                  sx={{
+                    display: " flex",
+                    flexDirection: "column",
+                    paddingTop: "4px",
+                    color: "gray",
+                  }}
+                >
+                  {largeAppliances.map((lappliances) => (
+                    <Link href={lappliances.link} key={lappliances.name}>
+                      <Typography
+                        sx={{
+                          fontSize: "12px",
+                          "&:hover": {
+                            fontWeight: "bold",
+                            color: "black",
+                          },
+                        }}
+                      >
+                        {lappliances.name}
+                      </Typography>
+                    </Link>
+                  ))}
+                </Box>
               </div>
-              <div className="space-y-4">
-                <h2 className="font-semibold text-lg border-b pb-2">
-                  Home Appliances
-                </h2>
-                <ul className="space-y-2">
-                  <li>Air Purifiers</li>
-                  <li>Vacuum Cleaners</li>
-                  <li>Humidifiers</li>
-                  <li>Fans</li>
-                  <li>Heaters</li>
-                </ul>
+              <div className="">
+                <Link href="">
+                  {" "}
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      textTransform: "uppercase",
+                      borderBottom: "1px solid lightgrey",
+                      paddingBottom: "4px",
+                      "&:hover": {
+                        color: "red",
+                      },
+                    }}
+                  >
+                    Home Appliances
+                  </Typography>
+                </Link>
+                <Box
+                  sx={{
+                    fontSize: "12px",
+                    display: " flex",
+                    flexDirection: "column",
+                    paddingTop: "4px",
+                    color: "gray",
+                  }}
+                >
+                  {homeAppliances.map((happliances) => (
+                    <Link href={happliances.link} key={happliances.name}>
+                      <Typography
+                        sx={{
+                          fontSize: "12px",
+                          "&:hover": {
+                            fontWeight: "bold",
+                            color: "black",
+                          },
+                        }}
+                      >
+                        {happliances.name}
+                      </Typography>
+                    </Link>
+                  ))}
+                </Box>
               </div>
             </div>
           </Box>
