@@ -101,6 +101,7 @@ export default function HoverPopoverPhone() {
         }}
       >
         <IoPhonePortraitOutline className="text-xl" />
+
         <span>Phone & Tablet</span>
       </Box>
       <Popover

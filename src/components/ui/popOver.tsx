@@ -1,3 +1,4 @@
+"use client";
 import Categories from "@/src/components/CategoryList/categories";
 import * as React from "react";
 import Popover from "@mui/material/Popover";

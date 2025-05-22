@@ -6,6 +6,7 @@ import { Poppins } from "next/font/google";
 import AccountMenu from "./AccountMenu/accountMenuItems";
 import SupportMenu from "./SupportMenu/supportMenuItems";
 import MenuPopover from "@/src/components/ui/popOver";
+import Image from "next/image";
 
 const poppins = Poppins({ weight: "600", subsets: ["latin"], display: "swap" });
 
@@ -14,7 +15,15 @@ export default function NavMenu() {
     <div className="w-full bg-white h-[76px] shadow-lg ">
       <div className="flex justify-between items-center  h-full  mx-10">
         <MenuPopover />
-        <h1 className={`text-3xl  ${poppins.className}`}>gaNa</h1>
+        <div className="">
+          <Image
+            src="/images/Logo.png"
+            alt="logo"
+            width={100}
+            height={60}
+            priority={true}
+          />
+        </div>
 
         <form className="flex ml-4">
           <div className="flex border w-[500px] h-[40px] p-1 rounded-md">

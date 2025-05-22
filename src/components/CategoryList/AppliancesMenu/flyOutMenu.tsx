@@ -10,40 +10,43 @@ export default function HoverPopoverAppliances() {
   const closeTimeout = React.useRef<NodeJS.Timeout | null>(null);
 
   const smallAppliances = [
-    { name: "Blenders", link: "/blenders" },
-    { name: "Deep Fryers", link: "/deep" },
-    { name: "Juicers", link: "/juicer" },
-    { name: " Air Fryers", link: "/airFryers" },
-    { name: " Rice Cookers", link: "/riceCookers" },
-    { name: "Toasters & Oven", link: "/toastersOven" },
-    { name: "Microwaves", link: "/microwaves" },
-    { name: "Bundles", link: "/bundles" },
-    { name: "Vacuum Cleaners", link: "/vacuumCleaner" },
-    { name: "Kettles", link: "/kettles" },
-    { name: "Yam Pounders", link: "/yamPounders" },
-    { name: "Irons", link: "/irons" },
-    { name: "Electric Cookware", link: "/electricCookware" },
-    { name: "Electric Drink Mixers", link: "/drinkMixer" },
-    { name: "Food Processors", link: "/foodProcessors" },
-    { name: "Coffee Makers", link: "/coffeeMakers" },
-    { name: " Electric Pressure Cookers", link: "/pressureCookers" },
+    { name: "Blenders", link: "/appliances/blenders" },
+    { name: "Deep Fryers", link: "/appliances/deep-fryers" },
+    { name: "Juicers", link: "/appliances/juicers" },
+    { name: "Air Fryers", link: "/appliances/air-fryers" },
+    { name: "Rice Cookers", link: "/appliances/rice-cookers" },
+    { name: "Toasters & Oven", link: "/appliances/ovens-toasters" },
+    { name: "Microwaves", link: "/appliances/microwaves" },
+    { name: "Bundles", link: "/appliances/bundles" },
+    { name: "Vacuum Cleaners", link: "/appliances/vacuum-cleaners" },
+    { name: "Kettles", link: "/appliances/kettles" },
+    { name: "Yam Pounders", link: "/appliances/yam-pounders" },
+    { name: "Irons", link: "/appliances/ironing-laundry" },
+    { name: "Electric Cookware", link: "/appliances/electric-cookware" },
+    { name: "Electric Drink Mixers", link: "/appliances/mixers" },
+    { name: "Food Processors", link: "/appliances/food-processor" },
+    { name: "Coffee Makers", link: "/appliances/coffee-makers" },
+    { name: "Electric Pressure Cookers", link: "/appliances/pressure-cookers" },
   ];
   const largeAppliances = [
-    { name: "Washing Machines", link: "/ washingMachines" },
-    { name: "Fridges", link: "/fridges" },
-    { name: "Freezers", link: "/freezers" },
-    { name: "Air Conditioners", link: "/airConditioners" },
-    { name: "Heaters", link: "/heaters" },
-    { name: "Fans", link: "/fans" },
-    { name: "Air Purifiers", link: "/purifiers" },
-    { name: "Water Dispensers", link: "/waterDispensers" },
-    { name: "Generators & Inverters", link: "/generators_Inverters" },
+    { name: "Washing Machines", link: "/appliances/washers-dryers" },
+    { name: "Fridges", link: "/appliances/fridges-freezers" },
+    { name: "Freezers", link: "/appliances/fridges-freezers" },
+    { name: "Air Conditioners", link: "/appliances/air-conditioners" },
+    { name: "Heaters", link: "/appliances/space-heaters-accessories" },
+    { name: "Fans", link: "/appliances/fans" },
+    { name: "Air Purifiers", link: "/appliances/air-purifiers" },
+    { name: "Water Dispensers", link: "#" },
+    {
+      name: "Generators & Inverters",
+      link: "#",
+    },
   ];
   const homeAppliances = [
-    { name: "Nexus", link: "/nexus" },
-    { name: "Hisense", link: "/hisense" },
-    { name: "Polystar", link: "/polystar" },
-    { name: "TCL", link: "/tcl" },
+    { name: "Nexus", link: "/appliances/official_Store/nexus" },
+    { name: "Hisense", link: "/appliances/official_Store/hisense" },
+    { name: "Polystar", link: "#" },
+    { name: "TCL", link: "#" },
   ];
   const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
     if (closeTimeout.current) {
@@ -70,10 +73,8 @@ export default function HoverPopoverAppliances() {
         sx={{
           fontSize: "12px",
           display: "flex",
-          gap: "4px",
           width: "208px",
           height: "37px",
-          paddingLeft: "8px",
           alignItems: "center",
           cursor: "pointer",
           "&:hover": {
@@ -81,8 +82,14 @@ export default function HoverPopoverAppliances() {
           },
         }}
       >
-        <LuCookingPot className="text-xl" />
-        <span>Appliances</span>
+        <Link
+          href="/appliances"
+          className="flex w-full h-full pl-2 items-center gap-[6px]"
+        >
+          <LuCookingPot className="text-xl" />
+
+          <span>Appliances</span>
+        </Link>
       </Box>
       <Popover
         id="mouse-over-popover"

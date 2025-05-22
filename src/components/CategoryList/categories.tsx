@@ -16,36 +16,44 @@ import HoverPopoverAppliances from "./AppliancesMenu/flyOutMenu";
 export default function categories() {
   return (
     <div className="flex flex-col rounded-md  w-[210px] h-full">
-      <Link href="/appliances" className="w-full">
+      <div className="w-full">
+        {/* <Link href="/appliances" className="w-full"> */}
         <HoverPopoverAppliances />
-      </Link>
-      <Link href="#" className="w-full">
+        {/* </Link> */}
+      </div>
+      <div className="w-full">
+        {/* <Link href="#"> */}
         <HoverPopoverPhone />
-      </Link>
-      <Link href="#" className="w-full">
+        {/* </Link> */}
+      </div>
+      <div className="w-full">
+        {/* <Link href="#"> */}
         <HoverPopoverHealth />
-      </Link>
-      <Link href="#" className="w-full">
+        {/* </Link> */}
+      </div>
+      <div className="w-full">
+        {/* <Link href="#"> */}
         <HoverPopoverHome />
-      </Link>
-      <Link href="#" className="w-full">
+        {/* </Link> */}
+      </div>
+      <div className="w-full">
         <HoverPopoverElectronics />
-      </Link>
-      <Link href="#" className="w-full">
+      </div>
+      <div className="w-full">
         <HoverPopoverFashions />
-      </Link>
-      <Link href="#" className="w-full">
+      </div>
+      <div className="w-full">
         <HoverPopoverComputing />
-      </Link>
-      <Link href="#" className="w-full">
+      </div>
+      <div className="w-full">
         <HoverPopoverBaby />
-      </Link>
-      <Link href="#" className="w-full">
+      </div>
+      <div className="w-full">
         <HoverPopoverGaming />
-      </Link>
-      <Link href="#" className="w-full">
+      </div>
+      <div className="w-full">
         <HoverPopoverOther />
-      </Link>
+      </div>
     </div>
   );
 }

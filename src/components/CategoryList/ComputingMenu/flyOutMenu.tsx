@@ -27,7 +27,7 @@ export default function HoverPopoverComputing() {
   ];
 
   const printer = [
-    { name: " Inkjet Printers", link: "/inkjet-printer" },
+    { name: "Inkjet Printers", link: "/inkjet-printer" },
     { name: "Laser Printers", link: "/laser-printer" },
     { name: "Printer Ink & Toner", link: "/printer_ink & toner" },
   ];
@@ -41,13 +41,12 @@ export default function HoverPopoverComputing() {
     { name: "Scanners", link: "/scanners" },
     { name: "Video Projectors", link: "/video_projectors" },
     { name: "Bluetooth Keyboards", link: "/bluetooth_keyboard" },
-    { name: " Bluetooth Mouse", link: "/bluetooth_mouse" },
+    { name: "Bluetooth Mouse", link: "/bluetooth_mouse" },
   ];
 
   const brand = [
     { name: "HP", link: "/hp" },
     { name: "Lenovo", link: "/lenovo" },
-    { name: "Apple", link: "/apple" },
     { name: "Apple", link: "/apple" },
     { name: "ASUS", link: "/asus" },
     { name: "Huawei", link: "/huawei" },
@@ -96,7 +95,9 @@ export default function HoverPopoverComputing() {
         }}
       >
         <FaTv className="text-xl" />
-        <span> Computing </span>
+        <Link href="#">
+          <span> Computing </span>
+        </Link>
       </Box>
       <Popover
         id="mouse-over-popover"
@@ -153,8 +154,9 @@ export default function HoverPopoverComputing() {
                 sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
               >
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -178,8 +180,9 @@ export default function HoverPopoverComputing() {
                     }}
                   >
                     {computer.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {
@@ -195,8 +198,9 @@ export default function HoverPopoverComputing() {
                   </Box>
                 </div>
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -220,8 +224,9 @@ export default function HoverPopoverComputing() {
                     }}
                   >
                     {data.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {
@@ -241,8 +246,9 @@ export default function HoverPopoverComputing() {
                 sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
               >
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -266,8 +272,9 @@ export default function HoverPopoverComputing() {
                     }}
                   >
                     {printer.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {
@@ -283,8 +290,9 @@ export default function HoverPopoverComputing() {
                   </Box>
                 </div>
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -308,8 +316,9 @@ export default function HoverPopoverComputing() {
                     }}
                   >
                     {Accessories.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {
@@ -329,8 +338,9 @@ export default function HoverPopoverComputing() {
                 sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
               >
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -354,8 +364,9 @@ export default function HoverPopoverComputing() {
                     }}
                   >
                     {brand.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {

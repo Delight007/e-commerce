@@ -1,0 +1,36 @@
+import Link from "next/link";
+import React from "react";
+
+export default function Category() {
+  const categories = [
+    { name: "Coffee Machines", link: "#" },
+    { name: "French Presses", link: "#" },
+    { name: "Percolators", link: "#" },
+    { name: "Single-Serve Brewers", link: "#" },
+  ];
+
+  return (
+    <div>
+      <div className=" py-2 px-4">
+        <h2 className="uppercase font-semibold text-[13px] ">Category</h2>
+      </div>
+      <div className="hover:bg-black/10  px-4 py-[6px] text-sm">
+        <Link href="#">Coffee, Tea & Espresso</Link>
+      </div>
+      <div className="hover:bg-black/10  font-medium px-4 py-[6px] text-sm">
+        <Link href="#">Coffee Makers</Link>
+      </div>
+
+      <div>
+        {categories.map((category) => (
+          <div
+            key={category.name}
+            className="hover:bg-black/10  px-6 py-[6px] text-sm"
+          >
+            <Link href={category.link}>{category.name}</Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

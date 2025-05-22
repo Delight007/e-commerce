@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
+import { CgChevronDown } from "react-icons/cg";
 
 interface MenuItemProps {
   icon?: React.ReactNode;
@@ -50,6 +51,7 @@ export default function BasicMenu({
           textTransform: "capitalize",
           display: "flex",
           gap: "8px",
+          background: open ? "lightgray" : "transparent",
           "&:hover": {
             color: "red",
             backgroundColor: "transparent",
@@ -57,14 +59,15 @@ export default function BasicMenu({
           "&:active": {
             backgroundColor: "lightgray",
           },
-          "&:focus": {
-            outline: "none",
-            backgroundColor: "lightgray",
-          },
         }}
       >
         <span className="text-2xl"> {buttonIcon && buttonIcon}</span>
-        {buttonText}
+        <span> {buttonText}</span>
+        <CgChevronDown
+          className={`transition-transform duration-300 ml-2 ${
+            open ? "rotate-180" : ""
+          }`}
+        />
       </Button>
       <Menu
         id="basic-menu"
@@ -80,6 +83,7 @@ export default function BasicMenu({
             borderRadius: "8px",
           },
         }}
+        disableScrollLock={true}
       >
         <MenuItem
           sx={{

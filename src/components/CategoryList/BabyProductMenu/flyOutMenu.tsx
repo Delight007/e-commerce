@@ -84,7 +84,9 @@ export default function HoverPopoverBaby() {
         }}
       >
         <LuBaby className="text-xl" />
-        <span>Baby Products</span>
+        <Link href="">
+          <span>Baby Products</span>
+        </Link>
       </Box>
       <Popover
         id="mouse-over-popover"

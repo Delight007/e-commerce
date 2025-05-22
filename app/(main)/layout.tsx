@@ -1,13 +1,17 @@
-import React from "react";
+import { ClassNames } from "@emotion/react";
 import NavMenu from "./Navbar/navbar";
 
-export default function ({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
-      <body>
+    <>
+      <header className="w-full fixed top-0 z-50">
         <NavMenu />
-        {children}
-      </body>
-    </html>
+      </header>
+      <main className="pt-24 mx-[40px]">{children}</main>
+    </>
   );
 }

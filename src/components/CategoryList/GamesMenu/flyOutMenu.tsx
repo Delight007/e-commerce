@@ -81,7 +81,9 @@ export default function HoverPopoverGaming() {
         }}
       >
         <IoGameControllerOutline className="text-xl" />
-        <span>Gaming</span>
+        <Link href="#">
+          <span>Gaming</span>
+        </Link>
       </Box>
       <Popover
         id="mouse-over-popover"

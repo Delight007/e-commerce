@@ -103,7 +103,9 @@ export default function HoverPopoverFashions() {
         }}
       >
         <LiaTshirtSolid className="text-xl" />
-        <span>Fashion</span>
+        <Link href="#">
+          <span>Fashion</span>
+        </Link>
       </Box>
       <Popover
         id="mouse-over-popover"

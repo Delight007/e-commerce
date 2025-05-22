@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import QueryProvider from "@/src/components/query-provider/query-provider";
 
 import { Roboto } from "next/font/google";
+
+import ClientOnly from "./clientOnly";
 
 const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-roboto",
 });
 export const metadata: Metadata = {
   title: "E-commerce",
@@ -20,8 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} ${roboto.className} antialiased`}>
-        {children}
+      <body className={`${roboto.variable}  antialiased`}>
+        <QueryProvider>
+          <ClientOnly>{children}</ClientOnly>
+        </QueryProvider>
       </body>
     </html>
   );
