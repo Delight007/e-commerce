@@ -1,6 +1,7 @@
 import React from "react";
 import RangeSidebar from "./sidebar";
 import RangeProducts from "./mainProducts";
+import MoreProducts from "./moreProducts";
 
 export default function page() {
   return (
@@ -15,6 +16,9 @@ export default function page() {
         <div>
           <RangeProducts />
         </div>
+      </div>
+      <div>
+        <MoreProducts />
       </div>
     </div>
   );

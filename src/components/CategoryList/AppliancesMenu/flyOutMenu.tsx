@@ -143,7 +143,7 @@ export default function HoverPopoverAppliances() {
           >
             <div className="grid grid-cols-3 gap-2 ">
               <div className="">
-                <Link href="#">
+                <Link href="/appliances/small-appliances">
                   <Typography
                     sx={{
                       fontSize: "12px",
@@ -186,7 +186,7 @@ export default function HoverPopoverAppliances() {
                 </Box>
               </div>
               <div className="">
-                <Link href="">
+                <Link href="/appliances/large-appliances">
                   <Typography
                     sx={{
                       fontSize: "12px",
@@ -228,7 +228,7 @@ export default function HoverPopoverAppliances() {
                 </Box>
               </div>
               <div className="">
-                <Link href="">
+                <Link href="/appliances">
                   {" "}
                   <Typography
                     sx={{

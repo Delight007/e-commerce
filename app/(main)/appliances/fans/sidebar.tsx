@@ -6,8 +6,9 @@ import Rating from "@/src/components/productRating/rating";
 import OfficialStore from "@/src/components/officialStore/officialStore";
 import SellerScore from "@/src/components/sellerScore/score";
 import Category from "./components/category";
-import DishWasherBrand from "./components/brand/brand";
 import FanBrand from "./components/brand/brand";
+import Color from "./components/color/color";
+import Material from "@/src/components/material/material";
 
 // import FridgesFreezersBrand from "./components/brand/brand";
 
@@ -20,22 +21,24 @@ export default function FanSidebar() {
           <Category />
         </div>
 
-        {/* XDdelivery */}
-        <div className="w-full  border-b px-2 pt-1">
-          <Xdelivery />
-        </div>
-
-        {/* Shipped */}
-        <div className="w-full  border-b px-2 pt-1">
-          <div className="px-2 py-1">
-            <Shipped />
+        {/* Color */}
+        <div className="w-full h-[250px] border-b px-2 pt-1 ">
+          <div className="px-2 pt-1">
+            <Color />
           </div>
         </div>
 
         {/* Brand */}
-        <div className="w-full h-[280px] border-b px-2 pt-1 ">
+        <div className="w-full h-[290px] border-b px-2 pt-1 ">
           <div className="px-2 py-1">
             <FanBrand />
+          </div>
+        </div>
+
+        {/* material family */}
+        <div className="w-full h-[290px] border-b px-2 pt-1 ">
+          <div className="px-2 py-1">
+            <Material />
           </div>
         </div>
 
@@ -57,6 +60,18 @@ export default function FanSidebar() {
         <div className="w-full  border-b px-2 py-1 ">
           <div className=" px-2 py-1">
             <SellerScore />
+          </div>
+        </div>
+
+        {/* XDdelivery */}
+        <div className="w-full  border-b px-2 pt-1">
+          <Xdelivery />
+        </div>
+
+        {/* Shipped */}
+        <div className="w-full  border-b px-2 pt-1">
+          <div className="px-2 py-1">
+            <Shipped />
           </div>
         </div>
 

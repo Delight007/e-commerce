@@ -64,7 +64,7 @@ export default function CookingDeals() {
           see all <MdOutlineKeyboardArrowRight className="ml-[4px]" />
         </span>
       </h2>
-      <div className="w-full h-[261px] bg-white rounded-b-md gap-1 py-1 px-2">
+      <div className="w-full h-[265px] bg-white rounded-b-md gap-1 py-1 px-2">
         {products && products.length > 0 && (
           <div className="syinix relative group ">
             {/* Custom Navigation Buttons */}

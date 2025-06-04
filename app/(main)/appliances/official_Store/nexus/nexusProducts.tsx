@@ -26,7 +26,7 @@ export default function NexusProducts() {
   const [currentPage, setCurrentPage] = useState(1);
   return (
     <div>
-      <div className="w-[880px] h-[4800px] rounded-md bg-white relative">
+      <div className="w-[880px] h-auto min-h-[4000px] rounded-md bg-white relative">
         <div className="w-full h-[60px] border-b">
           <NexusBar1 totalProducts={totalProducts} />
         </div>

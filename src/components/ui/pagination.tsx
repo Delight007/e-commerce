@@ -21,7 +21,7 @@ export default function PaginationButtons({
   return (
     <Stack spacing={2} className="mt-4 flex justify-center">
       <Pagination
-        count={totalPages}
+        count={6}
         page={page}
         onChange={handleChange}
         variant="outlined"

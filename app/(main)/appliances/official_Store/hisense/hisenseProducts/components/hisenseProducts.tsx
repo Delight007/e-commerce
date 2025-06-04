@@ -31,7 +31,7 @@ export default function HisenseProducts() {
   const [currentPage, setCurrentPage] = useState(1);
   return (
     <div>
-      <div className="w-[880px] h-[4800px] rounded-md bg-white relative">
+      <div className="w-[880px] h-auto min-h-[4000px] rounded-md bg-white relative">
         <div className="w-full h-[60px] border-b">
           <HisenseBarTo2 totalProducts={totalProducts} />
         </div>
@@ -49,7 +49,7 @@ export default function HisenseProducts() {
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalPages={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
           />
         </div>
       </div>

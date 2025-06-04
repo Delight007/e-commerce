@@ -34,7 +34,7 @@ export default function BinatoneProducts() {
   const [currentPage, setCurrentPage] = useState(1);
   return (
     <div>
-      <div className="w-[880px] h-auto min-h-[1300px]  rounded-md bg-white relative">
+      <div className="w-[880px] h-auto min-h-[1800px]  rounded-md bg-white relative">
         <div className="w-full h-[60px] border-b">
           <BinatoneBar1 totalProducts={totalProducts} />
         </div>
@@ -52,7 +52,7 @@ export default function BinatoneProducts() {
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalPages={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
           />
         </div>
       </div>

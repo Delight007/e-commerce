@@ -5,6 +5,7 @@ import Category from "./components/nexusCategory";
 import NexusCategory from "./category/category";
 import NexusSidebar from "./sidebar";
 import NexusProducts from "./nexusProducts";
+import MoreProducts from "./moreProducts";
 
 export default function nexus() {
   return (
@@ -23,6 +24,9 @@ export default function nexus() {
         <div>
           <NexusProducts />
         </div>
+      </div>
+      <div>
+        <MoreProducts />
       </div>
     </div>
   );

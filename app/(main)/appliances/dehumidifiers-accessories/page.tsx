@@ -1,6 +1,7 @@
 import React from "react";
 import DehumidifierSidebar from "./sidebar";
 import DehumidifierProducts from "./mainProducts";
+import MoreProducts from "./moreProducts";
 export default function page() {
   return (
     <div className="w-full">
@@ -13,6 +14,9 @@ export default function page() {
         <div>
           <DehumidifierProducts />
         </div>
+      </div>
+      <div>
+        <MoreProducts />
       </div>
     </div>
   );

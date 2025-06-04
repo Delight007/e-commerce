@@ -11,7 +11,7 @@ export default function FanBrand() {
           <h2 className="uppercase font-semibold text-[13px] ">Brand</h2>
         </div>
 
-        <div className="flex border w-[262px] h-[35px] p-1 rounded-2xl">
+        <div className="flex border w-[250px] h-[35px] p-1 rounded-2xl">
           <IoMdSearch className="text-2xl flex justify-center items-center" />
           <input
             type="search"
@@ -22,7 +22,7 @@ export default function FanBrand() {
       </div>
 
       {/* brand names */}
-      <div className="overflow-y-auto overflow-x-hidden h-[198px]  scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 mt-1">
+      <div className=" custom-scrollbar overflow-y-auto overflow-x-hidden h-[198px]  mt-1 pb-1">
         <BrandName />
       </div>
     </div>

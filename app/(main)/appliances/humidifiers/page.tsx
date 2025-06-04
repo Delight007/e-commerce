@@ -3,6 +3,7 @@ import DishWasherSidebar from "./sidebar";
 // import DishWasherProducts from "./mainProducts";
 import HumidifierSidebar from "./sidebar";
 import HumidifierProducts from "./mainProducts";
+import MoreProducts from "./moreProducts";
 
 export default function page() {
   return (
@@ -17,6 +18,9 @@ export default function page() {
         <div>
           <HumidifierProducts />
         </div>
+      </div>
+      <div>
+        <MoreProducts />
       </div>
     </div>
   );

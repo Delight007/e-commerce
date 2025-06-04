@@ -112,7 +112,7 @@ export default function KitchenAppliances() {
           </Link>
         </div>
         <div className="group w-[180px] h-[245px] bg-white rounded-md  flex justify-center items-center mt-1">
-          <Link href="#">
+          <Link href="/appliances/range-hoods">
             <div className="relative w-[180px] h-[245px]  group-hover:scale-102 ">
               {imageLoading && (
                 <div className="absolute w-full h-full bg-gray-200 animate-pulse rounded-md"></div>

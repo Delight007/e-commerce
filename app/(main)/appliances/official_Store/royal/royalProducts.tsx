@@ -46,7 +46,7 @@ export default function RoyalProducts() {
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalPages={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
           />
         </div>
       </div>

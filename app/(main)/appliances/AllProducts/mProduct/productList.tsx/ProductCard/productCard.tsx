@@ -20,7 +20,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
   const [imageLoading, setImageLoading] = React.useState(true);
   return (
     <div className=" relative">
-      <Link href="#">
+      <Link href={`/appliances/${product.id}`}>
         <div className="rounded-lg w-[208px] h-[440px] flex flex-col items-center group cursor-pointer relative transition-shadow hover:scale-[1.02] duration-300 hover:shadow-[0px_2px_6px_rgba(200,200,200,0.2),0px_-2px_6px_rgba(200,200,200,0.2),2px_0px_6px_rgba(200,200,200,0.2),-2px_0px_6px_rgba(220,220,220,0.2)]">
           <div className="flex flex-col gap-1">
             <div className="relative w-[206px] h-[206px]">

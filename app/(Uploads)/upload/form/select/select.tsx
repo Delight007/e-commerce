@@ -46,7 +46,7 @@ const categoryData: Record<
       "Eurosonic",
       "Scanfrost",
     ],
-    subCategories: ["Small Appliance", "Large Appliances", "Home Appliances"],
+    subCategories: ["Small Appliances", "Large Appliances", "Home Appliances"],
   },
   "Phone & Tablet": {
     brands: ["Apple", "Samsung", "OnePlus", "Techno", "Itel", "Xiaomi"],

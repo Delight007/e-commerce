@@ -5,6 +5,7 @@ import HisenseCategory from "./category/category1";
 import HisenseCategory2 from "./category/category2";
 import HisenseSidebar from "./hisenseProducts/sidebar";
 import HisenseProducts from "./hisenseProducts/components/hisenseProducts";
+import MoreProducts from "./moreProducts";
 
 export default function hisense() {
   const [imageLoading, setImageLoading] = React.useState(true);
@@ -43,6 +44,9 @@ export default function hisense() {
         <div>
           <HisenseProducts />
         </div>
+      </div>
+      <div>
+        <MoreProducts />
       </div>
     </div>
     // </>
