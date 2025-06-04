@@ -16,7 +16,7 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get("page") || "1");
-    const limitCount = parseInt(searchParams.get("limit") || "10");
+    const limitCount = parseInt(searchParams.get("limit") || "40");
     const category = searchParams.get("category");
 
     console.log("Received API request: ", { page, limitCount, category });
