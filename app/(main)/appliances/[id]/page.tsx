@@ -1,4 +1,3 @@
-// "use client";
 import ProductDetails from "@/src/components/productDetails/productDetails";
 import { db } from "@/src/config/firebase";
 import { doc, getDoc } from "firebase/firestore";
@@ -9,7 +8,7 @@ type props = {
 };
 export default async function page({ params }: props) {
   // const [imageLoading, setImageLoading] = React.useState(true);
-  const { id } = params;
+  const id = params.id;
 
   const docRef = doc(db, "Products", id);
   // You can use docRef to fetch product details using Firestore methods
@@ -22,7 +21,10 @@ export default async function page({ params }: props) {
   const product = {
     id: docSnap.id,
     ...productData,
-    createdAt: productData.createdAt?.toDate().toISOString() || null, // convert to string
+    createdAt:
+      typeof productData.createdAt?.toMillis === "function"
+        ? productData.createdAt.toMillis()
+        : null,
   };
   return (
     <div>

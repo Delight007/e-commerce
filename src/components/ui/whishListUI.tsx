@@ -11,7 +11,7 @@ import { FaRegHeart } from "react-icons/fa";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 
-interface ProductProps {
+type ProductProps = {
   product: {
     id: string;
     name: string;
@@ -26,7 +26,7 @@ interface ProductProps {
       [key: string]: any; // Allow other possible fields
     };
   };
-}
+};
 
 const Transition = React.forwardRef(function Transition(
   props: React.ComponentProps<typeof Slide>, // Ensure correct props type
