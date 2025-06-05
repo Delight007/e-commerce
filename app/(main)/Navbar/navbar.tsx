@@ -36,7 +36,7 @@ export default function NavMenu() {
           </div>
           <button
             type="submit"
-            className="bg-red-500 w-[80] h-[40px] text-white text-center font-medium ml-2 rounded-md  hover:bg-red-600"
+            className="bg-red-500 w-[80] h-[40px] text-white text-center font-medium ml-2 rounded-md  hover:bg-red-600 transition-colors duration-300"
           >
             Search
           </button>

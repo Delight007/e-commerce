@@ -1,3 +1,4 @@
+import ProductDetailsProvider from "@/src/components/productDetails/components/context";
 import ProductDetails from "@/src/components/productDetails/productDetails";
 import { db } from "@/src/config/firebase";
 import { doc, getDoc } from "firebase/firestore";
@@ -28,7 +29,9 @@ export default async function page({ params }: props) {
   };
   return (
     <div>
-      <ProductDetails product={product} />
+      <ProductDetailsProvider>
+        <ProductDetails product={product} />
+      </ProductDetailsProvider>
     </div>
   );
 }

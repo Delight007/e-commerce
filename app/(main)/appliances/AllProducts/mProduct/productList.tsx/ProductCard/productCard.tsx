@@ -61,7 +61,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
             </div>
           </div>
           <div className="w-full px-2 pt-2 absolute bottom-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <button className="w-full h-11 bg-red-500 text-white rounded-md  shadow-md shadow-gray-400 text-sm font-semibold ">
+            <button className="w-full h-11 bg-red-500 text-white rounded-md  shadow-md shadow-gray-400 text-sm font-semibold hover:bg-red-600 transition-colors duration-300 ">
               Add to cart
             </button>
           </div>

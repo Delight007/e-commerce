@@ -1,0 +1,289 @@
+"use client";
+import React from "react";
+import { useProductDetailsContext } from "../../context";
+import Delivery from "./delivery";
+
+export default function Location() {
+  const categoryData: Record<string, { city: string[] }> = {
+    Abia: {
+      city: ["Aba", "Aba-Ariaria", "Umuahia"],
+    },
+    Adamawa: {
+      city: ["Yola-Central Location"],
+    },
+    "Akwa Ibom": {
+      city: ["Abak", "Eket", "Ikot Epkene", "Oron", "Uyo"],
+    },
+    Anambra: {
+      city: ["Awka", "Ekwulobia", "Onitsha", "Nnewi", "Ihiala"],
+    },
+    Bauchi: {
+      city: ["Bauchi", "Azare", "Misau"],
+    },
+    Bayelsa: {
+      city: ["Yenagoa", "Brass", "Ogbia"],
+    },
+    Benue: {
+      city: ["Makurdi", "Gboko", "Otukpo"],
+    },
+    Borno: {
+      city: ["Maiduguri", "Bama", "Gubio"],
+    },
+    CrossRiver: {
+      city: ["Calabar", "Ogoja", "Ikom"],
+    },
+    Delta: {
+      city: ["Asaba", "Warri", "Sapele", "Ughelli"],
+    },
+    Ebonyi: {
+      city: ["Abakaliki", "Afikpo", "Onueke"],
+    },
+    Edo: {
+      city: ["Benin City", "Ekpoma", "Irrua"],
+    },
+    Ekiti: {
+      city: ["Ado-Ekiti", "Ikere-Ekiti", "Ilesa"],
+    },
+    Enugu: {
+      city: ["Enugu", "Nsukka", "Udi"],
+    },
+    "Federal Capital Territory": {
+      city: ["Abuja", "Gwagwalada", "Kuje", "Bwari", "Wuse"],
+    },
+    Gombe: {
+      city: ["Gombe", "Bauchi", "Kaltungo"],
+    },
+    Imo: {
+      city: ["Owerri", "Orlu", "Okigwe"],
+    },
+    Jigawa: {
+      city: ["Dutse", "Hadejia", "Gumel"],
+    },
+    Kaduna: {
+      city: ["Kaduna", "Zaria", "Kafanchan"],
+    },
+    Kano: {
+      city: ["Kano", "Wudil", "Bichi"],
+    },
+    Katsina: {
+      city: ["Katsina", "Daura", "Funtua"],
+    },
+    Kebbi: {
+      city: ["Birnin Kebbi", "Argungu", "Zuru"],
+    },
+    Kogi: {
+      city: ["Lokoja", "Idah", "Anyigba"],
+    },
+    Kwara: {
+      city: ["Ilorin", "Offa", "Omu-Aran"],
+    },
+    Lagos: {
+      city: [
+        "Abule Egba",
+        "Agege",
+        "Agungi",
+        "Ajah",
+        "Ajegunle",
+        "Ajangbadi",
+        "Ajao Estate",
+        "Alaba International",
+        "Alagbado",
+        "Alakuko",
+        "Alapere",
+        "Amukoko",
+        "Anthony Village",
+        "Apapa",
+        "Awolowo Road",
+        "Awoyaya",
+        "Badagry",
+        "Bariga",
+        "Berger",
+        "Bishop Aboyade Cole",
+        "Bishop Durosimi",
+        "Chisco",
+        "Coker",
+        "Daleko Market",
+        "Dolphin",
+        "Dopemu",
+        "Egbeda",
+        "Ejigbo",
+        "Eleko Junction",
+        "Epe",
+        "Festac",
+        "Fola Osibo",
+        "Gbagada",
+        "Glover Road",
+        "GRA Ikeja",
+        "Herbert Macaulay Way",
+        "Ifako",
+        "Iganmu",
+        "Igando",
+        "Igbogbo",
+        "Igboefon",
+        "Ijede",
+        "Ijesha",
+        "Ijora",
+        "Ikate Elegushi",
+        "Ikeja",
+        "Ikorodu",
+        "Ikosi Road",
+        "Ikota",
+        "Ikotun",
+        "Ilupeju",
+        "Ilasan",
+        "Ilasamaja",
+        "Ile Epo",
+        "Iponri",
+        "Isheri",
+        "Isolo",
+        "Itire",
+        "Jakande",
+        "Jibowu",
+        "Ketu",
+        "Kingsway Road",
+        "Ladipo Road",
+        "Lakowe",
+        "Lawanson",
+        "Lekki Phase 1",
+        "Lekki-Ajah",
+        "Magodo",
+        "Mangoro",
+        "Marina",
+        "Maruwa",
+        "Maryland",
+        "Masha",
+        "Meiran Road",
+        "Mile 12",
+        "Mile 2",
+        "Mushin",
+        "New Oko Oba",
+        "Oba-Akran",
+        "Obalende",
+        "Ogba",
+        "Ogijo",
+        "Ogudu",
+        "Ojo",
+        "Ojodu",
+        "Ojokoro",
+        "Ojota",
+        "Okokomaiko",
+        "Okota",
+        "Omole Phase 1",
+        "Omole Phase 2",
+        "Onike",
+        "Oniru",
+        "Oniru Estate",
+        "Onikan",
+        "Orile",
+        "Osapa London",
+        "Oshodi",
+        "Oyingbo",
+        "Palm Avenue",
+        "Parkview",
+        "Pedro",
+        "Pipeline",
+        "Sabo",
+        "Sangotedo",
+        "Satellite Town",
+        "Sawmill",
+        "Shasha",
+        "Shogunle",
+        "Sholuyi",
+        "Somolu",
+        "Sura",
+        "Surulere",
+        "Tejuosho",
+        "Tincan",
+        "Trade Fair",
+        "Unilag",
+        "University Road",
+        "Victoria Island",
+        "VGC",
+        "Warf Road",
+        "Yaba",
+        "Yabatech",
+      ],
+    },
+    Nasarawa: {
+      city: ["Lafia", "Keffi", "Akwanga"],
+    },
+    Niger: {
+      city: ["Minna", "Bida", "Kontagora"],
+    },
+    Ogun: {
+      city: ["Abeokuta", "Ijebu Ode", "Sagamu", "Ota", "Ilaro"],
+    },
+    Ondo: {
+      city: ["Akure", "Ondo", "Owo"],
+    },
+    Osun: {
+      city: ["Osogbo", "Ilesa", "Ife", "Iwo"],
+    },
+    Oyo: {
+      city: ["Ibadan", "Oyo", "Ogbomosho", "Saki", "Iseyin"],
+    },
+    Plateau: {
+      city: ["Jos", "Bukuru", "Pankshin"],
+    },
+    Rivers: {
+      city: ["Port Harcourt", "Obio-Akpor", "Eleme", "Oyigbo"],
+    },
+    Sokoto: {
+      city: ["Sokoto", "Gwadabawa", "Tambuwal"],
+    },
+    Taraba: {
+      city: ["Jalingo", "Wukari", "Bali"],
+    },
+    Yobe: {
+      city: ["Damaturu", "Potiskum", "Gashua"],
+    },
+    Zamfara: {
+      city: ["Gusau", "Talata Mafara", "Anka"],
+    },
+  };
+
+  const { selectedCity, selectedState, setSelectedCity, setSelectedState } =
+    useProductDetailsContext();
+  return (
+    <div>
+      <h2 className="font-medium text-base">Choose your location</h2>
+      <div>
+        <div className="py-2">
+          <select
+            value={selectedState}
+            onChange={(e) => setSelectedState(e.target.value)}
+            className="p-2 border-2 border-gray-500  shadow-md rounded-md w-full h-[48px] outline-none focus:border-red-500  cursor-pointer"
+          >
+            {/* <option value="">Please Select</option> */}
+            {Object.keys(categoryData).map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="py-2">
+          {/* City */}
+          <select
+            className="p-2 border-2 border-gray-500 w-full h-[48px] shadow-md rounded-md outline-none focus:border-red-500 cursor-pointer"
+            value={selectedCity}
+            onChange={(e) => setSelectedCity(e.target.value)}
+            disabled={!selectedState}
+          >
+            <option value="">Please Select</option>
+            {selectedState &&
+              categoryData[selectedState]?.city.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+          </select>
+        </div>
+        <div>
+          <Delivery />
+        </div>
+      </div>
+    </div>
+  );
+}

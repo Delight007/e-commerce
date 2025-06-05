@@ -157,7 +157,7 @@ export default function MainDetails({ product }: { product: ProductType }) {
 
           {/* Add Cart  Button  */}
           <div className="border-b pt-2 pb-4">
-            <button className="w-full h-[48px] bg-red-400 rounded-md shadow-md  shadow-gray-400 px-4 py-3 flex justify-start items-center">
+            <button className="w-full h-[48px] bg-red-500 rounded-md shadow-md  shadow-gray-400 px-4 py-3 flex justify-start items-center hover:bg-red-600 transition-colors duration-300">
               <MdOutlineAddShoppingCart className="text-white font-medium text-2xl" />
 
               <span className="text-white  text-sm flex-1 text-center font-medium">
