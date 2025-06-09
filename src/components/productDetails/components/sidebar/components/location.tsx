@@ -254,7 +254,7 @@ export default function Location() {
             onChange={(e) => setSelectedState(e.target.value)}
             className="p-2 border-2 border-gray-500  shadow-md rounded-md w-full h-[48px] outline-none focus:border-red-500  cursor-pointer"
           >
-            {/* <option value="">Please Select</option> */}
+            <option value="">Please Select</option>
             {Object.keys(categoryData).map((category) => (
               <option key={category} value={category}>
                 {category}

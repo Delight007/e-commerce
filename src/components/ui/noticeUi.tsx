@@ -23,7 +23,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export default function NoticeI() {
+export default function NoticeUi() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -57,7 +57,7 @@ export default function NoticeI() {
           },
         }}
       >
-        <RiInformationLine className="ml-28 text-lg font-extrabold " />
+        <RiInformationLine className=" ml-4 text-lg font-extrabold text-gray-500 " />
       </Box>
       <BootstrapDialog
         onClose={handleClose}
@@ -83,9 +83,9 @@ export default function NoticeI() {
         <DialogContent dividers>
           <Box sx={{}}>
             <h2 className={`text-lg font-bold py-5 `}>
-              <span className={`${fugazOne.className}`}>gana</span>
+              <span className={`${fugazOne.className}`}>Seller</span>
               <span className={`${fugazOne.className} text-red-500  uppercase`}>
-                Express
+                Performance
               </span>
             </h2>
             <Typography gutterBottom>

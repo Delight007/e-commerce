@@ -63,8 +63,9 @@ export default function SwiperComponent() {
                 // width={700}
                 // height={380}
                 fill
-                sizes="700px 380px"
+                // sizes="700px 380px"
                 priority={true}
+                sizes="(max-width: 700px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={`w-full h-auto transition-opacity duration-300 ${
                   imageLoading ? "opacity-0" : "opacity-100"
                 }`}

@@ -4,7 +4,7 @@ import SwiperComponent from "@/src/components/Swipper/SwiperComponent";
 import Categories from "@/src/components/CategoryList/categories";
 import MoreDetailst from "@/src/components/MoreDetails/moreDetailst";
 import Deals from "@/src/components/Deals/Deal";
-import Navbar from "./components/navbar/navbar";
+import Navbar from "@/src/components/navbar/navbar";
 
 export default function Home() {
   return (

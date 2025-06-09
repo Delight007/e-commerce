@@ -37,7 +37,7 @@ export default function MainDetails({ product }: { product: ProductType }) {
     : "Out of stock";
 
   return (
-    <div className="bg-white h-[807px] w-[888px]  p-2 rounded-md flex ">
+    <div className="bg-white h-[807px] w-[872px]  p-2 rounded-md flex ">
       <div className="w-[300px] h-auto  py-1 mx-2 ">
         {/* Main Product image */}
         <div className="relative w-[300px] h-auto pt-1 pb-2">

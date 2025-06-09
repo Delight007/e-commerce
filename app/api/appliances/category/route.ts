@@ -12,7 +12,10 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   try {
-    const brand = "Skyrun";
+    // Extract search parameters from the request URL
+    const { searchParams } = new URL(request.url);
+    const brand = searchParams.get("brand");
+
     if (!brand) {
       return NextResponse.json(
         { message: "Brand query parameter is required" },

@@ -24,7 +24,7 @@ type Product = {
 };
 
 const fetchProducts = async (): Promise<Product[]> => {
-  const response = await fetch(`/api/appliances/category/binatone`);
+  const response = await fetch(`/api/appliances/category?brand=Binatone`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch products");

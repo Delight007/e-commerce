@@ -54,6 +54,8 @@ export type GlobalContextType = {
   setUploadedExtraImages: (urls: string[]) => void;
   handleImageUpload: (e: ChangeEvent<HTMLInputElement>) => void;
   handleExtraImagesUpload: (e: ChangeEvent<HTMLInputElement>) => void;
+  warranty: string;
+  setWarranty: (warranty: string) => void;
 };
 
 // create context
@@ -94,6 +96,7 @@ export default function GlobalProvider({ children }: { children: ReactNode }) {
     {}
   );
   const [isDeal, setIsDeal] = useState<boolean>(false);
+  const [warranty, setWarranty] = useState<string>("");
 
   // Function to handle price change
   function handlePriceChange(e: ChangeEvent<HTMLInputElement>) {
@@ -220,6 +223,8 @@ export default function GlobalProvider({ children }: { children: ReactNode }) {
         formatSpecifications,
         handleImageUpload,
         handleExtraImagesUpload,
+        warranty,
+        setWarranty,
       }}
     >
       {children}

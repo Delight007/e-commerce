@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import PaginationButtons from "@/src/components/ui/pagination"; // Your existing MUI pagination component
 import BarTop from "./bar/bar";
 import BarTop2 from "./bar/bar2";
-import ProductsList from "./productList.tsx/productList"; // Updated ProductsList component
+import ProductsList from "./productList.tsx/productList";
+// Updated ProductsList component
 
 const ITEMS_PER_PAGE = 40; // Number of products to display per page
 // const category = "Appliances";

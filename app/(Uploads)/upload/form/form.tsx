@@ -26,6 +26,7 @@ type ProductData = {
   subCategory: string;
   createdAt: string;
   isDeal?: boolean;
+  warranty?: string;
 };
 
 export default function Form() {
@@ -63,6 +64,8 @@ export default function Form() {
     formatSpecifications,
     isDeal,
     setIsDeal,
+    warranty,
+    setWarranty,
   } = useGlobalContext();
 
   // upload images to cloudinary and return its url
@@ -176,6 +179,7 @@ export default function Form() {
         extraImages: extraImageURLs,
         createdAt: new Date().toISOString(),
         isDeal,
+        warranty,
       };
 
       await addDoc(collection(db, "Products"), ProductDetails);

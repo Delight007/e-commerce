@@ -12,7 +12,10 @@ export default function Inputs() {
     handleOffPercentChange,
     isDeal,
     setIsDeal,
+    warranty,
+    setWarranty,
   } = useGlobalContext();
+
   return (
     <div className="flex flex-col gap-2">
       <input
@@ -56,6 +59,14 @@ export default function Inputs() {
         />
         <span className="text-red-500 text-[14px]">Mark as Deal Product!!</span>
       </label>
+
+      <input
+        type="text"
+        value={warranty}
+        onChange={(e) => setWarranty(e.target.value)}
+        className="p-2 border w-full shadow-md rounded-md focus:outline-none"
+        placeholder="Warranty (e.g., 1 year, 6 months, etc.)"
+      />
     </div>
   );
 }
