@@ -1,13 +1,9 @@
-import NavMenu from "./Navbar/navbar";
-import { CssBaseline, Fab } from "@mui/material";
-import ScrollTop from "./appliances/air-conditioners/components/scrollTop";
+import { Fab } from "@mui/material";
 import { MdKeyboardArrowUp } from "react-icons/md";
+import ScrollTop from "./appliances/air-conditioners/components/scrollTop";
+import NavMenu from "./Navbar/navbar";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       {/* <CssBaseline /> */}
@@ -30,3 +26,4 @@ export default function RootLayout({
     </>
   );
 }
+export default RootLayout;

@@ -1,10 +1,9 @@
-import { it } from "node:test";
 import {
+  ChangeEvent,
   createContext,
   ReactNode,
   useContext,
   useState,
-  ChangeEvent,
 } from "react";
 
 // what context should contain
@@ -104,7 +103,7 @@ export default function GlobalProvider({ children }: { children: ReactNode }) {
 
   // Function to handle price change
   function handlePriceChange(e: ChangeEvent<HTMLInputElement>) {
-    let rawValue = e.target.value.replace(/,/g, "");
+    const rawValue = e.target.value.replace(/,/g, "");
     if (!isNaN(Number(rawValue)) && rawValue !== "") {
       setProductPrice(rawValue);
     } else {
@@ -114,7 +113,7 @@ export default function GlobalProvider({ children }: { children: ReactNode }) {
 
   // Function to handle previous price change
   function handlePreviousPriceChange(e: ChangeEvent<HTMLInputElement>) {
-    let rawValue = e.target.value.replace(/,/g, "");
+    const rawValue = e.target.value.replace(/,/g, "");
     if (!isNaN(Number(rawValue)) && rawValue !== "") {
       setProductPrevPrice(rawValue);
     } else {
@@ -124,7 +123,7 @@ export default function GlobalProvider({ children }: { children: ReactNode }) {
 
   // Function to handle percentage change
   function handleOffPercentChange(e: ChangeEvent<HTMLInputElement>) {
-    let rawValue = e.target.value.replace(/,/g, "");
+    const rawValue = e.target.value.replace(/,/g, "");
     if (!isNaN(Number(rawValue)) && rawValue != "") {
       setProductOffPercent(rawValue);
     } else {
@@ -134,7 +133,7 @@ export default function GlobalProvider({ children }: { children: ReactNode }) {
 
   // Function to handle stock change
   function handleStockChange(e: ChangeEvent<HTMLInputElement>) {
-    let rawValue = e.target.value.replace(/,/g, "");
+    const rawValue = e.target.value.replace(/,/g, "");
     if (!isNaN(Number(rawValue)) && rawValue != "") {
       setStock(rawValue);
     } else {

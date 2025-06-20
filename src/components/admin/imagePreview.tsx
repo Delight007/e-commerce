@@ -1,7 +1,8 @@
 "use client";
 
 import { useGlobalContext } from "@/app/(admin)/upload/context/GlobalContext";
-import React, { useRef } from "react";
+import Image from "next/image";
+import { useRef } from "react";
 import { MdEdit } from "react-icons/md";
 
 export default function ImagePreview() {
@@ -17,10 +18,12 @@ export default function ImagePreview() {
       {/* Main Preview */}
       <div className="relative border w-[290px] h-[290px] border-gray-400 rounded-lg flex justify-center items-center overflow-hidden">
         {preview ? (
-          <img
+          <Image
             src={preview}
             className="w-full h-full object-cover rounded-md"
             alt="main"
+            width={290}
+            height={290}
           />
         ) : (
           <span className="text-gray-300 text-xs">Empty</span>
@@ -52,10 +55,12 @@ export default function ImagePreview() {
             className="relative border w-[80px] h-[80px] border-gray-400 flex items-center justify-center rounded-md overflow-hidden"
           >
             {extraPreviews[index] ? (
-              <img
+              <Image
                 src={extraPreviews[index]}
+                width={80}
+                height={80}
                 className="w-full h-full object-cover"
-                alt={`extra-${index}`}
+                alt={`extraImage`}
               />
             ) : (
               <span className="text-gray-300 text-xs">Empty</span>
