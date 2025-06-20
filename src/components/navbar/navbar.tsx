@@ -3,18 +3,24 @@ import React from "react";
 import { IoMdSearch } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Poppins } from "next/font/google";
-
-import AccountMenu from "@/app/(main)/Navbar/AccountMenu/accountMenuItems";
 import SupportMenu from "@/app/(main)/Navbar/SupportMenu/supportMenuItems";
 import Image from "next/image";
+import Link from "next/link";
+import { useCartStore } from "@/src/utils/cart";
+import AccountMenu from "@/app/(main)/Navbar/AccountMenu/accountMenuItems";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { useUserRole } from "../admin/auth/userRole";
 
 const poppins = Poppins({ weight: "600", subsets: ["latin"], display: "swap" });
 
 export default function Navbar() {
+  const items = useCartStore((state) => state.items);
+  const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+  const { role, loading } = useUserRole();
   return (
     <div className="w-full bg-white h-[80px] shadow-lg ">
       <div className="flex justify-between items-center  h-full  mx-10">
-        <div className="">
+        <Link href="/" className="">
           <Image
             src="/images/Logo.png"
             alt="logo"
@@ -22,7 +28,7 @@ export default function Navbar() {
             height={60}
             priority={true}
           />
-        </div>
+        </Link>
         <form className="flex ml-4">
           <div className="flex border w-[550px] h-[40px] p-1 rounded-md">
             <IoMdSearch className="text-3xl flex justify-center items-center" />
@@ -48,10 +54,33 @@ export default function Navbar() {
             <SupportMenu />
           </li>
 
-          <li className="flex gap-2  hover:text-red-500 cursor-pointer">
-            <MdOutlineShoppingCart className="text-2xl flex justify-center items-center" />
-            <span>Cart</span>
+          <li className="hover:text-red-500 cursor-pointer">
+            <Link href="/cart" className="flex gap-[6px]">
+              <div className="relative">
+                <MdOutlineShoppingCart className="text-2xl flex justify-center items-center" />
+                {totalQuantity > 0 && (
+                  <span className="absolute -top-2 -right-1 w-5 h-5 rounded-full flex items-center justify-center bg-red-500 text-white text-xs z-50  ">
+                    {totalQuantity}
+                  </span>
+                )}
+              </div>
+
+              <span>Cart</span>
+            </Link>
           </li>
+
+          {!loading && role === "admin" && (
+            <li className="hover:text-red-500 cursor-pointer">
+              <Link
+                href="/adminLogin"
+                className="flex justify-center items-center"
+              >
+                <div className="relative">
+                  <MdOutlineAdminPanelSettings className="text-xl flex justify-center items-center" />
+                </div>
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

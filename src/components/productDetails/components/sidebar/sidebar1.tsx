@@ -2,6 +2,7 @@ import NoticeI from "@/src/components/ui/noticeI";
 import React from "react";
 import { Fugaz_One } from "next/font/google";
 import Location from "./components/location";
+// import Location from "./components/location";
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
 
 export default function Sidebar1() {

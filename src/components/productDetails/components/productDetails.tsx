@@ -1,10 +1,19 @@
 import React from "react";
 import { MdArrowForwardIos } from "react-icons/md";
+import { useProductDetailsContext } from "./context";
 
-export default function MainProductDetails({ product }: { product: any }) {
+export default function MainProductDetails() {
+  const { product } = useProductDetailsContext();
+
+  // Guard clause to handle null/undefined product
+  if (!product) {
+    return <div className="p-4 text-gray-500">Loading product details...</div>;
+  }
+
   const specs = product.specifications as
     | Record<string, string | number>
     | undefined;
+
   return (
     <div className="w-[872px] ">
       <div className="bg-white w-full h-auto rounded-md ">
@@ -17,11 +26,13 @@ export default function MainProductDetails({ product }: { product: any }) {
           </p>
         </div>
       </div>
+
       <div className="bg-white w-full h-auto rounded-md mt-4">
         <div className="w-full h-[52px] py-2 border-b flex items-center">
           <h2 className="font-medium text-lg py-1 px-4">Specification</h2>
         </div>
         <div className="p-2 flex gap-2">
+          {/* Key Features */}
           <article className="w-[428px] p-2">
             <div className=" border rounded-md ">
               <h2 className="font-medium text-sm uppercase p-4">
@@ -43,6 +54,8 @@ export default function MainProductDetails({ product }: { product: any }) {
               </div>
             </div>
           </article>
+
+          {/* Specifications */}
           <article className="w-[428px] p-2">
             <div className=" border rounded-md ">
               <h2 className="font-medium text-sm uppercase p-4">
@@ -65,6 +78,7 @@ export default function MainProductDetails({ product }: { product: any }) {
           </article>
         </div>
       </div>
+
       <div className=" bg-white w-full h-auto rounded-md mt-4  mb-9">
         <div className="w-full h-[52px] py-2 border-b flex items-center justify-between">
           <h2 className="font-medium text-lg py-1 px-4">

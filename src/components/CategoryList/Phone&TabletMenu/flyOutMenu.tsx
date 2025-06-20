@@ -92,7 +92,7 @@ export default function HoverPopoverPhone() {
           gap: "4px",
           width: "208px",
           height: "37px",
-          paddingLeft: "8px",
+          // paddingLeft: "8px",
           alignItems: "center",
           cursor: "pointer",
           "&:hover": {
@@ -100,9 +100,14 @@ export default function HoverPopoverPhone() {
           },
         }}
       >
-        <IoPhonePortraitOutline className="text-xl" />
+        <Link
+          href="/phones-tablets"
+          className="flex w-full h-full pl-2 items-center gap-[6px]"
+        >
+          <IoPhonePortraitOutline className="text-xl" />
 
-        <span>Phone & Tablet</span>
+          <span>Phone & Tablet</span>
+        </Link>
       </Box>
       <Popover
         id="mouse-over-popover"
