@@ -1,8 +1,8 @@
 import BasicMenu from "@/src/components/ui/dropMenu";
 
-import { MdHelpOutline } from "react-icons/md";
-import { IoChatboxEllipsesOutline } from "react-icons/io5";
 import Link from "next/link";
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
+import { MdHelpOutline } from "react-icons/md";
 
 const supportMenuItems = [
   { label: "Help Center", link: "/help" },
@@ -13,13 +13,6 @@ const supportMenuItems = [
   { label: "Return & Refund", link: "/contact" },
 ];
 
-// const faqLabel = [
-//   {
-//     icon: <IoChatboxEllipsesOutline />,
-//     label: "Live chats",
-//     link: "/Live chats",
-//   },
-// ];
 export default function SupportMenu() {
   return (
     <BasicMenu

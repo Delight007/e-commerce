@@ -1,10 +1,9 @@
-import * as React from "react";
+import { Box } from "@mui/material";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
-import { Box } from "@mui/material";
-import { LiaTshirtSolid } from "react-icons/lia";
 import Link from "next/link";
-import { link } from "fs";
+import * as React from "react";
+import { LiaTshirtSolid } from "react-icons/lia";
 
 export default function HoverPopoverFashions() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
