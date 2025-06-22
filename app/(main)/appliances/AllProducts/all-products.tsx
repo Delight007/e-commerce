@@ -2,7 +2,7 @@
 import MainProducts from "./mProduct/mProducts";
 import SideBar from "./sidebar/sidebar";
 
-export default function Products() {
+export default function AllProducts() {
   return (
     <div className=" flex py-3 gap-3">
       {/* sidebar in Appliances page */}

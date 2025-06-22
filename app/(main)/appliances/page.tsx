@@ -1,8 +1,8 @@
 "use client";
-import Products from "./allProducts/products";
+import AllProducts from "./allProducts/all-products";
 import AppCategory from "./category/appCategory";
 
-export default function appliance() {
+export default function Appliance() {
   return (
     <div>
       <div className="">
@@ -17,7 +17,7 @@ export default function appliance() {
 
         {/* All Appliances Products */}
         <div>
-          <Products />
+          <AllProducts />
         </div>
       </div>
     </div>
