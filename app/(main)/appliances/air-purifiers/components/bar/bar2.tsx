@@ -1,6 +1,7 @@
 import { Fugaz_One } from "next/font/google";
 import Link from "next/link";
 import { FaPaperPlane } from "react-icons/fa";
+// import PriceRange from "../../../allProducts/mProduct/bar/PriceRange/priceRange";
 import PriceRange from "../../../allProducts/mProduct/bar/PriceRange/priceRange";
 import PurifierBrandsMenu from "../purifierBrand";
 
