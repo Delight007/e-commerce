@@ -1,7 +1,7 @@
+import PriceRange2 from "@/app/(main)/appliances/allProducts/mProduct/bar/PriceRange/price";
+import { Fugaz_One } from "next/font/google";
 import Link from "next/link";
 import { FaPaperPlane } from "react-icons/fa";
-import { Fugaz_One } from "next/font/google";
-import PriceRange2 from "@/app/(main)/appliances/AllProducts/mProduct/bar/PriceRange/price";
 
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
 export default function EcoflowBar2() {
