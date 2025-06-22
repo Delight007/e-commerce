@@ -16,7 +16,7 @@ export default function appliance() {
         </div>
 
         {/* All Appliances Products */}
-        <div className="">
+        <div>
           <Products />
         </div>
       </div>

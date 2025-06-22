@@ -11,7 +11,7 @@ export default function Products() {
       </div>
 
       {/* Main Products */}
-      <div className="">
+      <div>
         <MainProducts />
       </div>
     </div>
