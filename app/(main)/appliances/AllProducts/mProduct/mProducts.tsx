@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
 import PaginationButtons from "@/src/components/ui/pagination"; // Your existing MUI pagination component
+import { useEffect, useState } from "react";
 import BarTop from "./bar/bar";
 import BarTop2 from "./bar/bar2";
 import ProductsList from "./productList.tsx/productList";
