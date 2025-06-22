@@ -1,10 +1,9 @@
-import * as React from "react";
+import { Box } from "@mui/material";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
-import { Box } from "@mui/material";
-import { GiLipstick } from "react-icons/gi";
 import Link from "next/link";
-import { link } from "fs";
+import * as React from "react";
+import { GiLipstick } from "react-icons/gi";
 
 export default function HoverPopoverHealth() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -99,6 +98,7 @@ export default function HoverPopoverHealth() {
         }}
       >
         <GiLipstick className="text-xl" />
+
         <span>Health & Beauty</span>
       </Box>
       <Popover
@@ -156,8 +156,9 @@ export default function HoverPopoverHealth() {
                 sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
               >
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -181,8 +182,9 @@ export default function HoverPopoverHealth() {
                     }}
                   >
                     {makeUp.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {
@@ -198,8 +200,9 @@ export default function HoverPopoverHealth() {
                   </Box>
                 </div>
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -224,8 +227,9 @@ export default function HoverPopoverHealth() {
                     }}
                   >
                     {personalCare.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {
@@ -245,8 +249,9 @@ export default function HoverPopoverHealth() {
                 sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
               >
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -270,8 +275,9 @@ export default function HoverPopoverHealth() {
                     }}
                   >
                     {fragrances.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {
@@ -287,8 +293,9 @@ export default function HoverPopoverHealth() {
                   </Box>
                 </div>
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -313,8 +320,9 @@ export default function HoverPopoverHealth() {
                     }}
                   >
                     {hairCare.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {
@@ -330,8 +338,9 @@ export default function HoverPopoverHealth() {
                   </Box>
                 </div>
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -356,8 +365,9 @@ export default function HoverPopoverHealth() {
                     }}
                   >
                     {personalCare.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {
@@ -377,8 +387,9 @@ export default function HoverPopoverHealth() {
                 sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
               >
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -402,8 +413,9 @@ export default function HoverPopoverHealth() {
                     }}
                   >
                     {healthCare.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {
@@ -419,8 +431,9 @@ export default function HoverPopoverHealth() {
                   </Box>
                 </div>
                 <div className="">
-                  <Link href="#">
+                  <Link href="#" passHref>
                     <Typography
+                      component="span"
                       sx={{
                         textTransform: "uppercase",
                         fontWeight: "bold",
@@ -445,8 +458,9 @@ export default function HoverPopoverHealth() {
                     }}
                   >
                     {vitamines.map((item) => (
-                      <Link href={item.link} key={item.name}>
+                      <Link href={item.link} key={item.name} passHref>
                         <Typography
+                          component="span"
                           sx={{
                             fontSize: "12px",
                             "&:hover": {

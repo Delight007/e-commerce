@@ -96,7 +96,9 @@ export default function HoverPopoverElectronics() {
         }}
       >
         <MdLiveTv className="text-xl" />
-        <span>Electronics</span>
+        <Link href="#">
+          <span>Electronics</span>
+        </Link>
       </Box>
       <Popover
         id="mouse-over-popover"

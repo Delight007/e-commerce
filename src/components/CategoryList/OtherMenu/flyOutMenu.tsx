@@ -82,7 +82,9 @@ export default function HoverPopoverOther() {
         }}
       >
         <CgMoreO className="text-xl" />
-        <span>Other Products</span>
+        <Link href="#">
+          <span>Other Products</span>
+        </Link>
       </Box>
       <Popover
         id="mouse-over-popover"

@@ -74,6 +74,7 @@ export default function HoverPopoverHome() {
         }}
       >
         <LiaHomeSolid className="text-xl" />
+
         <span>Home & Office</span>
       </Box>
       <Popover

@@ -4,11 +4,13 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
+import { CgChevronDown } from "react-icons/cg";
 
 interface MenuItemProps {
   icon?: React.ReactNode;
   label: string;
   link: string;
+  onClick?: () => void;
 }
 
 interface BasicMenuProps {
@@ -49,7 +51,8 @@ export default function BasicMenu({
           fontSize: "16px",
           textTransform: "capitalize",
           display: "flex",
-          gap: "8px",
+          gap: "5px",
+          background: open ? "lightgray" : "transparent",
           "&:hover": {
             color: "red",
             backgroundColor: "transparent",
@@ -57,14 +60,15 @@ export default function BasicMenu({
           "&:active": {
             backgroundColor: "lightgray",
           },
-          "&:focus": {
-            outline: "none",
-            backgroundColor: "lightgray",
-          },
         }}
       >
-        <span className="text-2xl"> {buttonIcon && buttonIcon}</span>
-        {buttonText}
+        <span className="text-xl"> {buttonIcon && buttonIcon}</span>
+        <span className="text-sm"> {buttonText}</span>
+        <CgChevronDown
+          className={`transition-transform duration-300 ml-2 ${
+            open ? "rotate-180" : ""
+          }`}
+        />
       </Button>
       <Menu
         id="basic-menu"
@@ -74,17 +78,40 @@ export default function BasicMenu({
         MenuListProps={{ "aria-labelledby": "basic-button" }}
         PaperProps={{
           style: {
-            width: "206px",
+            width: "200px",
             height: "autoHeight",
             backgroundColor: "#f4f4f4",
             borderRadius: "8px",
           },
         }}
+        disableScrollLock={true}
+        sx={{ borderBottom: "1px solid lightgray" }}
       >
+        {menuItems.map((item, index) => (
+          <MenuItem
+            key={index}
+            onClick={handleClose}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              fontSize: "14px",
+
+              gap: "14px",
+              padding: "16px",
+              "&:hover": {
+                fontWeight: "600",
+              },
+            }}
+          >
+            <span className="text-xl">{item.icon}</span>
+            <Link href={item.link}>{item.label}</Link>
+          </MenuItem>
+        ))}
+
         <MenuItem
           sx={{
             padding: "16px",
-            borderBottom: "1px solid lightgray",
+            borderTop: "1px solid lightgray",
             "&:hover": {
               backgroundColor: "transparent", // ✅ Prevents hover effect
             },
@@ -106,26 +133,6 @@ export default function BasicMenu({
             {spanButton}
           </Button>
         </MenuItem>
-
-        {menuItems.map((item, index) => (
-          <MenuItem
-            key={index}
-            onClick={handleClose}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              fontSize: "14px",
-              gap: "14px",
-              padding: "16px",
-              "&:hover": {
-                fontWeight: "600",
-              },
-            }}
-          >
-            <span className="text-xl">{item.icon}</span>
-            <Link href={item.link}>{item.label}</Link>
-          </MenuItem>
-        ))}
       </Menu>
     </div>
   );

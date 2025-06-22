@@ -6,15 +6,28 @@ import { Poppins } from "next/font/google";
 import AccountMenu from "./AccountMenu/accountMenuItems";
 import SupportMenu from "./SupportMenu/supportMenuItems";
 import MenuPopover from "@/src/components/ui/popOver";
+import Image from "next/image";
+import Link from "next/link";
+import { useCartStore } from "@/src/utils/cart";
 
 const poppins = Poppins({ weight: "600", subsets: ["latin"], display: "swap" });
 
 export default function NavMenu() {
+  const items = useCartStore((state) => state.items);
+  const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <div className="w-full bg-white h-[76px] shadow-lg ">
       <div className="flex justify-between items-center  h-full  mx-10">
         <MenuPopover />
-        <h1 className={`text-3xl  ${poppins.className}`}>gaNa</h1>
+        <Link href="/" className="">
+          <Image
+            src="/images/Logo.png"
+            alt="logo"
+            width={100}
+            height={60}
+            priority={true}
+          />
+        </Link>
 
         <form className="flex ml-4">
           <div className="flex border w-[500px] h-[40px] p-1 rounded-md">
@@ -27,7 +40,7 @@ export default function NavMenu() {
           </div>
           <button
             type="submit"
-            className="bg-red-500 w-[80] h-[40px] text-white text-center font-medium ml-2 rounded-md  hover:bg-red-600"
+            className="bg-red-500 w-[80] h-[40px] text-white text-center font-medium ml-2 rounded-md  hover:bg-red-600 transition-colors duration-300"
           >
             Search
           </button>
@@ -41,9 +54,18 @@ export default function NavMenu() {
             <SupportMenu />
           </li>
 
-          <li className="flex gap-2  hover:text-red-500 cursor-pointer">
-            <MdOutlineShoppingCart className="text-2xl flex justify-center items-center" />
-            <span>Cart</span>
+          <li className=" hover:text-red-500 cursor-pointer">
+            <Link href="/cart" className="flex gap-2 ">
+              <div className="relative">
+                <MdOutlineShoppingCart className="text-2xl flex justify-center items-center" />
+                {totalQuantity > 0 && (
+                  <span className="absolute -top-2 -right-1 w-5 h-5 rounded-full flex items-center justify-center bg-red-500 text-white text-xs z-50 ">
+                    {totalQuantity}
+                  </span>
+                )}
+              </div>
+              <span>Cart</span>
+            </Link>
           </li>
         </ul>
       </div>
