@@ -1,7 +1,7 @@
+import PriceRange2 from "@/src/components/phones-tables/allProducts/bar/PriceRange/price";
 import { Fugaz_One } from "next/font/google";
 import Link from "next/link";
 import { FaPaperPlane } from "react-icons/fa";
-import PriceRange from "../../../allProducts/mProduct/bar/PriceRange/priceRange";
 import BundleBrandsMenu from "../dishBrand";
 
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
@@ -27,7 +27,7 @@ export default function BundleBar2() {
       </div>
 
       <div>
-        <PriceRange />
+        <PriceRange2 />
       </div>
     </div>
   );
