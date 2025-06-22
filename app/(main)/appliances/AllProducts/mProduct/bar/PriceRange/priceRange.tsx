@@ -5,7 +5,7 @@ import * as React from "react";
 import { CgChevronDown } from "react-icons/cg";
 import RangeSliderUi from "./priceUI";
 
-export default function PriceRange2() {
+export default function PriceRange() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);

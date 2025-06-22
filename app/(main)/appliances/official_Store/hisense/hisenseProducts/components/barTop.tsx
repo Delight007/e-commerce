@@ -1,4 +1,4 @@
-import PriceRange2 from "@/app/(main)/appliances/allProducts/mProduct/bar/PriceRange/price";
+import PriceRange from "@/app/(main)/appliances/allProducts/mProduct/bar/PriceRange/priceRange";
 import { Fugaz_One } from "next/font/google";
 import Link from "next/link";
 import { FaPaperPlane } from "react-icons/fa";
@@ -22,7 +22,7 @@ export default function HisenseBarTop2() {
       </div>
 
       <div>
-        <PriceRange2 />
+        <PriceRange />
       </div>
     </div>
   );
