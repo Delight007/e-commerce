@@ -1,7 +1,7 @@
-import * as React from "react";
 import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
 import Fade from "@mui/material/Fade";
+import Menu from "@mui/material/Menu";
+import * as React from "react";
 import { CgChevronDown } from "react-icons/cg";
 import RangeSliderUi from "./priceUI";
 
@@ -31,7 +31,7 @@ export default function PriceRange2() {
           textTransform: "capitalize",
           height: "33px",
           color: "black",
-          //   background: "lightgray",
+
           backgroundColor: open ? "darkgray" : "#CBD5E1",
           "&:active": {
             backgroundColor: "lightgray",
