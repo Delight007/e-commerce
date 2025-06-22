@@ -1,21 +1,17 @@
 "use client";
-import React from "react";
-import { IoMdSearch } from "react-icons/io";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { MdOutlinePermPhoneMsg } from "react-icons/md";
-import { GiReturnArrow } from "react-icons/gi";
-import { RiShieldStarFill } from "react-icons/ri";
 import { Poppins } from "next/font/google";
+import { GiReturnArrow } from "react-icons/gi";
+import { MdOutlinePermPhoneMsg } from "react-icons/md";
+import { RiShieldStarFill } from "react-icons/ri";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCartStore } from "@/src/utils/cart";
 
 const poppins = Poppins({ weight: "600", subsets: ["latin"], display: "swap" });
 
 export default function CheckoutNavbar() {
-  const items = useCartStore((state) => state.items);
-  const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+  // const items = useCartStore((state) => state.items);
+  // const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <div className="w-full bg-white h-[80px] shadow-lg ">
       <div className="flex justify-between items-center  h-full  mx-10">

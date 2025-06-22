@@ -1,9 +1,9 @@
 "use client";
 
 import PaginationButtons from "@/src/components/ui/pagination";
-import React, { useEffect, useState } from "react";
-import IronBar2 from "./components/bar/bar2";
+import { useEffect, useState } from "react";
 import IronBar1 from "./components/bar/bar1";
+import IronBar2 from "./components/bar/bar2";
 import IronBar3 from "./components/bar/bar3";
 import IronProductsList from "./components/ironProductList";
 
@@ -49,7 +49,7 @@ export default function IronProducts() {
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalPages={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
           />
         </div>
       </div>

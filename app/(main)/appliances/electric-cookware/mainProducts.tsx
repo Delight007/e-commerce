@@ -1,9 +1,9 @@
 "use client";
 
 import PaginationButtons from "@/src/components/ui/pagination";
-import React, { useEffect, useState } from "react";
-import BundleBar2 from "../cooking-appliances-kitchen-bundle/components/bar/bar2";
+import { useEffect, useState } from "react";
 import BundleBar1 from "../cooking-appliances-kitchen-bundle/components/bar/bar1";
+import BundleBar2 from "../cooking-appliances-kitchen-bundle/components/bar/bar2";
 import BundleBar3 from "../cooking-appliances-kitchen-bundle/components/bar/bar3";
 import BundleProductsList from "../cooking-appliances-kitchen-bundle/components/dishProductList";
 
@@ -51,7 +51,7 @@ export default function BundleProducts() {
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalPages={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
           />
         </div>
       </div>

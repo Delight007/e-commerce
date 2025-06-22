@@ -1,7 +1,7 @@
 "use client";
 
 import PaginationButtons from "@/src/components/ui/pagination";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ThermocoolBar1 from "./components/bar/bar1";
 import ThermocoolBar2 from "./components/bar/bar2";
 import ThermocoolProductsList from "./components/thermocoolProductList";
@@ -47,7 +47,7 @@ export default function ThermocoolProducts() {
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalPages={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
           />
         </div>
       </div>

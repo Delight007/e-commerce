@@ -1,12 +1,12 @@
 "use client";
 
 import PaginationButtons from "@/src/components/ui/pagination";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import KettleProductsList from "./components/kettleProductList";
-import KettleBar2 from "./components/bar/bar2";
 import KettleBar1 from "./components/bar/bar1";
+import KettleBar2 from "./components/bar/bar2";
 import KettleBar3 from "./components/bar/bar3";
+import KettleProductsList from "./components/kettleProductList";
 
 const ITEMS_PER_PAGE = 40; // Number of products to display per page
 export default function KettleProducts() {
@@ -50,7 +50,7 @@ export default function KettleProducts() {
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalPages={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
           />
         </div>
       </div>

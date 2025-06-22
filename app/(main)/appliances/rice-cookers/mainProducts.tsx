@@ -1,11 +1,7 @@
 "use client";
 
 import PaginationButtons from "@/src/components/ui/pagination";
-import React, { useEffect, useState } from "react";
-import DishBar1 from "./components/bar/bar1";
-import DishBar3 from "./components/bar/bar3";
-import DishBar2 from "./components/bar/bar2";
-import DishProductsList from "./components/dishProductList";
+import { useEffect, useState } from "react";
 import RiceBar1 from "./components/bar/bar1";
 import RiceBar2 from "./components/bar/bar2";
 import RiceBar3 from "./components/bar/bar3";
@@ -55,7 +51,7 @@ export default function RiceCookerProducts() {
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalPages={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
           />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { Fugaz_One } from "next/font/google";
 import Link from "next/link";
 import { FaPaperPlane } from "react-icons/fa";
-import PriceRange2 from "../../../allProducts/mProduct/bar/PriceRange/price";
+import PriceRange from "../../../allProducts/mProduct/bar/PriceRange/priceRange";
 import YamPounderBrandsMenu from "../pounderBrand";
 
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
@@ -27,7 +27,7 @@ export default function YamPounderBar2() {
       </div>
 
       <div>
-        <PriceRange2 />
+        <PriceRange />
       </div>
     </div>
   );

@@ -1,19 +1,16 @@
-import ProductDetailsProvider, {
-  useProductDetailsContext,
-} from "@/src/components/productDetails/components/context";
 import type { Product } from "@/src/components/productDetails/components/context";
 import ProductDetails from "@/src/components/productDetails/productDetails";
-import { db } from "@/src/config/firebase";
 import getItemById from "@/src/utils/getItemsById";
-import { doc, getDoc } from "firebase/firestore";
-import React from "react";
 
-type props = {
-  params: { id: string };
-};
-export default async function page({ params }: props) {
-  // const [imageLoading, setImageLoading] = React.useState(true);
-  const id = params?.id;
+// this typing ensures compatibility with Next.js app router
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default async function Page({ params }: PageProps) {
+  const id = params.id;
 
   const { isExists, data } = await getItemById(id, "Products");
 
@@ -22,12 +19,13 @@ export default async function page({ params }: props) {
   }
 
   const productData = data as Product;
-  // If weight is stored in specifications, pull it out
   const weightFromSpec = productData?.specifications?.["Weight (kg)"] ?? "0";
+
   const safeData = {
     ...productData,
     weightFromSpec,
   };
+
   return (
     <div>
       <ProductDetails product={safeData} />

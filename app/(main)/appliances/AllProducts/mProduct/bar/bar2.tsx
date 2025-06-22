@@ -1,8 +1,9 @@
+import { Fugaz_One } from "next/font/google";
 import Link from "next/link";
 import { FaPaperPlane } from "react-icons/fa";
-import { Fugaz_One } from "next/font/google";
 import BrandsMenu from "./brand/brand";
-import PriceRange2 from "./PriceRange/price";
+import PriceRange from "./PriceRange/priceRange";
+// import PriceRange2 from "./PriceRange/price";
 
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
 export default function BarTop2() {
@@ -25,7 +26,7 @@ export default function BarTop2() {
         <BrandsMenu />
       </div>
       <div>
-        <PriceRange2 />
+        <PriceRange />
       </div>
     </div>
   );

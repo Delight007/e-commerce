@@ -2,10 +2,10 @@
 
 import PaginationButtons from "@/src/components/ui/pagination";
 
-import React, { useEffect, useState } from "react";
-import EcoflowProductsList from "./components/ecoflowProductList";
+import { useEffect, useState } from "react";
 import EcoflowBar1 from "./components/Bar/ecoflowBar1";
 import EcoflowBar2 from "./components/Bar/ecoflowBar2";
+import EcoflowProductsList from "./components/ecoflowProductList";
 
 const ITEMS_PER_PAGE = 40; // Number of products to display per page
 export default function EcoflowProducts() {
@@ -48,7 +48,7 @@ export default function EcoflowProducts() {
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalPages={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
           />
         </div>
       </div>

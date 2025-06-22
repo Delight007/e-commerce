@@ -1,11 +1,11 @@
 "use client";
 
 import PaginationButtons from "@/src/components/ui/pagination";
-import React, { useEffect, useState } from "react";
-import CoffeeProductsList from "./components/coffeeProductList";
-import CoffeeBar2 from "./components/bar/bar2";
+import { useEffect, useState } from "react";
 import CoffeeBar1 from "./components/bar/bar1";
+import CoffeeBar2 from "./components/bar/bar2";
 import CoffeeBar3 from "./components/bar/bar3";
+import CoffeeProductsList from "./components/coffeeProductList";
 
 const ITEMS_PER_PAGE = 40; // Number of products to display per page
 export default function CoffeeMakerProducts() {
@@ -51,7 +51,7 @@ export default function CoffeeMakerProducts() {
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalPages={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
           />
         </div>
       </div>
