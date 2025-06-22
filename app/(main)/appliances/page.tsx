@@ -1,6 +1,5 @@
 "use client";
 import Products from "./allProducts/products";
-// import Products from "./AllProducts/products";
 import AppCategory from "./category/appCategory";
 
 export default function appliance() {

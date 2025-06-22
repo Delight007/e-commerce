@@ -1,7 +1,6 @@
 "use client";
 import MainProducts from "./mProduct/mProducts";
 import SideBar from "./sidebar/sidebar";
-// import SideBar from "./sidebar/sidebar";
 
 export default function Products() {
   return (
