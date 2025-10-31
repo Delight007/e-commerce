@@ -1,9 +1,9 @@
 "use client";
-import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
+import * as React from "react";
 import { CgChevronDown } from "react-icons/cg";
 
 interface MenuItemProps {
@@ -63,7 +63,7 @@ export default function BasicMenu({
         }}
       >
         <span className="text-xl"> {buttonIcon && buttonIcon}</span>
-        <span className="text-sm"> {buttonText}</span>
+        <span className="text-base"> {buttonText}</span>
         <CgChevronDown
           className={`transition-transform duration-300 ml-2 ${
             open ? "rotate-180" : ""

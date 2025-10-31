@@ -10,25 +10,15 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  const id = params.id;
-
+  const { id } = await params; // ✅ await params first
   const { isExists, data } = await getItemById(id, "Products");
 
-  if (!isExists) {
-    return <div>Product not found</div>;
-  }
+  if (!isExists) return <div>Product not found</div>;
 
   const productData = data as Product;
   const weightFromSpec = productData?.specifications?.["Weight (kg)"] ?? "0";
 
-  const safeData = {
-    ...productData,
-    weightFromSpec,
-  };
+  const safeData = { ...productData, weightFromSpec };
 
-  return (
-    <div>
-      <ProductDetails product={safeData} />
-    </div>
-  );
+  return <ProductDetails product={safeData} />;
 }

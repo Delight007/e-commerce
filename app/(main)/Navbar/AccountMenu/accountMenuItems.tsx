@@ -1,12 +1,12 @@
 "use client";
+import BasicMenu from "@/src/components/ui/dropMenu";
+import { auth } from "@/src/config/firebase";
+import { signOut } from "firebase/auth";
+import Link from "next/link";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { FaRegHeart } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa6";
 import { LuInbox } from "react-icons/lu";
-import { FaRegHeart } from "react-icons/fa";
-import BasicMenu from "@/src/components/ui/dropMenu";
-import Link from "next/link";
-import { auth } from "@/src/config/firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { signOut } from "firebase/auth";
 import { RiUserFollowLine } from "react-icons/ri";
 
 const accountMenuItems = [
@@ -36,9 +36,7 @@ export default function AccountMenu() {
     <BasicMenu
       buttonText={
         user
-          ? `Hi, ${
-              user.displayName?.split(" ")[0] || user.email?.split("@")[0]
-            }`
+          ? ` ${user.displayName?.split(" ")[0] || user.email?.split("@")[0]}`
           : "Account"
       }
       buttonIcon={<FaRegUser />}

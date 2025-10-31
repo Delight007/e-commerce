@@ -11,8 +11,9 @@ export default function hisense() {
   const [imageLoading, setImageLoading] = React.useState(true);
   return (
     // <>
-    <div className="w-full">
-      <div className="relative w-[1200px] h-[383px] mb-5">
+    <section className="w-full">
+      <div className="mx-auto px-6 lg:px-12 max-w-7xl">
+        <div className="relative w-[1200px] h-[383px] mb-5">
         {imageLoading && (
           <div className="absolute w-full h-full animate-pulse bg-gray-200"></div>
         )}
@@ -27,28 +28,29 @@ export default function hisense() {
           }`}
           onLoad={() => setImageLoading(false)}
         />
-      </div>
-      <div className="mb-5">
-        <HisenseCategory />
-      </div>
-      <div className="mb-5">
-        <HisenseCategory2 />
-      </div>
-      <div className="flex py-3 gap-3">
-        {/* sidebar */}
-        <div>
-          <HisenseSidebar />
         </div>
+        <div className="mb-5">
+          <HisenseCategory />
+        </div>
+        <div className="mb-5">
+          <HisenseCategory2 />
+        </div>
+        <div className="flex py-3 gap-3">
+          {/* sidebar */}
+          <div>
+            <HisenseSidebar />
+          </div>
 
-        {/* mainproducts */}
+          {/* mainproducts */}
+          <div>
+            <HisenseProducts />
+          </div>
+        </div>
         <div>
-          <HisenseProducts />
+          <MoreProducts />
         </div>
       </div>
-      <div>
-        <MoreProducts />
-      </div>
-    </div>
+    </section>
     // </>
   );
 }

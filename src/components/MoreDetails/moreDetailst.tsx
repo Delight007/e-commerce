@@ -1,13 +1,12 @@
 // "use client";
-import React from "react";
-import { FaPhone } from "react-icons/fa6";
-import { FaHouseDamage } from "react-icons/fa";
-import { ImDropbox } from "react-icons/im";
 import Link from "next/link";
+import { FaHouseDamage } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa6";
+import { ImDropbox } from "react-icons/im";
 
 export default function MoreDetailst() {
   return (
-    <div className="flex flex-col  gap-4">
+    <div className="flex flex-row lg:flex-col  gap-4">
       <div className=" flex flex-col w-full h-[180px] bg-white rounded-md text-black pl-3">
         <Link
           href="#"

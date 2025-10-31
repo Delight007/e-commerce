@@ -6,7 +6,7 @@ export default function AcBar1({
   totalProducts: number | null;
 }) {
   return (
-    <div className="px-[16px] flex gap-2 relative  justify-between">
+    <div className="px-4 flex flex-wrap items-center justify-between gap-2">
       <div className="flex">
         <h1 className="text-xl font-semibold py-[16px] ">Air Conditioners</h1>
         <p className="flex justify-center items-center text-sm text-gray-500 ml-8">

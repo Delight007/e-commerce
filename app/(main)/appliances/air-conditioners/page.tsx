@@ -1,25 +1,26 @@
-import React from "react";
-import ACsidebar from "./sidebar";
 import ACProducts from "./mainProducts";
 import MoreProducts from "./moreProducts";
+import ACsidebar from "./sidebar";
 
 export default function airConditioners() {
   return (
-    <div className="w-full">
-      <div className="w-full flex py-3 gap-3">
-        {/* sidebar */}
-        <div>
-          <ACsidebar />
-        </div>
+    <section className="mx-auto px-6 lg:px-12 max-w-7xl">
+      <div>
+        <div className="w-full flex  flex-col-reverse lg:flex-row py-3 gap-3 ">
+          {/* sidebar */}
+          <div>
+            <ACsidebar />
+          </div>
 
-        {/* main products */}
-        <div>
-          <ACProducts />
+          {/* main products */}
+          <div className=" mt-4 sm:mt-0 ">
+            <ACProducts />
+          </div>
+        </div>
+        <div className="w-full">
+          <MoreProducts />
         </div>
       </div>
-      <div className="w-full">
-        <MoreProducts />
-      </div>
-    </div>
+    </section>
   );
 }

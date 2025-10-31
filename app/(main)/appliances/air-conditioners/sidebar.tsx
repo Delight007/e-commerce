@@ -1,17 +1,16 @@
-import React from "react";
-import Category from "./components/category";
 import Xdelivery from "@/src/components/Xdelivery/xdelivery";
-import Shipped from "@/src/components/shipped/shipped";
-import AcBrand from "./components/brand/brand";
+import OfficialStore from "@/src/components/officialStore/officialStore";
 import Range from "@/src/components/priceRange/range";
 import Rating from "@/src/components/productRating/rating";
-import OfficialStore from "@/src/components/officialStore/officialStore";
 import SellerScore from "@/src/components/sellerScore/score";
+import Shipped from "@/src/components/shipped/shipped";
+import AcBrand from "./components/brand/brand";
+import Category from "./components/category";
 
 export default function ACsidebar() {
   return (
     <div>
-      <div className="w-[285px]  rounded-md  bg-white">
+      <div className="lg:w-[285px] w-auto rounded-md  bg-white">
         {/* category */}
         <div className="w-full border-b">
           <Category />

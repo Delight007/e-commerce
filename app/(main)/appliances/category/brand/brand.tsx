@@ -5,138 +5,86 @@ import React from "react";
 
 export default function Brand() {
   const [imageLoading, setImageLoading] = React.useState(true);
+
+  const brands = [
+    {
+      src: "/images/hisense.png",
+      alt: "hisense",
+      link: "/appliances/official_Store/hisense",
+    },
+    {
+      src: "/images/ecoflow.jpg",
+      alt: "ecoflow",
+      link: "/appliances/official_Store/ecoflow",
+    },
+    {
+      src: "/images/nexus.png",
+      alt: "nexus",
+      link: "/appliances/official_Store/nexus",
+    },
+    {
+      src: "/images/haier-thermocool.png",
+      alt: "thermocool",
+      link: "/appliances/official_Store/thermocool",
+    },
+    {
+      src: "/images/binatone.png",
+      alt: "binatone",
+      link: "/appliances/official_Store/binatone",
+    },
+    {
+      src: "/images/ROYAL.jpg",
+      alt: "royal",
+      link: "/appliances/official_Store/royal",
+    },
+  ];
+
   return (
-    <div className="w-full h-[170px] ">
-      <h2 className="w-full h-[50px] bg-slate-400 rounded-t-md text-black flex justify-center items-center font-[500] text-xl min-h-12">
+    <div className="w-full bg-white rounded-md overflow-hidden">
+      {/* Title */}
+      <h2 className="w-full bg-slate-400 text-black text-center font-medium text-lg sm:text-xl py-3">
         Official Store
       </h2>
-      <div className="w-full h-[120px] bg-white rounded-b-md grid grid-cols-6 py-1 px-2">
-        <div className="group w-[190px] h-[110px] bg-white rounded-md hover:drop-shadow-xl flex justify-center items-center">
-          <Link href="/appliances/official_Store/hisense">
-            <div className="relative w-[180px] h-[110px] group-hover:scale-105 transition-transform">
+
+      {/* Brand Grid */}
+      <div
+        className="
+          grid 
+          grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 
+          gap-3 p-3
+        "
+      >
+        {brands.map((brand, i) => (
+          <Link
+            href={brand.link}
+            key={i}
+            className="group flex justify-center items-center bg-white rounded-md hover:drop-shadow-xl transition"
+          >
+            <div
+              className="
+                relative w-[140px] h-[90px] sm:w-[160px] sm:h-[100px] 
+                md:w-[180px] md:h-[110px] 
+                rounded-md overflow-hidden 
+                transition-transform duration-300 group-hover:scale-105
+              "
+            >
               {imageLoading && (
-                <div className="absolute w-full h-full bg-gray-200 animate-pulse rounded-md"></div>
+                <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-md"></div>
               )}
               <Image
-                src="/images/hisense.png"
-                alt="hisense"
+                src={brand.src}
+                alt={brand.alt}
                 fill
-                sizes="180px"
-                priority={true}
-                style={{ objectFit: "contain" }}
-                className={`rounded-md transition-opacity duration-300 ${
+                priority
+                sizes="(max-width: 640px) 140px, (max-width: 1024px) 180px, 200px"
+                className={`object-contain rounded-md transition-opacity duration-300 ${
                   imageLoading ? "opacity-0" : "opacity-100"
                 }`}
                 onLoad={() => setImageLoading(false)}
               />
             </div>
           </Link>
-        </div>
-        <div className="group w-[190px] h-[110px] bg-white rounded-md hover:drop-shadow-xl flex justify-center items-center">
-          <Link href="/appliances/official_Store/ecoflow">
-            <div className="relative w-[180px] h-[110px] group-hover:scale-105 transition-transform">
-              {imageLoading && (
-                <div className="absolute w-full h-full bg-gray-200 animate-pulse rounded-md"></div>
-              )}
-              <Image
-                src="/images/ecoflow.jpg"
-                alt="ecoflow"
-                fill
-                sizes="180px"
-                priority={true}
-                style={{ objectFit: "contain" }}
-                className={`rounded-md transition-opacity duration-300 ${
-                  imageLoading ? "opacity-0" : "opacity-100"
-                }`}
-                onLoad={() => setImageLoading(false)}
-              />
-            </div>
-          </Link>
-        </div>
-        <div className="group w-[190px] h-[110px] bg-white rounded-md hover:drop-shadow-xl flex justify-center items-center">
-          <Link href="/appliances/official_Store/nexus">
-            <div className="relative w-[180px] h-[110px] group-hover:scale-105 transition-transform">
-              {imageLoading && (
-                <div className="absolute w-full h-full bg-gray-200 animate-pulse rounded-md"></div>
-              )}
-              <Image
-                src="/images/nexus.png"
-                alt="nexus"
-                fill
-                sizes="180px"
-                priority={true}
-                style={{ objectFit: "contain" }}
-                className={`rounded-md transition-opacity duration-300 ${
-                  imageLoading ? "opacity-0" : "opacity-100"
-                }`}
-                onLoad={() => setImageLoading(false)}
-              />
-            </div>
-          </Link>
-        </div>
-        <div className="group w-[190px] h-[110px] bg-white rounded-md hover:drop-shadow-xl flex justify-center items-center">
-          <Link href="/appliances/official_Store/thermocool">
-            <div className="relative w-[180px] h-[110px] group-hover:scale-105 transition-transform">
-              {imageLoading && (
-                <div className="absolute w-full h-full bg-gray-200 animate-pulse rounded-md"></div>
-              )}
-              <Image
-                src="/images/haier-thermocool.png"
-                alt="thermocool"
-                fill
-                sizes="180px"
-                priority={true}
-                style={{ objectFit: "contain" }}
-                className={`rounded-md transition-opacity duration-300 ${
-                  imageLoading ? "opacity-0" : "opacity-100"
-                }`}
-                onLoad={() => setImageLoading(false)}
-              />
-            </div>
-          </Link>
-        </div>
-        <div className="group w-[190px] h-[110px] bg-white rounded-md hover:drop-shadow-xl flex justify-center items-center">
-          <Link href="/appliances/official_Store/binatone">
-            <div className="relative w-[180px] h-[110px] group-hover:scale-105 transition-transform">
-              {imageLoading && (
-                <div className="absolute w-full h-full bg-gray-200 animate-pulse rounded-md"></div>
-              )}
-              <Image
-                src="/images/binatone.png"
-                alt="binatone"
-                fill
-                sizes="180px"
-                priority={true}
-                style={{ objectFit: "contain" }}
-                className={`rounded-md transition-opacity duration-300 ${
-                  imageLoading ? "opacity-0" : "opacity-100"
-                }`}
-                onLoad={() => setImageLoading(false)}
-              />
-            </div>
-          </Link>
-        </div>
-        <div className="group w-[190px] h-[110px] bg-white rounded-md hover:drop-shadow-xl flex justify-center items-center">
-          <Link href="/appliances/official_Store/royal">
-            <div className="relative w-[180px] h-[110px] group-hover:scale-105 transition-transform">
-              {imageLoading && (
-                <div className="absolute w-full h-full bg-gray-200 animate-pulse rounded-md"></div>
-              )}
-              <Image
-                src="/images/ROYAL.jpg"
-                alt="royal"
-                fill
-                sizes="180px"
-                priority={true}
-                style={{ objectFit: "contain" }}
-                className={`rounded-md transition-opacity duration-300 ${
-                  imageLoading ? "opacity-0" : "opacity-100"
-                }`}
-                onLoad={() => setImageLoading(false)}
-              />
-            </div>
-          </Link>
-        </div>
+        ))}
       </div>
     </div>
   );

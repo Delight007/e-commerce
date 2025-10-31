@@ -1,33 +1,34 @@
-import Image from "next/image";
-import React from "react";
-import ImageSwipper from "./components/imageSwiper";
-import Category from "./components/nexusCategory";
 import NexusCategory from "./category/category";
-import NexusSidebar from "./sidebar";
-import NexusProducts from "./nexusProducts";
+import ImageSwipper from "./components/imageSwiper";
 import MoreProducts from "./moreProducts";
+import NexusProducts from "./nexusProducts";
+import NexusSidebar from "./sidebar";
 
 export default function nexus() {
   return (
-    <div className="w-full">
-      <div className="mb-5">
-        <ImageSwipper />
-      </div>
-      <div className="mb-5">
-        <NexusCategory />
-      </div>
-      <div className="flex py-3 gap-3">
-        {/* sidebar */}
-        <div>
-          <NexusSidebar />
+    // <div className="w-full">
+    <section className="w-full">
+      <div className="mx-auto px-6 lg:px-12 max-w-7xl">
+        <div className="mb-5">
+          <ImageSwipper />
+        </div>
+        <div className="mb-5">
+          <NexusCategory />
+        </div>
+        <div className="flex py-3 gap-3">
+          {/* sidebar */}
+          <div>
+            <NexusSidebar />
+          </div>
+          <div>
+            <NexusProducts />
+          </div>
         </div>
         <div>
-          <NexusProducts />
+          <MoreProducts />
         </div>
       </div>
-      <div>
-        <MoreProducts />
-      </div>
-    </div>
+    </section>
+    // </div>
   );
 }

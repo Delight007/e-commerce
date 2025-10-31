@@ -45,7 +45,7 @@ const AcProductsList = ({
   // if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+    <div className="grid  sm:grid-cols-3 md:grid-cols-4 gap-2">
       {productsData?.products?.map((product: any) => (
         <AcProductCard key={product.id} product={product} />
       ))}

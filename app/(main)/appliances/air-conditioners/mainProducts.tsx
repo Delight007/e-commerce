@@ -29,12 +29,15 @@ export default function AcProducts() {
   // Current page state
   const [currentPage, setCurrentPage] = useState(1);
   return (
-    <div>
-      <div className="w-[880px] h-auto min-h-[1800px] rounded-md bg-white relative pb-8">
+    <div className="w-full flex justify-center">
+      <div
+        className="w-full max-w-[1200px] rounded-md bg-white relative 
+        shadow-sm border border-gray-200"
+      >
         <div className="w-full h-[60px] ">
           <AcBar1 totalProducts={totalProducts} />
         </div>
-        <div className="w-full h-[60px] border-b">
+        <div className="w-full  border-b">
           <AcBar3 />
         </div>
         <div className="w-full h-[60px] border-b flex items-center">

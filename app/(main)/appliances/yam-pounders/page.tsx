@@ -1,27 +1,29 @@
-import React from "react";
 // import DishWasherSidebar from "./sidebar";
-import DishWasherProducts from "./mainProducts";
-import PounderSidebar from "./sidebar";
 import YamPounderProducts from "./mainProducts";
 import MoreProducts from "./moreProducts";
+import PounderSidebar from "./sidebar";
 
 export default function page() {
   return (
-    <div className="w-full">
-      <div className="w-full flex py-3 gap-3">
-        {/* sidebar */}
-        <div>
-          <PounderSidebar />
-        </div>
+    // <div className="w-full">
+    <section className="w-full">
+      <div className="mx-auto px-6 lg:px-12 max-w-7xl">
+        <div className="w-full flex py-3 gap-3">
+          {/* sidebar */}
+          <div>
+            <PounderSidebar />
+          </div>
 
-        {/* main products */}
-        <div>
-          <YamPounderProducts />
+          {/* main products */}
+          <div>
+            <YamPounderProducts />
+          </div>
+        </div>
+        <div className="w-full">
+          <MoreProducts />
         </div>
       </div>
-      <div className="w-full">
-        <MoreProducts />
-      </div>
-    </div>
+    </section>
+    // </div>
   );
 }

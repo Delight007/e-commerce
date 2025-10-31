@@ -1,30 +1,30 @@
+import { Fugaz_One } from "next/font/google";
 import Link from "next/link";
 import { FaPaperPlane } from "react-icons/fa";
-import { Fugaz_One } from "next/font/google";
 import BrandsMenu from "./brand/brand";
 import PriceRange2 from "./PriceRange/price";
 
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
 export default function BarTop2() {
   return (
-    <div className="px-[16px] flex  gap-2 relative ">
-      <div
-        className={` w-[100px] h-[33px] flex justify-center items-center  bg-slate-300 text-red-500 rounded-lg ${fugazOne.className}`}
+    <div className="px-4 py-2 flex flex-wrap items-center gap-3 bg-white ">
+      {/* --- Express Tag --- */}
+      <Link
+        href="#"
+        className={`flex items-center justify-center px-3 h-[33px] bg-slate-300 text-red-500 rounded-lg text-sm uppercase tracking-wide ${fugazOne.className}`}
       >
-        <Link href="#" className="flex justify-center items-center  font-[400]">
-          <FaPaperPlane className="text-sm mr-2" />
-          <span className="uppercase text-[12px]">Express</span>
-        </Link>
+        <FaPaperPlane className="text-xs mr-2" />
+        Express
+      </Link>
+
+      {/* --- Shipped from Nigeria Tag --- */}
+      <div className="flex items-center justify-center px-3 h-[33px] bg-slate-300 text-gray-700 text-sm rounded-lg">
+        Shipped from Nigeria
       </div>
-      <div>
-        <span className=" w-[148px] h-[33px] flex justify-center items-center py-3 bg-slate-300 text-sm rounded-lg">
-          Shipped from Nigeria
-        </span>
-      </div>
-      <div>
+      <div className="flex items-center">
         <BrandsMenu />
       </div>
-      <div>
+      <div className="flex items-center">
         <PriceRange2 />
       </div>
     </div>

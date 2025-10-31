@@ -6,20 +6,27 @@ export default function BarTop({
   totalProducts: number | null;
 }) {
   return (
-    <div className="px-[16px] flex gap-2 relative justify-between">
-      <div className="flex">
-        <h1 className="text-xl font-semibold py-[16px] ">
+    <div className="px-4 flex flex-wrap items-center justify-between gap-2">
+      {/* --- Left Section: Title & Count --- */}
+      <div className="flex flex-wrap items-center gap-3">
+        <h1 className="text-lg md:text-xl font-semibold">
           Large Appliances | Pay on Delivery
         </h1>
-        <p className="flex justify-center items-center text-sm text-gray-500 ml-5">
-          ({totalProducts} products found)
+
+        <p className="text-sm text-gray-500">
+          ({totalProducts ?? 0} product{totalProducts === 1 ? "" : "s"} found)
         </p>
       </div>
-      <label className="flex justify-center items-center  ">
-        <span className="w-[200px] p-2">
-          <SortMenu />
-        </span>
-      </label>
+
+      {/* --- Right Section: Sort Menu --- */}
+      <div className="flex items-center">
+        <label className="flex items-center text-sm text-gray-700">
+          <span className="mr-2 hidden sm:inline">Sort by:</span>
+          <div className="w-auto sm:w-[200px]">
+            <SortMenu />
+          </div>
+        </label>
+      </div>
     </div>
   );
 }

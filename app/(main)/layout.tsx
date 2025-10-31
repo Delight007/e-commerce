@@ -6,7 +6,7 @@ import NavMenu from "./Navbar/navbar";
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      {/* <CssBaseline /> */}
+      {/* Header */}
       <header className="w-full fixed top-0 z-50">
         <NavMenu />
       </header>
@@ -14,8 +14,10 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       {/* Scroll anchor for Back to Top */}
       <div id="back-to-top-anchor" className="pt-[0]" />
 
-      {/* Main content area with padding to avoid overlap with fixed header */}
-      <main className="pt-24 mx-[40px]">{children}</main>
+      {/* ✅ Main: full width + avoids header overlap */}
+      <main className="pt-24 w-screen overflow-x-hidden">
+        <section className="w-full">{children}</section>
+      </main>
 
       {/* Scroll to top button */}
       <ScrollTop>
@@ -26,4 +28,5 @@ function RootLayout({ children }: { children: React.ReactNode }) {
     </>
   );
 }
+
 export default RootLayout;

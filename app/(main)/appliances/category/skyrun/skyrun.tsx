@@ -1,15 +1,13 @@
-import React from "react";
-import {
-  MdOutlineKeyboardArrowRight,
-  MdOutlineKeyboardArrowLeft,
-} from "react-icons/md";
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 import { useQuery } from "@tanstack/react-query";
-import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Mousewheel, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import SkyrunCard from "./skyrunCard";
 
 type Product = {
@@ -24,26 +22,19 @@ type Product = {
 
 const fetchProducts = async (): Promise<Product[]> => {
   const response = await fetch(`/api/appliances/category?brand=Skyrun`);
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch products");
-  }
+  if (!response.ok) throw new Error("Failed to fetch products");
 
   const data = await response.json();
-
-  if (!data.Products || !Array.isArray(data.Products)) {
-    return [];
-  }
+  if (!data.Products || !Array.isArray(data.Products)) return [];
 
   return data.Products.map((item: any) => ({
     id: item.doc || "unknown-id",
     name: item.data?.name || "Unnamed Product",
     description: item.data?.description || "No description available",
     image: item.data?.image || "/placeholder.png",
-    price: item.data?.price ?? 0, // Ensure price is always a number
-
+    price: item.data?.price ?? 0,
     offPercent: item.data?.offPercent || "0%",
-    prevPrice: item.data?.prevPrice ?? 0, // Ensure prevPrice is always a number
+    prevPrice: item.data?.prevPrice ?? 0,
   }));
 };
 
@@ -54,44 +45,51 @@ export default function Skyrun() {
   });
 
   return (
-    <div className="w-full h-[311px] ">
-      <h2 className="w-full h-[50px] bg-slate-400 rounded-t-md capitalize text-black flex px-4 items-center justify-between font-[500] text-xl min-h-12">
+    <div className="w-full h-[311px]">
+      {/* Header */}
+      <h2 className="w-full h-[50px] bg-slate-400 rounded-t-md capitalize text-black flex px-4 items-center justify-between font-medium text-xl">
         Skyrun official store
-        <span className="text-sm flex justify-center items-center">
+        <span className="text-sm flex justify-center items-center cursor-pointer hover:underline">
           see all <MdOutlineKeyboardArrowRight className="ml-[4px]" />
         </span>
       </h2>
-      <div className="w-full h-[265px] bg-white rounded-b-md  py-1 px-2">
+
+      {/* Slider */}
+      <div className="w-full h-[265px] bg-white rounded-b-md py-1 px-2">
         {products && products.length > 0 && (
-          <div className="relative group ">
+          <div className="relative group">
             {/* Custom Navigation Buttons */}
             <button
-              className="custom_preV absolute left-[1px] opacity-0 group-hover:opacity-100 top-1/2 transform -translate-y-1/2 z-10 
-          bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-md transition duration-300"
+              className="custom_preV absolute left-1 opacity-0 group-hover:opacity-100 top-1/2 transform -translate-y-1/2 z-10 
+              bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-md transition duration-300"
             >
               <MdOutlineKeyboardArrowLeft size={24} />
             </button>
+
             <button
-              className="custom_nexT absolute right-[1px] opacity-0 group-hover:opacity-100 top-1/2 transform -translate-y-1/2 z-10 
-          bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-md transition duration-300"
+              className="custom_nexT absolute right-1 opacity-0 group-hover:opacity-100 top-1/2 transform -translate-y-1/2 z-10 
+              bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-md transition duration-300"
             >
               <MdOutlineKeyboardArrowRight size={24} />
             </button>
+
             <Swiper
               modules={[Navigation, Mousewheel]}
               navigation={{
                 nextEl: ".custom_nexT",
                 prevEl: ".custom_preV",
               }}
-              slidesPerView={6} // Adjust based on screen size
+              slidesPerView={6}
               breakpoints={{
-                640: { slidesPerView: 2 },
+                0: { slidesPerView: 1.3 }, // Small phones
+                480: { slidesPerView: 2 },
                 768: { slidesPerView: 3 },
-                1024: { slidesPerView: 6 },
+                1024: { slidesPerView: 5 },
+                1280: { slidesPerView: 6 },
               }}
               grabCursor={true}
               mousewheel={{ forceToAxis: true }}
-              freeMode={true} // Enables smooth, momentum-based sliding
+              freeMode={true}
               className="w-full h-full"
             >
               {products.map((product) => (

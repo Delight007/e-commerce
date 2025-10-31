@@ -1,16 +1,13 @@
 "use client";
-import React from "react";
-import {
-  MdOutlineKeyboardArrowRight,
-  MdOutlineKeyboardArrowLeft,
-} from "react-icons/md";
-
 import { useQuery } from "@tanstack/react-query";
-
-import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Mousewheel, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import HomeDealsCard from "./homeDealsCard";
 
 type Product = {
@@ -23,30 +20,21 @@ type Product = {
   prevPrice: number;
 };
 
-// Function that fetch data
 const fetchProducts = async (): Promise<Product[]> => {
   const response = await fetch(`/api/appliances/category/homeDeals`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch products");
-  }
+  if (!response.ok) throw new Error("Failed to fetch products");
 
   const data = await response.json();
-  // console.log("RAW API DATA :", data); // Log the API response
-
-  if (!data.Products || !Array.isArray(data.Products)) {
-    // console.error("Invalid Products array in response");
-    return [];
-  }
+  if (!data.Products || !Array.isArray(data.Products)) return [];
 
   return data.Products.map((item: any) => ({
     id: item.doc || "unknown-id",
     name: item.name || "Unnamed Product",
     description: item.description || "No description available",
     image: item.image || "/placeholder.png",
-    price: item.price || 0, // Ensure price is always a number
-
+    price: item.price || 0,
     offPercent: item.offPercent || "0%",
-    prevPrice: item.prevPrice || 0, // Ensure prevPrice is always a number
+    prevPrice: item.prevPrice || 0,
   }));
 };
 
@@ -57,49 +45,58 @@ export default function HomeDeals() {
   });
 
   return (
-    <div className="w-full h-[311px]">
-      <h2 className="w-full h-[50px] bg-slate-400 rounded-t-md capitalize text-black flex px-4 items-center justify-between font-[500] text-xl min-h-12">
+    <div className="w-full bg-white rounded-md overflow-hidden shadow-sm">
+      {/* Header */}
+      <h2 className="w-full bg-slate-400 text-black flex px-4 items-center justify-between font-medium text-lg sm:text-xl py-3 rounded-t-md">
         Top Deals on Home Appliances
-        <span className="text-sm flex justify-center items-center">
-          see all <MdOutlineKeyboardArrowRight className="ml-[4px]" />
+        <span className="text-sm flex items-center cursor-pointer hover:underline">
+          see all <MdOutlineKeyboardArrowRight className="ml-1" />
         </span>
       </h2>
-      <div className="w-full h-[265px] bg-white rounded-b-md gap-1 py-1 px-2">
+
+      {/* Swiper Section */}
+      <div className="relative py-4 px-2 sm:px-3 md:px-4 rounded-b-md">
         {products && products.length > 0 && (
-          <div className="syinix relative group ">
-            {/* Custom Navigation Buttons */}
+          <div className="group relative">
+            {/* Custom Nav Buttons */}
             <button
-              className="custom-preV absolute left-[1px] opacity-0 group-hover:opacity-100 top-1/2 transform -translate-y-1/2 z-10 
-          bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-md transition duration-300"
+              className="custom-preV absolute left-1 top-1/2 -translate-y-1/2 z-10 
+              bg-black/50 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full 
+              opacity-0 group-hover:opacity-100 transition duration-300"
             >
-              <MdOutlineKeyboardArrowLeft size={24} />
+              <MdOutlineKeyboardArrowLeft size={22} />
             </button>
             <button
-              className="custom-nexT absolute right-[1px] opacity-0 group-hover:opacity-100 top-1/2 transform -translate-y-1/2 z-10 
-          bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-md transition duration-300"
+              className="custom-nexT absolute right-1 top-1/2 -translate-y-1/2 z-10 
+              bg-black/50 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full 
+              opacity-0 group-hover:opacity-100 transition duration-300"
             >
-              <MdOutlineKeyboardArrowRight size={24} />
+              <MdOutlineKeyboardArrowRight size={22} />
             </button>
+
+            {/* Swiper */}
             <Swiper
               modules={[Navigation, Mousewheel]}
               navigation={{
                 nextEl: ".custom-nexT",
                 prevEl: ".custom-preV",
               }}
-              slidesPerView={6} // Adjust based on screen size
+              slidesPerView={1.3} // ✅ Default: mobile-first
+              spaceBetween={8}
               breakpoints={{
-                640: { slidesPerView: 2 },
-                768: { slidesPerView: 3 },
-                1024: { slidesPerView: 6 },
+                480: { slidesPerView: 2, spaceBetween: 10 },
+                640: { slidesPerView: 3, spaceBetween: 12 },
+                768: { slidesPerView: 4, spaceBetween: 14 },
+                1024: { slidesPerView: 5, spaceBetween: 16 },
+                1280: { slidesPerView: 6, spaceBetween: 18 },
               }}
-              grabCursor={true}
+              grabCursor
               mousewheel={{ forceToAxis: true }}
-              freeMode={true} // Enables smooth, momentum-based sliding
-              className="w-full h-full"
+              className="w-full"
             >
               {products.map((product) => (
                 <SwiperSlide key={product.id}>
-                  <HomeDealsCard key={product.id} product={product} />
+                  <HomeDealsCard product={product} />
                 </SwiperSlide>
               ))}
             </Swiper>

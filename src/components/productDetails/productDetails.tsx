@@ -1,11 +1,10 @@
 "use client";
-import Image from "next/image";
-import React, { useEffect } from "react";
-import MainDetails from "./components/mainDetails";
+import { useEffect } from "react";
+import { Product, useProductDetailsContext } from "./components/context";
 import DetailsSidebar from "./components/detailsSidebar";
+import MainDetails from "./components/mainDetails";
 import MainProductDetails from "./components/productDetails";
 import ProductDetailsSidebar from "./components/ProductDetailsSidebar";
-import { Product, useProductDetailsContext } from "./components/context";
 
 export default function ProductDetails({ product }: { product: Product }) {
   // const [imageLoading, setImageLoading] = React.useState(true);
@@ -17,7 +16,7 @@ export default function ProductDetails({ product }: { product: Product }) {
     }
   }, [product]);
   return (
-    <div>
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex py-3 ">
         {/* Main Details */}
         <div className="pr-2">
@@ -39,6 +38,6 @@ export default function ProductDetails({ product }: { product: Product }) {
           <ProductDetailsSidebar />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

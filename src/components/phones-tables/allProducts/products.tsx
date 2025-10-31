@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
-import { useEffect, useState } from "react";
 import PaginationButtons from "@/src/components/ui/pagination"; // Your existing MUI pagination component
+import { useEffect, useState } from "react";
 import BarTop from "./bar/bar";
 import BarTop2 from "./bar/bar2";
 import ProductsList from "./products/phoneProductList";
@@ -15,9 +14,15 @@ export default function MainPhonesProducts() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch(
-          "/api/products?page=1&limit=40&category=Phone & Tablet"
-        );
+        // const response = await fetch(
+        //   "/api/products?page=1&limit=40&category=Phone & Tablet"
+        // );
+        const params = new URLSearchParams({
+          page: "1",
+          limit: String(ITEMS_PER_PAGE),
+          category: "Phone & Tablet",
+        });
+        const response = await fetch(`/api/products?${params.toString()}`);
         const data = await response.json();
         setTotalProducts(data.total);
       } catch (err) {
@@ -25,20 +30,27 @@ export default function MainPhonesProducts() {
       }
     }
     fetchProducts();
-  });
+  }, []);
 
   // Current page state
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <div>
-      <div className="w-[880px] h-[4800px] rounded-md bg-white relative">
-        <div className="w-full h-[60px] border-b">
+    <div className="w-full flex justify-center">
+      <div
+        className="w-full max-w-[1200px] rounded-md bg-white relative 
+        shadow-sm border border-gray-200"
+      >
+        {/* --- Top Bar --- */}
+        <div className="w-full sm:h-[60px] h-auto border-b flex items-center">
           <BarTop totalProducts={totalProducts} />
         </div>
-        <div className="w-full h-[60px] border-b flex items-center">
+        {/* --- Filter/Sort Bar --- */}
+        <div className="w-full sm:h-[60px] h-auto  border-b flex items-center">
           <BarTop2 />
         </div>
+
+        {/* --- Product List --- */}
         <div className="p-2 mt-2 mb-4">
           <ProductsList
             page={currentPage}
@@ -46,11 +58,15 @@ export default function MainPhonesProducts() {
             category="Phone & Tablet"
           />
         </div>
-        <div className="flex justify-center items-center mt-4">
+        <div className="flex justify-center items-center mt-6 pb-4">
           <PaginationButtons
             page={currentPage}
             setPage={setCurrentPage}
-            totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            // totalProductPerPage={Math.ceil(100 / ITEMS_PER_PAGE)} // Replace 100 with the actual total from the API
+            totalProductPerPage={Math.max(
+              1,
+              Math.ceil(((totalProducts ?? 0) as number) / ITEMS_PER_PAGE)
+            )}
           />
         </div>
       </div>

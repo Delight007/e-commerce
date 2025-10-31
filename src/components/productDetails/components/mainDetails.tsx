@@ -1,23 +1,41 @@
 "use client";
+import { useCartStore } from "@/src/utils/cart";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
-import { TiSocialFacebook } from "react-icons/ti";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdOutlineWhatsapp } from "react-icons/md";
-import { MdOutlineAddShoppingCart } from "react-icons/md";
-import AddWhishList from "../../ui/whishListUI";
-import Link from "next/link";
-import SlidingImg from "./swiper/swiper";
-import Promotion from "./promotion";
-import { useProductDetailsContext } from "./context";
+import { TiSocialFacebook } from "react-icons/ti";
 import { AddToCartButton } from "../../addToCartButton/addButton";
-import { useCartStore } from "@/src/utils/cart";
+import AddWhishList from "../../ui/whishListUI";
 import UpdateQuantity from "../../updateQuantity/updateQuantity";
+import { useProductDetailsContext } from "./context";
+import Promotion from "./promotion";
+import SlidingImg from "./swiper/swiper";
 
 export default function MainDetails() {
+  // --- Hooks at top level ---
   const { product } = useProductDetailsContext();
+  const [imageLoading, setImageLoading] = React.useState(true);
+  const cartItems = useCartStore((state) => state.items);
 
-  // ✅ Prevent error if product hasn't loaded yet
+  // Safely find itemInCart only if product exists
+  const itemInCart = product
+    ? cartItems.find((item) => item.id === product.id)
+    : null;
+
+  // Safely determine stock status
+  const stockStatus = product
+    ? product.brand
+      ? product.stock > 0
+        ? "In stock"
+        : "Out of stock"
+      : product.stock > 0
+      ? "Few items left"
+      : "Out of stock"
+    : "";
+
+  // --- Early return if product hasn't loaded ---
   if (!product) {
     return (
       <div className="h-[807px] w-[872px] flex items-center justify-center bg-white rounded-md">
@@ -26,18 +44,7 @@ export default function MainDetails() {
     );
   }
 
-  const [imageLoading, setImageLoading] = React.useState(true);
-  const cartItems = useCartStore((state) => state.items);
-  const itemInCart = cartItems.find((item) => item.id === product.id);
-
-  const stockStatus = product.brand
-    ? product.stock > 0
-      ? "In stock"
-      : "Out of stock"
-    : product.stock > 0
-    ? "Few items left"
-    : "Out of stock";
-
+  // --- Render ---
   return (
     <div className="bg-white h-[807px] w-[872px] p-2 rounded-md flex">
       {/* LEFT: Images and Share */}

@@ -1,21 +1,16 @@
-import React from "react";
-
-import CheckboxLabels from "@/src/components/ui/checkBox";
-import NoticeI from "@/src/components/ui/noticeI";
-
-import Range from "../../../../../src/components/priceRange/range";
+import Discount from "@/src/components/discount/discount";
+import OfficialStore from "@/src/components/officialStore/officialStore";
 import Rating from "@/src/components/productRating/rating";
 import SellerScore from "@/src/components/sellerScore/score";
-import OfficialStore from "@/src/components/officialStore/officialStore";
-import Discount from "@/src/components/discount/discount";
 import Shipped from "@/src/components/shipped/shipped";
 import Xdelivery from "@/src/components/Xdelivery/xdelivery";
+import Range from "../../../../../src/components/priceRange/range";
 import Brand from "./brand/phoneBrand";
 
 export default function PhonesSideBar() {
   return (
     <div>
-      <div className="w-[285px]  rounded-md  bg-white">
+      <div className="lg:w-[285px] w-auto rounded-md  bg-white">
         {/* XDdelivery */}
         <div className="w-full  border-b px-2 pt-1">
           <Xdelivery />
