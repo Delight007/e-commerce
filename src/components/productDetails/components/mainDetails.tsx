@@ -46,9 +46,9 @@ export default function MainDetails() {
 
   // --- Render ---
   return (
-    <div className="bg-white h-[807px] w-[872px] p-2 rounded-md flex">
+    <div className="bg-white lg:h-[807px] lg:w-[872px] w-full h-auto p-2 rounded-md flex lg:flex-row flex-col  ">
       {/* LEFT: Images and Share */}
-      <div className="w-[300px] h-auto py-1 mx-2">
+      <div className="lg:w-[300px] w-full h-auto py-1 mx-2">
         {/* Main Image */}
         <div className="relative w-[300px] h-auto pt-1 pb-2">
           {imageLoading && (
@@ -95,7 +95,7 @@ export default function MainDetails() {
       </div>
 
       {/* RIGHT: Details */}
-      <div className="w-[535px] mx-2">
+      <div className="lg:w-[535px] w-full mx-2">
         {/* Store Badge */}
         <div className="bg-purple-500 text-white w-[100px] my-2 font-medium text-sm text-center">
           {product.brand ? "Official Store" : ""}
@@ -105,7 +105,7 @@ export default function MainDetails() {
         <div className="flex flex-col pr-2 justify-between border-b">
           <div className="flex">
             <div className="pr-6">
-              <h1 className="text-xl w-[463px] h-auto pt-2 pb-1">
+              <h1 className="lg:text-xl text-lg lg:w-[463px] w-[250px] h-auto pt-2 pb-1">
                 {product.description}
               </h1>
             </div>

@@ -1,14 +1,15 @@
+import QueryProvider from "@/src/components/query-provider/query-provider";
 import type { Metadata } from "next";
 import "./globals.css";
-import QueryProvider from "@/src/components/query-provider/query-provider";
 
 import { Roboto } from "next/font/google";
 
-import ClientOnly from "./clientOnly";
-import Providers from "@/src/components/ui/bProgress";
 import { SyncCartOnLogin } from "@/src/components/cart/syncCartOnLoogin";
 import { CheckoutProvider } from "@/src/components/hooks/useCheckoutHooks";
 import ProductDetailsProvider from "@/src/components/productDetails/components/context";
+import { ShippingProvider } from "@/src/components/shippingform/shippingContext";
+import Providers from "@/src/components/ui/bProgress";
+import ClientOnly from "./clientOnly";
 
 const roboto = Roboto({
   weight: "400",
@@ -31,15 +32,17 @@ export default function RootLayout({
       <body className={`${roboto.variable}  antialiased`}>
         <Providers>
           <QueryProvider>
-            <CheckoutProvider>
-              <ProductDetailsProvider>
-                <ClientOnly>
-                  <SyncCartOnLogin />
+            <ShippingProvider>
+              <CheckoutProvider>
+                <ProductDetailsProvider>
+                  <ClientOnly>
+                    <SyncCartOnLogin />
 
-                  {children}
-                </ClientOnly>
-              </ProductDetailsProvider>
-            </CheckoutProvider>
+                    {children}
+                  </ClientOnly>
+                </ProductDetailsProvider>
+              </CheckoutProvider>
+            </ShippingProvider>
           </QueryProvider>
         </Providers>
       </body>

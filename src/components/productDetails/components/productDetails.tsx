@@ -1,4 +1,3 @@
-import React from "react";
 import { MdArrowForwardIos } from "react-icons/md";
 import { useProductDetailsContext } from "./context";
 
@@ -15,7 +14,7 @@ export default function MainProductDetails() {
     | undefined;
 
   return (
-    <div className="w-[872px] ">
+    <div className="lg:w-[872px] w-full h-auto">
       <div className="bg-white w-full h-auto rounded-md ">
         <div className="w-full h-[52px] py-2 border-b flex items-center">
           <h2 className="font-medium text-lg py-1 px-4">Product details</h2>
@@ -33,7 +32,7 @@ export default function MainProductDetails() {
         </div>
         <div className="p-2 flex gap-2">
           {/* Key Features */}
-          <article className="w-[428px] p-2">
+          <article className="lg:w-[428px] w-[200px] p-2">
             <div className=" border rounded-md ">
               <h2 className="font-medium text-sm uppercase p-4">
                 key features
@@ -56,12 +55,12 @@ export default function MainProductDetails() {
           </article>
 
           {/* Specifications */}
-          <article className="w-[428px] p-2">
+          <article className="lg:w-[428px] w-[200px] p-2">
             <div className=" border rounded-md ">
               <h2 className="font-medium text-sm uppercase p-4">
                 Specification
               </h2>
-              <div className="text-[14px] text-gray-600 p-4 border-t">
+              <div className="lg:text-[14px] text-xs  text-gray-600 p-4 border-t">
                 {specs ? (
                   <ul className="px-4 list-disc space-y-1">
                     {Object.entries(specs).map(([key, value], index) => (
