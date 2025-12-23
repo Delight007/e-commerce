@@ -1,16 +1,22 @@
 import { auth } from "@/src/config/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { useFormik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
+import toast from "react-hot-toast";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
+/* ------------------ VALIDATION ------------------ */
 const validate = (values: { email: string; password: string }) => {
   const errors: { email?: string; password?: string } = {};
+
   if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = "Email is required";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
     errors.email = "Invalid email address";
   }
 
@@ -19,13 +25,39 @@ const validate = (values: { email: string; password: string }) => {
   } else if (values.password.length < 6) {
     errors.password = "Password must be at least 6 characters";
   }
+
   return errors;
+};
+
+/* ------------------ ERROR MAPPER ------------------ */
+const getFirebaseError = (code?: string) => {
+  switch (code) {
+    case "auth/invalid-email":
+      return { field: "email", message: "Invalid email address" };
+
+    case "auth/invalid-credential":
+      return {
+        field: "password",
+        message: "Invalid email or password",
+      };
+
+    case "auth/user-disabled":
+      return {
+        field: "email",
+        message: "This account has been disabled",
+      };
+
+    default:
+      return {
+        field: "form",
+        message: "Login failed. Try again",
+      };
+  }
 };
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [errorMsg, setErrorMsg] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const formik = useFormik({
@@ -35,67 +67,84 @@ export default function LoginForm() {
     },
     validate,
     onSubmit: async (values) => {
+      const toastId = toast.loading("Signing in...");
       setIsLoading(true);
+
       try {
         const userCredential = await signInWithEmailAndPassword(
           auth,
           values.email,
           values.password
         );
-        console.log("Logged In User", userCredential.user);
+
+        const user = userCredential.user;
+
+        // 🔐 Email verification check
+        if (!user.emailVerified) {
+          await sendEmailVerification(user);
+          toast.dismiss(toastId);
+          toast.error("Verify your email. Verification link sent 📩");
+          return;
+        }
+
+        toast.dismiss(toastId);
+        toast.success("Login successful 🎉");
         router.push("/");
       } catch (err: any) {
-        console.error("Login Error", err);
-        setErrorMsg(err.message || "something went wrong");
+        toast.dismiss(toastId);
+
+        const error = getFirebaseError(err.code);
+
+        if (error.field === "email") {
+          formik.setFieldError("email", error.message);
+        } else if (error.field === "password") {
+          formik.setFieldError("password", error.message);
+        } else {
+          toast.error(error.message);
+        }
+
+        console.log("Firebase error:", err.code);
       } finally {
         setIsLoading(false);
       }
-      alert(JSON.stringify(values, null, 2));
     },
   });
 
   return (
     <form onSubmit={formik.handleSubmit} className="mt-2 flex flex-col gap-3">
-      {errorMsg && <p className="text-red-500 text-sm">{errorMsg}</p>}
-      {/* Email Field */}
+      {/* Email */}
       <div>
-        <label htmlFor="email" className="text-[14px] font-semibold">
-          Email*
-        </label>
+        <label className="text-sm font-semibold">Email*</label>
         <input
-          id="email"
           name="email"
           type="email"
-          value={formik.values.email}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          value={formik.values.email}
           placeholder="Enter email"
-          className="w-full border p-2 rounded-xl text-sm focus:outline-red-500"
+          className="w-full border p-2 rounded-xl text-sm"
         />
         {formik.touched.email && formik.errors.email && (
           <p className="text-red-500 text-xs mt-1">{formik.errors.email}</p>
         )}
       </div>
 
-      {/* Password Field */}
+      {/* Password */}
       <div className="relative">
-        <label htmlFor="password" className="text-[14px] font-semibold">
-          Password*
-        </label>
+        <label className="text-sm font-semibold">Password*</label>
         <input
-          id="password"
           name="password"
           type={showPassword ? "text" : "password"}
-          value={formik.values.password}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          value={formik.values.password}
           placeholder="Password"
-          className="w-full border p-2 pr-10 rounded-xl text-sm focus:outline-red-500"
+          className="w-full border p-2 pr-10 rounded-xl text-sm"
         />
         <button
           type="button"
           onClick={() => setShowPassword((prev) => !prev)}
-          className="absolute top-9 right-2 text-gray-600"
+          className="absolute top-9 right-3 text-gray-600"
         >
           {showPassword ? <MdVisibilityOff /> : <MdVisibility />}
         </button>
@@ -104,22 +153,21 @@ export default function LoginForm() {
         )}
       </div>
 
-      {/* forget password */}
-      <div>
-        <Link
-          href="#"
-          className="text-red-500 hover:underline text-sm font-semibold float-end"
-        >
-          Forget Password?
-        </Link>
-      </div>
+      {/* Forgot Password */}
+      <Link
+        href="/forgot-password"
+        className="text-red-500 text-sm font-semibold self-end"
+      >
+        Forgot Password?
+      </Link>
 
-      {/* Submit Button */}
+      {/* Submit */}
       <button
         type="submit"
-        className="bg-red-500 text-white p-2 rounded-xl font-semibold mt-2 hover:bg-red-600"
+        disabled={isLoading}
+        className="bg-red-500 text-white p-2 rounded-xl font-semibold hover:bg-red-600 disabled:opacity-60"
       >
-        {isLoading ? "Signing In" : "Sign In"}
+        {isLoading ? "Signing In..." : "Sign In"}
       </button>
     </form>
   );

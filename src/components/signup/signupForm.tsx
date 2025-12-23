@@ -1,58 +1,69 @@
 "use client";
 import { auth, db } from "@/src/config/firebase";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile,
+} from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
+import toast from "react-hot-toast";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
-
-const validate = (values: {
-  name: string;
-  email: string;
-  password: string;
-}) => {
-  const errors: { name?: string; email?: string; password?: string } = {};
-
-  if (!values.name) {
-    errors.name = "Name is required";
-  } else if (values.name.length < 2) {
-    errors.name = "Name must be at least 2 characters";
-  }
-
-  if (!values.email) {
-    errors.email = "Email is required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
-  }
-
-  if (!values.password) {
-    errors.password = "Password is required";
-  } else if (values.password.length < 6) {
-    errors.password = "Password must be at least 6 characters";
-  }
-
-  return errors;
-};
 
 export default function SignupForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [errorMsg, setErrorMsg] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
+  // ------------------ VALIDATION ------------------
+  const validate = (values: {
+    name: string;
+    email: string;
+    password: string;
+  }) => {
+    const errors: { name?: string; email?: string; password?: string } = {};
+
+    if (!values.name) errors.name = "Name is required";
+    else if (values.name.length < 2)
+      errors.name = "Name must be at least 2 characters";
+
+    if (!values.email) errors.email = "Email is required";
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email))
+      errors.email = "Invalid email address";
+
+    if (!values.password) errors.password = "Password is required";
+    else if (values.password.length < 6)
+      errors.password = "Password must be at least 6 characters";
+
+    return errors;
+  };
+
+  // ------------------ FIREBASE ERROR MAPPING ------------------
+  const getFirebaseError = (code?: string) => {
+    switch (code) {
+      case "auth/email-already-in-use":
+        return { field: "email", message: "Email already in use" };
+      case "auth/invalid-email":
+        return { field: "email", message: "Invalid email address" };
+      case "auth/weak-password":
+        return { field: "password", message: "Password is too weak" };
+      default:
+        return { field: "form", message: "Something went wrong. Try again." };
+    }
+  };
+
+  // ------------------ FORM HANDLER ------------------
   const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      password: "",
-    },
+    initialValues: { name: "", email: "", password: "" },
     validate,
     onSubmit: async (values) => {
+      const toastId = toast.loading("Signing up...");
       setIsLoading(true);
-      setErrorMsg("");
+
       try {
-        // create user
+        // Create user
         const userCredential = await createUserWithEmailAndPassword(
           auth,
           values.email,
@@ -60,40 +71,51 @@ export default function SignupForm() {
         );
         const user = userCredential.user;
 
-        // update display profile
+        // Update display name
         await updateProfile(user, { displayName: values.name });
 
-        //
+        // Save to Firestore
         await setDoc(doc(db, "Users", user.uid), {
           uid: user.uid,
           name: values.name,
           email: values.email,
-          creatAt: new Date(),
+          createdAt: new Date(),
         });
-        alert("Signup successful!");
+
+        // Send verification email
+        await sendEmailVerification(user);
+
+        toast.dismiss(toastId);
+        toast.success(
+          "Signup successful! Verification email sent. Check your inbox 📩"
+        );
+
         formik.resetForm();
         router.push("/login");
       } catch (err: any) {
-        console.error("Signup error:", err);
-        setErrorMsg(err.message || "Something went wrong");
+        toast.dismiss(toastId);
+        const error = getFirebaseError(err.code);
+
+        if (error.field === "email")
+          formik.setFieldError("email", error.message);
+        else if (error.field === "password")
+          formik.setFieldError("password", error.message);
+        else toast.error(error.message);
+
+        console.error("Signup error:", err.code, err.message);
       } finally {
         setIsLoading(false);
       }
-
-      //   alert(JSON.stringify(values, null, 2));
     },
   });
 
+  // ------------------ RENDER FORM ------------------
   return (
     <form onSubmit={formik.handleSubmit} className="mt-2 flex flex-col gap-3">
-      {errorMsg && <p className="text-red-500 text-sm">{errorMsg}</p>}
-      {/* Name Field */}
+      {/* Name */}
       <div>
-        <label htmlFor="name" className="text-[14px] font-semibold">
-          Name*
-        </label>
+        <label className="text-[14px] font-semibold">Name*</label>
         <input
-          id="name"
           name="name"
           type="text"
           value={formik.values.name}
@@ -107,13 +129,10 @@ export default function SignupForm() {
         )}
       </div>
 
-      {/* Email Field */}
+      {/* Email */}
       <div>
-        <label htmlFor="email" className="text-[14px] font-semibold">
-          Email*
-        </label>
+        <label className="text-[14px] font-semibold">Email*</label>
         <input
-          id="email"
           name="email"
           type="email"
           value={formik.values.email}
@@ -127,13 +146,10 @@ export default function SignupForm() {
         )}
       </div>
 
-      {/* Password Field */}
+      {/* Password */}
       <div className="relative">
-        <label htmlFor="password" className="text-[14px] font-semibold">
-          Password*
-        </label>
+        <label className="text-[14px] font-semibold">Password*</label>
         <input
-          id="password"
           name="password"
           type={showPassword ? "text" : "password"}
           value={formik.values.password}
@@ -154,12 +170,13 @@ export default function SignupForm() {
         )}
       </div>
 
-      {/* Submit Button */}
+      {/* Submit */}
       <button
         type="submit"
-        className="bg-red-500 text-white p-2 rounded-xl font-semibold mt-2"
+        disabled={isLoading}
+        className="bg-red-500 text-white p-2 rounded-xl font-semibold mt-2 hover:bg-red-600 disabled:opacity-60"
       >
-        {isLoading ? "Signing...." : "Sign Up"}
+        {isLoading ? "Signing up..." : "Sign Up"}
       </button>
     </form>
   );

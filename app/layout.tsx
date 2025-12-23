@@ -9,6 +9,7 @@ import { CheckoutProvider } from "@/src/components/hooks/useCheckoutHooks";
 import ProductDetailsProvider from "@/src/components/productDetails/components/context";
 import { ShippingProvider } from "@/src/components/shippingform/shippingContext";
 import Providers from "@/src/components/ui/bProgress";
+import { Toaster } from "react-hot-toast";
 import ClientOnly from "./clientOnly";
 
 const roboto = Roboto({
@@ -37,6 +38,7 @@ export default function RootLayout({
                 <ProductDetailsProvider>
                   <ClientOnly>
                     <SyncCartOnLogin />
+                    <Toaster position="top-right" />
 
                     {children}
                   </ClientOnly>

@@ -19,12 +19,12 @@ export default function AccountMenu() {
   const [user] = useAuthState(auth);
 
   const spanButton = user ? (
-    <button
+    <span
       onClick={() => signOut(auth)}
       className="flex justify-center items-center gap-2 text-white w-full h-full"
     >
       Logout
-    </button>
+    </span>
   ) : (
     <Link href="/login" className="flex justify-center items-center gap-2">
       Sign in
