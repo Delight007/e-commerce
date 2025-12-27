@@ -42,12 +42,15 @@ export default function NavMenu() {
         </form>
       </div>
       <div className="flex justify-between items-center  h-full  mx-auto px-6 lg:px-12 max-w-7xl ">
-        <MenuPopover />
+        <div className="flex lg:hidden ">
+          <MenuPopover />
+        </div>
+
         <Link href="/" className="">
           <Image
             src="/images/Logo.png"
             alt="logo"
-            width={100}
+            width={150}
             height={60}
             priority={true}
             className="w-[100px] h-[40px] sm:w-[120px] md:w-[150px]"
@@ -55,7 +58,7 @@ export default function NavMenu() {
         </Link>
 
         <form className="ml-4 hidden sm:flex">
-          <div className="flex border w-[200px] lg:w-[550px] h-[40px] p-1 rounded-md items-center">
+          <div className="flex border w-[200px] lg:w-[380px] h-[40px] p-1 rounded-md items-center">
             <IoMdSearch className="lg:text-3xl text-xl flex justify-center items-center" />
             <input
               type="text"
@@ -71,7 +74,7 @@ export default function NavMenu() {
           </button>
         </form>
 
-        <ul className="flex justify-center gap-5 font-[500] text-[16px] items-center">
+        <ul className="flex justify-center lg:gap-3 gap-2 font-[500] text-[16px] items-center">
           <li>
             <AccountMenu />
           </li>

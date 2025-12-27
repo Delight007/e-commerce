@@ -28,7 +28,7 @@ export default function Deals() {
           transition-all duration-300"
         >
           <Link href="#" className="flex flex-col items-center">
-            <div className="relative w-[150px] h-[150px] sm:w-[160px] sm:h-[160px]">
+            <div className="relative w-[130px] h-[130px] sm:w-[160px] sm:h-[160px]">
               {imageLoading && (
                 <div className="absolute inset-0 bg-gray-200 animate-pulse rounded" />
               )}

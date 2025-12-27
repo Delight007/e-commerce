@@ -1,20 +1,21 @@
 "use client";
 import { Fugaz_One } from "next/font/google";
 import Link from "next/link";
-import React, { useState } from "react";
-import LoginForm from "./loginForm";
 import { usePathname } from "next/navigation";
 import SidebarLoginSignup from "../auth/sidebarLoginSignup";
+import LoginForm from "./loginForm";
 
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
 
 export default function Login() {
   const pathName = usePathname();
   return (
-    <div className="flex flex-1">
-      <SidebarLoginSignup />
+    <div className="flex">
+      <div className="sm:flex hidden flex-1">
+        <SidebarLoginSignup />
+      </div>
 
-      <div className="bg-white w-full h-[100vh]  p-4">
+      <div className="bg-white w-full h-[100vh]  p-4 flex-1">
         <h1 className="mt-3">
           <span className={`${fugazOne.className} text-sm font-bold`}>
             Gana

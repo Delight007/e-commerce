@@ -32,7 +32,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-full h-[235px] bg-white  rounded-md my-2">
+          <div className="w-full  lg:h-auto bg-white  rounded-md my-2">
             <Deals />
           </div>
         </section>

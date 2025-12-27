@@ -62,10 +62,12 @@ export default function BasicMenu({
           },
         }}
       >
-        <span className="text-xl"> {buttonIcon && buttonIcon}</span>
-        <span className="text-base"> {buttonText}</span>
+        <span className="lg:text-xl text-lg font-semibold">
+          {buttonIcon && buttonIcon}
+        </span>
+        <span className="text-base "> {buttonText}</span>
         <CgChevronDown
-          className={`transition-transform duration-300 ml-2 ${
+          className={`transition-transform duration-300 lg:ml-2 m-0 ${
             open ? "rotate-180" : ""
           }`}
         />
