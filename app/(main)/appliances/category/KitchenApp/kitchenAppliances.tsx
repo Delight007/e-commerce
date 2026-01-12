@@ -8,7 +8,7 @@ export default function KitchenAppliances() {
 
   const appliances = [
     {
-      src: "/images/Blenders.png",
+      src: "/images/blenders.png",
       alt: "Blenders",
       link: "/appliances/blenders",
     },
