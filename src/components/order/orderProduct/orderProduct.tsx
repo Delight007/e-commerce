@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db, auth } from "@/src/config/firebase";
+import { auth, db } from "@/src/config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface OrderItem {
   title: string;
@@ -76,7 +76,7 @@ export default function OrderProduct() {
   }, [userId, filter]);
 
   return (
-    <div className="w-[880px] min-h-[660px] bg-white rounded-md">
+    <div className="lg:w-[880px] w-full min-h-[660px] bg-white rounded-md">
       <h1 className="font-semibold py-2 px-2 w-full border-b text-lg">
         Orders
       </h1>
@@ -85,7 +85,7 @@ export default function OrderProduct() {
         <div className="flex gap-2 border-b h-[48px] pt-4 px-2">
           <button
             onClick={() => setFilter("ongoing")}
-            className={`uppercase text-base font-semibold px-4 ${
+            className={`uppercase lg:text-base text-xs  lg:font-semibold font-medium px-4 ${
               filter === "ongoing"
                 ? "text-red-500 border-b-2 border-red-500"
                 : ""
@@ -128,11 +128,11 @@ export default function OrderProduct() {
                   alt={item.title}
                   className="w-20 h-20 object-cover rounded-md border"
                 />
-                <div className="flex flex-col justify-between text-sm w-full">
+                <div className="flex flex-col lg:justify-between text-sm w-full">
                   <div>
                     <p className="font-medium">{item.title}</p>
                     <div className="flex flex-row justify-between w-full">
-                      <p className=" font-semibold text-[12px] max-w-[300px] truncate">
+                      <p className=" font-semibold text-[12px] lg:max-w-[300px] w-[100px] truncate">
                         {item.description}
                       </p>
                       <span className="text-[12px] text-red-500 font-medium hover:underline">

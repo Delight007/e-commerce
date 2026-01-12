@@ -147,7 +147,7 @@ const OrdersTable = ({
             >
               Order ID {sortKey === "id" && (sortOrder === "asc" ? "↑" : "↓")}
             </th>
-            <th className="px-4 py-2">Product</th> {/* Not sortable directly */}
+            <th className="px-4 py-2">Product</th>
             <th
               className="px-4 py-2 cursor-pointer max-w-[200px]"
               onClick={() => handleSort("name")}
@@ -171,6 +171,7 @@ const OrdersTable = ({
             <th className="px-4 py-2">Address</th>
           </tr>
         </thead>
+
         <tbody>
           {paginatedOrders.flatMap((order) =>
             order.items?.map((item, itemIndex) => {

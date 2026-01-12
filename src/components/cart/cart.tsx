@@ -4,10 +4,10 @@ import { Fugaz_One } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
 import { RiDeleteBin6Line } from "react-icons/ri";
-import CartSidebar from "./cartSidebar";
 import UpdateQuantity from "../updateQuantity/updateQuantity";
+import CartSidebar from "./cartSidebar";
+const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
 
 export default function Cart() {
   const [imageLoading, setImageLoading] = React.useState(true);
@@ -37,8 +37,8 @@ export default function Cart() {
   }
 
   return (
-    <div className=" flex gap-2 ">
-      <div className="bg-white w-[872px] h-auto ">
+    <section className="flex  flex-col  lg:flex-row gap-2 pb-3 border-b-0  mx-auto px-6 lg:px-12 max-w-7xl">
+      <div className="bg-white w-full lg:w-[872px] h-auto ">
         <div className="py-2 w-full h-[40px] border-b flex items-center">
           <h2 className="text-lg font-semibold  px-4">
             Cart ( {items.length} )
@@ -49,7 +49,7 @@ export default function Cart() {
             {items.map((item) => (
               <li key={item.id} className="border-b py-4 mx-4  ">
                 <div className="flex justify-between">
-                  <div className="relative w-[75px] h-[75px]">
+                  <div className="relative lg:w-[75px] lg:h-[75px] w-[60px] h-[60px]">
                     {imageLoading && (
                       <div className="absolute w-full h-full animate-pulse bg-gray-200"></div>
                     )}
@@ -66,7 +66,7 @@ export default function Cart() {
                     />
                   </div>
                   <div className="px-4">
-                    <h3 className="text-base w-[484px] line-clamp-2">
+                    <h3 className="lg:text-base text-sm lg:w-[484px] w-[200px] lg:line-clamp-2 line-clamp-3">
                       {item.description}
                     </h3>
                     <div>
@@ -119,9 +119,9 @@ export default function Cart() {
           </ul>
         </article>
       </div>
-      <div className="pl-2">
+      <div className="lg:pl-2 w-full lg:w-auto">
         <CartSidebar total={total} />
       </div>
-    </div>
+    </section>
   );
 }

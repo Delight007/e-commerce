@@ -12,6 +12,12 @@ export default function Deals() {
     { src: "/images/phones.png", label: "Phone & Tablets Deals" },
     { src: "/images/appliances.png", label: "Appliances Deals" },
     { src: "/images/fashion.png", label: "Fashion Deals" },
+    { src: "/images/beauty.png", label: "Beauty Must Have" },
+    { src: "/images/home.jpg", label: "Home & Office" },
+    { src: "/images/computing.jpg", label: "Computing" },
+    { src: "/images/generators.jpg", label: "Generators & Inverter" },
+    { src: "/images/mobile-accessories.png", label: "Mobile Accessories" },
+    { src: "/images/sneakers.png", label: "Sneakers" },
   ];
 
   return (

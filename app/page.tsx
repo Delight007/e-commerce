@@ -3,7 +3,9 @@ import Categories from "@/src/components/CategoryList/categories";
 import Deals from "@/src/components/Deals/Deal";
 import MoreDetailst from "@/src/components/MoreDetails/moreDetailst";
 import Navbar from "@/src/components/navbar/navbar";
+import PhoneBrand from "@/src/components/phones-tables/categoryList/phoneBrand";
 import SwiperComponent from "@/src/components/Swipper/SwiperComponent";
+import CookingDeals from "./(main)/appliances/category/cookingDeals/cookingDeals";
 
 export default function Home() {
   return (
@@ -34,6 +36,14 @@ export default function Home() {
 
           <div className="w-full  lg:h-auto bg-white  rounded-md my-2">
             <Deals />
+          </div>
+
+          <div className="w-full  lg:h-auto bg-white  rounded-md my-2">
+            <CookingDeals />
+          </div>
+
+          <div className="w-full  lg:h-auto bg-white  rounded-md my-2">
+            <PhoneBrand />
           </div>
         </section>
       </main>

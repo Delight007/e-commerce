@@ -1,9 +1,8 @@
 import Link from "next/link";
-import React from "react";
 
 export default function CartSidebar({ total }: { total: number }) {
   return (
-    <div className="bg-white w-[296px] h-auto">
+    <div className="bg-white lg:w-[296px] w-full h-auto">
       <div className="border-b">
         <h1 className="p-2 text-sm font-medium">CART SUMMARY</h1>
       </div>

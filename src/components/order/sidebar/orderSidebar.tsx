@@ -1,20 +1,18 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import { FaRegHeart } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa6";
 import { LuInbox } from "react-icons/lu";
-import { FaRegHeart } from "react-icons/fa";
-import { MdOutlineMailOutline } from "react-icons/md";
-import { MdOutlineRateReview } from "react-icons/md";
+import { MdOutlineMailOutline, MdOutlineRateReview } from "react-icons/md";
 // import { SvgIcon } from "@mui/material";
-import SVGComponent from "../../icon/voucherIcon";
-import { GiBackwardTime } from "react-icons/gi";
 import { usePathname } from "next/navigation";
+import { GiBackwardTime } from "react-icons/gi";
+import SVGComponent from "../../icon/voucherIcon";
 
 export default function OrderSidebar() {
   const pathName = usePathname();
   return (
-    <div className="flex flex-col bg-white w-[285px] rounded-md">
+    <div className="flex flex-col bg-white lg:w-[285px] w-full rounded-md">
       <Link
         href="#"
         className={`flex items-center gap-4 py-3 px-3 w-full  text-[14px] hover:bg-gray-200 rounded-t-md ${

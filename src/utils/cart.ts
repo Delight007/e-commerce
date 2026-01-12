@@ -1,8 +1,8 @@
 // "use client";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { db } from "../config/firebase";
-import { doc, getDoc, setDoc } from "firebase/firestore";
 
 // A single product in cart
 export type CartItem = {
@@ -70,6 +70,10 @@ export const useCartStore = create<CartState>()(
 
       clearCart: (userId) => {
         set({ items: [] });
+
+        // 🔑 THIS is the missing piece
+        localStorage.removeItem("cart-storage");
+
         if (userId) saveCartToFirebase(userId, []);
       },
 
