@@ -1,5 +1,6 @@
 "use client";
 import { CartItem, useCartStore } from "@/src/utils/cart";
+import { toast } from "react-hot-toast";
 import { useAuth } from "../hooks/useAuth";
 
 type Props = {
@@ -19,8 +20,10 @@ export const AddToCartButton = ({ product }: Props) => {
     // Only pass user.uid if user exists
     if (user) {
       addToCart(item, user.uid);
+      toast.success(`successfully added to cart! 🎉`);
     } else {
       addToCart(item); // local only
+      toast.success(`successfully added to cart! 🎉`);
     }
     console.log("button click");
   };

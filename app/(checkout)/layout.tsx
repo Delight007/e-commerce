@@ -1,4 +1,5 @@
 import CheckoutNavbar from "@/src/components/checkout/navbar/checoutNav";
+import ProtectedRoute from "@/src/components/shared/protectRoute";
 import { ShippingProvider } from "@/src/components/shippingform/shippingContext";
 
 export default function RootLayout({
@@ -9,8 +10,10 @@ export default function RootLayout({
   return (
     <>
       <ShippingProvider>
-        <CheckoutNavbar />
-        {children}
+        <ProtectedRoute>
+          <CheckoutNavbar />
+          {children}
+        </ProtectedRoute>
       </ShippingProvider>
     </>
   );

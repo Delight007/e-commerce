@@ -1,6 +1,10 @@
 import Order from "@/src/components/order/order";
-import React from "react";
+import ProtectedRoute from "@/src/components/shared/protectRoute";
 
 export default function page() {
-  return <Order />;
+  return (
+    <ProtectedRoute>
+      <Order />
+    </ProtectedRoute>
+  );
 }
