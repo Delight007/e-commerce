@@ -7,16 +7,16 @@ import { MdOutlineMailOutline, MdOutlineRateReview } from "react-icons/md";
 // import { SvgIcon } from "@mui/material";
 import { usePathname } from "next/navigation";
 import { GiBackwardTime } from "react-icons/gi";
-import SVGComponent from "../../icon/voucherIcon";
+import SVGComponent from "../icon/voucherIcon";
 
 export default function OrderSidebar() {
   const pathName = usePathname();
   return (
     <div className="flex flex-col bg-white lg:w-[285px] w-full rounded-md">
       <Link
-        href="#"
+        href="/profile"
         className={`flex items-center gap-4 py-3 px-3 w-full  text-[14px] hover:bg-gray-200 rounded-t-md ${
-          pathName === "/account" ? "bg-gray-200 " : "hover:bg-gray-200 "
+          pathName === "/profile" ? "bg-gray-200 " : "hover:bg-gray-200 "
         }`}
       >
         <FaRegUser className="text-xl" /> My Account

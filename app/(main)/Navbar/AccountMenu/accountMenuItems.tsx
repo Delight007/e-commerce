@@ -68,7 +68,7 @@ import { LuInbox } from "react-icons/lu";
 import { RiUserFollowLine } from "react-icons/ri";
 
 const accountMenuItems = [
-  { icon: <FaRegUser />, label: "My Account", link: "/account" },
+  { icon: <FaRegUser />, label: "My Account", link: "/profile" },
   { icon: <LuInbox />, label: "Orders", link: "/order" },
   { icon: <FaRegHeart />, label: "Wishlist", link: "/wishlist" },
 ];
@@ -78,7 +78,7 @@ export default function AccountMenu() {
   const clearCart = useCartStore((state) => state.clearCart);
 
   const handleLogout = async () => {
-    clearCart(user?.uid); // clear cart on logout
+    clearCart(); // clear cart on logout
     await signOut(auth);
   };
 
