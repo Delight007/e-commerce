@@ -1,13 +1,25 @@
 "use client";
-import React from "react";
-import SidebarLoginSignup from "../auth/sidebarLoginSignup";
+import { loginWithGoogle } from "@/src/utils/auth/loginWithGoogle";
 import { Fugaz_One } from "next/font/google";
-import SignupForm from "./signupForm";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
+import SidebarLoginSignup from "../auth/sidebarLoginSignup";
+import SignupForm from "./signupForm";
 const fugazOne = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
 export default function SignUp() {
+  const router = useRouter();
   const pathName = usePathname();
+  const handleGoogleLogin = async () => {
+    try {
+      await loginWithGoogle();
+      toast.success("Logged in with Google! 🎉");
+      router.push("/"); // navigate to landing page
+    } catch (error: any) {
+      toast.error(error.message || "Google login failed");
+    }
+  };
   return (
     <div className="flex flex-1">
       <SidebarLoginSignup />
@@ -31,9 +43,13 @@ export default function SignUp() {
               <p className="text-gray-400 text-[12px]">
                 Welcome to gana Express, Get Anything you want !!
               </p>
-              <span className="mt-3 w-full border p-2 text-sm text-center rounded-xl font-semibold cursor-pointer">
-                Sign up with Google
-              </span>
+              <button
+                onClick={handleGoogleLogin}
+                className="mt-3 w-full border border-gray-300 p-2 text-sm text-center rounded-xl font-semibold cursor-pointer flex items-center justify-center gap-3 hover:bg-gray-50 transition-colors"
+              >
+                <FcGoogle className="w-5 h-5" />
+                Sign in with Google
+              </button>
               <div className="mt-3 flex gap-2 justify-center items-center text-gray-400 text-[12px]">
                 <span>--------------------</span>
                 <span>Or Sign up with Email</span>
